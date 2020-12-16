@@ -64,7 +64,7 @@ public class CustomFarmland extends FarmlandBlock {
     }
 @Override
 public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance) {
-    if (!world.isClient && world.random.nextFloat() < distance - 10000F && entity instanceof LivingEntity && (entity instanceof PlayerEntity || world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) && entity.getWidth() * entity.getWidth() * entity.getHeight() > 0.512F) {
+    if (!world.isClient && world.random.nextFloat() < distance - .5F && entity instanceof LivingEntity && (entity instanceof PlayerEntity || world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) && entity.getWidth() * entity.getWidth() * entity.getHeight() > 0.512F) {
         setToStone(world.getBlockState(pos), world, pos);
     }
 

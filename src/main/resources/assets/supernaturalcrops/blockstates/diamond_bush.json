@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "supernaturalcrops:block/core_stage0"
+    },
+    "age=1": {
+      "model": "supernaturalcrops:block/core_stage1"
+    },
+    "age=2": {
+      "model": "supernaturalcrops:block/diamond_bush_stage2"
+    },
+    "age=3": {
+      "model": "supernaturalcrops:block/diamond_bush_stage3"
+    }
+  }
+}

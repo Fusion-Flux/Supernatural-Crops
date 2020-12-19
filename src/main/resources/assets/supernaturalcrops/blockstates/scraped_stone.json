@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "magmated=0": {
+      "model": "supernaturalcrops:block/scraped_stone"
+    },
+    "magmated=1": {
+      "model": "supernaturalcrops:block/scraped_stone_moist_1"
+    },
+    "magmated=2": {
+      "model": "supernaturalcrops:block/scraped_stone_moist_2"
+    },
+    "magmated=3": {
+      "model": "supernaturalcrops:block/scraped_stone_moist_3"
+    },
+    "magmated=4": {
+      "model": "supernaturalcrops:block/scraped_stone_moist_4"
+    },
+    "magmated=5": {
+      "model": "supernaturalcrops:block/scraped_stone_moist_5"
+    },
+    "magmated=6": {
+      "model": "supernaturalcrops:block/scraped_stone_moist_6"
+    },
+    "magmated=7": {
+      "model": "supernaturalcrops:block/scraped_stone_moist_7"
+    },
+    "magmated=8": {
+      "model": "supernaturalcrops:block/scraped_stone_moist_maximum"
+    }
+  }
+}

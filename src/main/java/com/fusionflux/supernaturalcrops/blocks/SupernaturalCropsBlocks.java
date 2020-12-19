@@ -21,7 +21,7 @@ public class SupernaturalCropsBlocks {
     public static final CustomBush NETHERITE_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.NETHERITE_SCRAP);
     public static final CustomBush REDSTONE_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.REDSTONE_ORE);
     public static final CustomBush LAPIS_LAZULI_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.LAPIS_ORE);
-    public static final CustomFarmland FARMLANDTEST = new CustomFarmland(FabricBlockSettings.of(Material.STONE).hardness(1).ticksRandomly());
+    public static final CustomFarmland SCRAPED_STONE = new CustomFarmland(FabricBlockSettings.of(Material.STONE).hardness(1).ticksRandomly());
 
     public static void registerBlocks() {
         Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "coal_bush"), SupernaturalCropsBlocks.COAL_BUSH);
@@ -45,8 +45,8 @@ public class SupernaturalCropsBlocks {
         Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "lapis_lazuli_bush"), SupernaturalCropsBlocks.LAPIS_LAZULI_BUSH);
         Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "lapis_lazuli_bush"), new BlockItem(SupernaturalCropsBlocks.LAPIS_LAZULI_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.LAPIS_LAZULI_BUSH, RenderLayer.getCutout());
-        Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "farmlandtest"), SupernaturalCropsBlocks.FARMLANDTEST);
-        Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "farmlandtest"), new BlockItem(SupernaturalCropsBlocks.FARMLANDTEST, new Item.Settings().group(ItemGroup.MISC)));
+        Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "scraped_stone"), SupernaturalCropsBlocks.SCRAPED_STONE);
+        Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "scraped_stone"), new BlockItem(SupernaturalCropsBlocks.SCRAPED_STONE, new Item.Settings().group(ItemGroup.MISC)));
     }
 }
 

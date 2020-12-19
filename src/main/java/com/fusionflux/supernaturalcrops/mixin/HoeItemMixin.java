@@ -59,6 +59,6 @@ private void hoeStone(ItemUsageContext context, CallbackInfoReturnable<ActionRes
     }
 }
     static {
-        SCRAPED_BLOCKS = Maps.newHashMap(ImmutableMap.of(Blocks.STONE, SupernaturalCropsBlocks.FARMLANDTEST.getDefaultState()));
+        SCRAPED_BLOCKS = Maps.newHashMap(ImmutableMap.of(Blocks.STONE, SupernaturalCropsBlocks.SCRAPED_STONE.getDefaultState()));
     }
 }

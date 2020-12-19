@@ -33,7 +33,7 @@ public class CustomFarmland extends FarmlandBlock {
     protected static final VoxelShape SHAPE;
     protected CustomFarmland(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(MOISTURE, 0));
+        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(MAGMATED, 0));
     }
 @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -57,18 +57,14 @@ public class CustomFarmland extends FarmlandBlock {
             } else if (!hasCrop(world, pos)) {
                 setToStone(state, world, pos);
             }
-        } else if (i < 7) {
-            world.setBlockState(pos, (BlockState)state.with(MAGMATED, 7), 2);
+        } else if (i < 8) {
+            world.setBlockState(pos, (BlockState)state.with(MAGMATED, 8), 8);
         }
-
+    System.out.println(state.get(MAGMATED));
     }
 @Override
 public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance) {
-    if (!world.isClient && world.random.nextFloat() < distance - .5F && entity instanceof LivingEntity && (entity instanceof PlayerEntity || world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) && entity.getWidth() * entity.getWidth() * entity.getHeight() > 0.512F) {
-        setToStone(world.getBlockState(pos), world, pos);
-    }
-
-    super.onLandedUpon(world, pos, entity, distance);
+    entity.handleFallDamage(distance, 1.0F);
 }
 
     public static void setToStone(BlockState state, World world, BlockPos pos) {
@@ -100,7 +96,7 @@ public void onLandedUpon(World world, BlockPos pos, Entity entity, float distanc
     }
 
     static {
-        MAGMATED = Properties.MOISTURE;
+        MAGMATED = IntProperty.of("magmated", 0, 8);
         SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D);
     }
 }

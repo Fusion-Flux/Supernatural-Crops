@@ -2,6 +2,6 @@
   "parent": "minecraft:block/template_farmland",
   "textures": {
     "dirt": "minecraft:block/stone",
-    "top": "supernaturalcrops:block/farmlandtest_moist"
+    "top": "supernaturalcrops:block/scraped_stone_moist_3"
   }
 }

@@ -37,8 +37,8 @@ public class CustomBush extends SweetBerryBushBlock {
         if (!bl && player.getStackInHand(hand).getItem() == Items.BONE_MEAL) {
             return ActionResult.PASS;
         } else if (i > 1) {
-            //int j = 0 + world.random.nextInt(1);
-            dropStack(world, pos, new ItemStack(resourceToDrop, (bl ? 1 : 0)));
+            int j = 0 + world.random.nextInt(2);
+            dropStack(world, pos, new ItemStack(resourceToDrop, j+(bl ? 1 : 0)));
             world.playSound((PlayerEntity)null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
             world.setBlockState(pos, (BlockState)state.with(AGE, 1), 2);
             return ActionResult.success(world.isClient);

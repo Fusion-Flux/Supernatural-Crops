@@ -15,12 +15,12 @@ import net.minecraft.util.registry.Registry;
 
 public class SupernaturalCropsBlocks {
     public static final CustomBush COAL_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.COAL);
-    public static final CustomBush IRON_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.IRON_INGOT);
-    public static final CustomBush GOLD_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.GOLD_INGOT);
+    public static final CustomBush IRON_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.IRON_ORE);
+    public static final CustomBush GOLD_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.GOLD_ORE);
     public static final CustomBush DIAMOND_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.DIAMOND);
-    public static final CustomBush NETHERITE_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.NETHERITE_INGOT);
-    public static final CustomBush REDSTONE_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.REDSTONE);
-    public static final CustomBush LAPIS_LAZULI_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.LAPIS_LAZULI);
+    public static final CustomBush NETHERITE_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.NETHERITE_SCRAP);
+    public static final CustomBush REDSTONE_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.REDSTONE_ORE);
+    public static final CustomBush LAPIS_LAZULI_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly(),Items.LAPIS_ORE);
     public static final CustomFarmland FARMLANDTEST = new CustomFarmland(FabricBlockSettings.of(Material.STONE).hardness(1).ticksRandomly());
 
     public static void registerBlocks() {

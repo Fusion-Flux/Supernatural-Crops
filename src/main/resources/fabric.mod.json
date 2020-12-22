@@ -9,11 +9,12 @@
     "Me!"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/Fusion-Flux/Supernatural-Crops",
+    "sources": "https://github.com/FabricMC/fabric-example-mod",
+    "issues": "https://github.com/Fusion-Flux/Supernatural-Crops/issues"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/supernaturalcrops/icon.png",
 
   "environment": "*",

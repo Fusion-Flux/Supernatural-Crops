@@ -3,6 +3,7 @@ package com.fusionflux.supernaturalcrops.blocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -19,28 +20,48 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.GameRules;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
+import net.minecraft.world.*;
 
 import java.util.Iterator;
 import java.util.Random;
 
-public class CustomFarmland extends FarmlandBlock {
+public class CustomFarmland extends Block {
     public static final IntProperty MAGMATED;
     protected static final VoxelShape SHAPE;
+
     protected CustomFarmland(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(MAGMATED, 0));
+        this.setDefaultState(this.stateManager.getDefaultState().with(MAGMATED, 0));
     }
 @Override
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
+        if (direction == Direction.UP && !state.canPlaceAt(world, pos)) {
+            world.getBlockTickScheduler().schedule(pos, this, 1);
+        }
+
+        return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
+    }
+    @Override
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        BlockState blockState = world.getBlockState(pos.up());
+        return !blockState.getMaterial().isSolid() || blockState.getBlock() instanceof FenceGateBlock || blockState.getBlock() instanceof PistonExtensionBlock;
+    }
+
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return !this.getDefaultState().canPlaceAt(ctx.getWorld(), ctx.getBlockPos()) ? Blocks.STONE.getDefaultState() : super.getPlacementState(ctx);
     }
+    @Override
+    public boolean hasSidedTransparency(BlockState state) {
+        return true;
+    }
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return SHAPE;
+    }
 
-@Override
+
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (!state.canPlaceAt(world, pos)) {
             setToStone(state, world, pos);
@@ -48,21 +69,33 @@ public class CustomFarmland extends FarmlandBlock {
 
     }
 
-@Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        int i = (Integer)state.get(MAGMATED);
+        int i = state.get(MAGMATED);
         if (!isLavaNearby(world, pos)) {
             if (i > 0) {
-                world.setBlockState(pos, (BlockState)state.with(MAGMATED, i - 1), 2);
+                world.setBlockState(pos, state.with(MAGMATED, i - 1), 2);
             } else if (!hasCrop(world, pos)) {
                 setToStone(state, world, pos);
             }
-        } else if (i < 8) {
-            world.setBlockState(pos, (BlockState)state.with(MAGMATED, 8), 8);
+        } else if (i < 1) {
+            world.setBlockState(pos, state.with(MAGMATED, 1), 2);
+        }else if (i < 2) {
+            world.setBlockState(pos, state.with(MAGMATED, 2), 2);
+        }else if (i < 3) {
+            world.setBlockState(pos, state.with(MAGMATED, 3), 2);
+        }else if (i < 4) {
+            world.setBlockState(pos, state.with(MAGMATED, 4), 2);
+        }else if (i < 5) {
+            world.setBlockState(pos, state.with(MAGMATED, 5), 2);
+        }else if (i < 6) {
+            world.setBlockState(pos, state.with(MAGMATED, 6), 2);
+        }else if (i < 7) {
+            world.setBlockState(pos, state.with(MAGMATED, 7), 2);
+        }else if (i < 8) {
+            world.setBlockState(pos, state.with(MAGMATED, 8), 2);
         }
-    System.out.println(state.get(MAGMATED));
     }
-@Override
+
 public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance) {
     entity.handleFallDamage(distance, 1.0F);
 }
@@ -90,9 +123,13 @@ public void onLandedUpon(World world, BlockPos pos, Entity entity, float distanc
 
         return true;
     }
-@Override
+
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(MAGMATED);
+    }
+
+    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+        return false;
     }
 
     static {

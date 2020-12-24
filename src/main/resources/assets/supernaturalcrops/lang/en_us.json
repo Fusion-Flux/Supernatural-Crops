@@ -7,5 +7,7 @@
   "block.supernaturalcrops.netherite_bush": "Netherite Bush Seeds",
   "block.supernaturalcrops.lapis_lazuli_bush": "Lapis Lazuli Bush Seeds",
   "block.supernaturalcrops.redstone_bush": "Redstone Bush Seeds",
-  "block.supernaturalcrops.scraped_stone": "Scraped Stone"
+  "block.supernaturalcrops.scraped_stone": "Scraped Stone",
+  "block.supernaturalcrops.embedded_abyss": "Embedded Abyss",
+  "item.supernaturalcrops.seed_of_the_abyss": "Seed Of The Abyss"
 }

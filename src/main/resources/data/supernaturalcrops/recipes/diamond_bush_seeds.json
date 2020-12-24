@@ -10,7 +10,7 @@
             "item": "minecraft:diamond"
         },
         "B": {
-            "item": "minecraft:beetroot_seeds"
+            "item": "supernaturalcrops:seed_of_the_abyss"
         }
     },
     "result": {

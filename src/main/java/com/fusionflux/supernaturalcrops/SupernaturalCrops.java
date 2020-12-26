@@ -1,9 +1,12 @@
 package com.fusionflux.supernaturalcrops;
 
 import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsBlocks;
+import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
+import com.oroarmor.util.config.ConfigItemGroup;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.util.Identifier;
@@ -16,9 +19,16 @@ import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SupernaturalCrops implements ModInitializer {
 	public static final String MOD_ID = "supernaturalcrops";
+
+	public static final SupernaturalCropsConfig CONFIG = new SupernaturalCropsConfig();
+
+	public static final Logger LOGGER = LogManager.getLogger("Supernatural Crops");
 
 	private static ConfiguredFeature<?, ?> EMBEDDED_ABYSS_VIEN = Feature.ORE
 			.configure(new OreFeatureConfig(
@@ -40,4 +50,16 @@ public class SupernaturalCrops implements ModInitializer {
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreWoolEnd.getValue(), EMBEDDED_ABYSS_VIEN);
 		BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(), GenerationStep.Feature.UNDERGROUND_ORES, oreWoolEnd);
 	}
+
+	private void processConfig() {
+		CONFIG.readConfigFromFile();
+
+		if (SupernaturalCropsConfig.ENABLED.ENABLED_CONFIG_PRINT.getValue()) {
+			CONFIG.getConfigs().stream().map(ConfigItemGroup::getConfigs)
+					.forEach(l -> l.forEach(ci -> LOGGER.log(Level.INFO, ci.toString())));
+		}
+
+		ServerLifecycleEvents.SERVER_STOPPED.register(l -> CONFIG.saveConfigToFile());
+	}
+
 }

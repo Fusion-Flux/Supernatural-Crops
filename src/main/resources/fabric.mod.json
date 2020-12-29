@@ -4,9 +4,10 @@
   "version": "${version}",
 
   "name": "Supernatural Crops",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "A more balanced version of Mystical Agriculture for Fabric",
   "authors": [
-    "Me!"
+    "Fusion Flux",
+    "Something Shard"
   ],
   "contact": {
     "homepage": "https://github.com/Fusion-Flux/Supernatural-Crops",

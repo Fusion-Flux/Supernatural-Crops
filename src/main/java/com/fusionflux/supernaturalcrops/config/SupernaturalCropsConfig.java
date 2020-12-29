@@ -1,9 +1,9 @@
 package com.fusionflux.supernaturalcrops.config;
 
 import com.google.common.collect.ImmutableList;
-import com.oroarmor.util.config.Config;
-import com.oroarmor.util.config.ConfigItem;
-import com.oroarmor.util.config.ConfigItemGroup;
+import com.oroarmor.config.Config;
+import com.oroarmor.config.ConfigItem;
+import com.oroarmor.config.ConfigItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.File;
@@ -91,7 +91,7 @@ public final class SupernaturalCropsConfig extends Config {
 
 
 	public SupernaturalCropsConfig() {
-		super(CONFIGS, new File(FabricLoader.getInstance().getConfigDir().toFile(), CONFIG_FILE_NAME));
+		super(CONFIGS, new File(FabricLoader.getInstance().getConfigDir().toFile(), CONFIG_FILE_NAME), "supernaturalcrops");
 	}
 
 

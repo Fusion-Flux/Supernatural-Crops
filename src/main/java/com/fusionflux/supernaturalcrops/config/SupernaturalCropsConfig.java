@@ -14,31 +14,31 @@ public final class SupernaturalCropsConfig extends Config {
 
 	public static class ENABLED extends ConfigItemGroup {
 		public static final ConfigItem<Boolean> ENABLED_CONFIG_PRINT = new ConfigItem<>("config_debug_print", false,
-				"config.amelias_fishing_overhaul.enabled.config_debug_print");
+				"config.supernatural_crops.enabled.config_debug_print");
 
 		public static final ConfigItem<Boolean> ENABLE_COAL_CROPS = new ConfigItem<>("coal_crop_enabled", true,
-				"config.amelias_fishing_overhaul.enabled.coal_crop_enabled");
+				"config.supernatural_crops.enabled.coal_crop_enabled");
 
 		public static final ConfigItem<Boolean> ENABLE_IRON_CROPS = new ConfigItem<>("iron_crop_enabled", true,
-				"config.amelias_fishing_overhaul.enabled.iron_crop_enabled");
+				"config.supernatural_crops.enabled.iron_crop_enabled");
 
 		public static final ConfigItem<Boolean> ENABLE_GOLD_CROPS = new ConfigItem<>("gold_crop_enabled", true,
-				"config.amelias_fishing_overhaul.enabled.gold_crop_enabled");
+				"config.supernatural_crops.enabled.gold_crop_enabled");
 
 		public static final ConfigItem<Boolean> ENABLE_DIAMOND_CROPS = new ConfigItem<>("diamond_crop_enabled", true,
-				"config.amelias_fishing_overhaul.enabled.diamond_crop_enabled");
+				"config.supernatural_crops.enabled.diamond_crop_enabled");
 
 		public static final ConfigItem<Boolean> ENABLE_EMERALD_CROPS = new ConfigItem<>("lapis_lazuli_crop_enabled", true,
-				"config.amelias_fishing_overhaul.enabled.lapis_lazuli_crop_enabled");
+				"config.supernatural_crops.enabled.lapis_lazuli_crop_enabled");
 
 		public static final ConfigItem<Boolean> ENABLE_NETHERITE_CROPS = new ConfigItem<>("netherite_crop_enabled", true,
-				"config.amelias_fishing_overhaul.enabled.netherite_crop_enabled");
+				"config.supernatural_crops.enabled.netherite_crop_enabled");
 
 		public static final ConfigItem<Boolean> ENABLE_REDSTONE_CROPS = new ConfigItem<>("diamond_crop_enabled", true,
-				"config.amelias_fishing_overhaul.enabled.diamond_crop_enabled");
+				"config.supernatural_crops.enabled.diamond_crop_enabled");
 
 		public static final ConfigItem<Boolean> ENABLE_LAPIS_LAZULI_CROPS = new ConfigItem<>("lapis_lazuli_crop_enabled", true,
-				"config.amelias_fishing_overhaul.enabled.lapis_lazuli_crop_enabled");
+				"config.supernatural_crops.enabled.lapis_lazuli_crop_enabled");
 
 
 
@@ -49,11 +49,44 @@ public final class SupernaturalCropsConfig extends Config {
 		}
 	}
 
+	/*public static class NUGGET_BALANCE extends ConfigItemGroup {
+
+		public static final ConfigItem<Boolean> ENABLE_COAL_CROP_NUGGETS = new ConfigItem<>("coal_crop_nuggets_enabled", true,
+				"config.supernatural_crops.enabled.coal_crop_nuggets_enabled");
+
+		public static final ConfigItem<Boolean> ENABLE_IRON_CROP_NUGGETS = new ConfigItem<>("iron_crop_nuggets_enabled", true,
+				"config.supernatural_crops.enabled.iron_crop_nuggets_enabled");
+
+		public static final ConfigItem<Boolean> ENABLE_GOLD_CROP_NUGGETS = new ConfigItem<>("gold_crop_nuggets_enabled", true,
+				"config.supernatural_crops.enabled.gold_crop_nuggets_enabled");
+
+		public static final ConfigItem<Boolean> ENABLE_DIAMOND_CROP_NUGGETS = new ConfigItem<>("diamond_crop_nuggets_enabled", true,
+				"config.supernatural_crops.enabled.diamond_crop_nuggets_enabled");
+
+		public static final ConfigItem<Boolean> ENABLE_EMERALD_CROP_NUGGETS = new ConfigItem<>("lapis_lazuli_crop_nuggets_enabled", true,
+				"config.supernatural_crops.enabled.lapis_lazuli_crop_nuggets_enabled");
+
+		public static final ConfigItem<Boolean> ENABLE_NETHERITE_CROP_NUGGETS = new ConfigItem<>("netherite_crop_nuggets_enabled", true,
+				"config.supernatural_crops.enabled.netherite_crop_nuggets_enabled");
+
+		public static final ConfigItem<Boolean> ENABLE_REDSTONE_CROP_NUGGETS = new ConfigItem<>("diamond_crop_nuggets_enabled", true,
+				"config.supernatural_crops.enabled.diamond_crop_nuggets_enabled");
+
+		public static final ConfigItem<Boolean> ENABLE_LAPIS_LAZULI_CROP_NUGGETS = new ConfigItem<>("lapis_lazuli_crop_nuggets_enabled", true,
+				"config.supernatural_crops.enabled.lapis_lazuli_crop_nuggets_enabled");
 
 
-	private static final String CONFIG_FILE_NAME = "amelias_fishing_overhaul.json";
 
-	private static final List<ConfigItemGroup> CONFIGS = ImmutableList.of(new ENABLED());
+		public static final List<ConfigItem<?>> OPTIONS = ImmutableList.of(ENABLE_COAL_CROP_NUGGETS, ENABLE_IRON_CROP_NUGGETS,ENABLE_GOLD_CROP_NUGGETS,ENABLE_DIAMOND_CROP_NUGGETS,ENABLE_EMERALD_CROP_NUGGETS,ENABLE_NETHERITE_CROP_NUGGETS,ENABLE_LAPIS_LAZULI_CROP_NUGGETS,ENABLE_REDSTONE_CROP_NUGGETS);
+
+		public NUGGET_BALANCE() {
+			super(OPTIONS, "nugget_balance");
+		}
+	}*/
+
+	private static final String CONFIG_FILE_NAME = "supernatural_crops.json";
+
+	private static final List<ConfigItemGroup> CONFIGS = ImmutableList.of(new ENABLED()/*,new NUGGET_BALANCE()*/);
 
 
 	public SupernaturalCropsConfig() {

@@ -9,5 +9,8 @@
   "block.supernaturalcrops.redstone_bush": "Redstone Bush Seeds",
   "block.supernaturalcrops.scraped_stone": "Scraped Stone",
   "block.supernaturalcrops.embedded_abyss": "Embedded Abyss",
-  "item.supernaturalcrops.seed_of_the_abyss": "Seed Of The Abyss"
+  "item.supernaturalcrops.seed_of_the_abyss": "Seed Of The Abyss",
+  "item.supernaturalcrops.diamond_shard": "Diamond Shard",
+  "item.supernaturalcrops.emerald_shard": "Emerald Shard",
+  "item.supernaturalcrops.netherite_flake": "Netherite Flake"
 }

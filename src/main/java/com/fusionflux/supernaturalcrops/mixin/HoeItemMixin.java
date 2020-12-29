@@ -1,6 +1,7 @@
 package com.fusionflux.supernaturalcrops.mixin;
 
 import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsBlocks;
+import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsScrapedStone;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
@@ -59,6 +60,6 @@ private void hoeStone(ItemUsageContext context, CallbackInfoReturnable<ActionRes
     }
 }
     static {
-        SCRAPED_BLOCKS = Maps.newHashMap(ImmutableMap.of(Blocks.STONE, SupernaturalCropsBlocks.SCRAPED_STONE.getDefaultState()));
+        SCRAPED_BLOCKS = Maps.newHashMap(ImmutableMap.of(Blocks.STONE, SupernaturalCropsScrapedStone.SCRAPED_STONE.getDefaultState()));
     }
 }

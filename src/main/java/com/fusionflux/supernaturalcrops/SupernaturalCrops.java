@@ -1,6 +1,7 @@
 package com.fusionflux.supernaturalcrops;
 
 import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsBlocks;
+import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsScrapedStone;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import com.oroarmor.util.config.ConfigItemGroup;
 import net.fabricmc.api.ModInitializer;
@@ -45,6 +46,7 @@ public class SupernaturalCrops implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		SupernaturalCropsBlocks.registerBlocks();
+		SupernaturalCropsScrapedStone.registerScrapedStone();
 		RegistryKey<ConfiguredFeature<?, ?>> oreWoolEnd = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
 				new Identifier("supernaturalcrops", "embedded_abyss_vien"));
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreWoolEnd.getValue(), EMBEDDED_ABYSS_VIEN);

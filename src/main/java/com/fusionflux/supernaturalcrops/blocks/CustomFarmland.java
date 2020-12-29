@@ -1,9 +1,12 @@
 package com.fusionflux.supernaturalcrops.blocks;
 
+import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import net.minecraft.block.*;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -130,6 +133,17 @@ public void onLandedUpon(World world, BlockPos pos, Entity entity, float distanc
 
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
         return false;
+    }
+
+    public void onSteppedOn(World world, BlockPos pos, Entity entity) {
+        if (SupernaturalCropsConfig.ENABLED.ENABLE_SCRAPED_STONE_MAGMATED_DAMAGE.getValue()) {
+            if(world.getBlockState(pos).get(MAGMATED)>7){
+            if (!entity.isFireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+                entity.damage(DamageSource.HOT_FLOOR, 1.0F);
+            }
+        }
+    }
+        super.onSteppedOn(world, pos, entity);
     }
 
     static {

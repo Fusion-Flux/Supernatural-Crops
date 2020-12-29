@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "gg",
+        "gg"
+    ],
+    "key": {
+        "g": {
+            "item": "supernaturalcrops:netherite_flake"
+        }
+    },
+    "result": {
+        "item": "minecraft:netherite_scrap",
+        "count": 1
+    }
+}

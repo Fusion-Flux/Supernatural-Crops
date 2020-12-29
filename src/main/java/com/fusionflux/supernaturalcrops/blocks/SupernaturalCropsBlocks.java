@@ -2,6 +2,8 @@ package com.fusionflux.supernaturalcrops.blocks;
 
 import com.fusionflux.supernaturalcrops.SupernaturalCrops;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -49,42 +51,34 @@ public class SupernaturalCropsBlocks {
         if (SupernaturalCropsConfig.ENABLED.ENABLE_COAL_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "coal_bush"), SupernaturalCropsBlocks.COAL_BUSH);
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "coal_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.COAL_BUSH, new Item.Settings().group(ItemGroup.MISC)));
-            BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.COAL_BUSH, RenderLayer.getCutout());
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_IRON_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "iron_bush"), SupernaturalCropsBlocks.IRON_BUSH);
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "iron_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.IRON_BUSH, new Item.Settings().group(ItemGroup.MISC)));
-            BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.IRON_BUSH, RenderLayer.getCutout());
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_GOLD_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "gold_bush"), SupernaturalCropsBlocks.GOLD_BUSH);
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "gold_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.GOLD_BUSH, new Item.Settings().group(ItemGroup.MISC)));
-            BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.GOLD_BUSH, RenderLayer.getCutout());
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_DIAMOND_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "diamond_bush"), SupernaturalCropsBlocks.DIAMOND_BUSH);
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "diamond_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.DIAMOND_BUSH, new Item.Settings().group(ItemGroup.MISC)));
-            BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.DIAMOND_BUSH, RenderLayer.getCutout());
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_EMERALD_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "emerald_bush"), SupernaturalCropsBlocks.EMERALD_BUSH);
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "emerald_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.EMERALD_BUSH, new Item.Settings().group(ItemGroup.MISC)));
-            BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.EMERALD_BUSH, RenderLayer.getCutout());
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_NETHERITE_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "netherite_bush"), SupernaturalCropsBlocks.NETHERITE_BUSH);
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "netherite_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.NETHERITE_BUSH, new Item.Settings().group(ItemGroup.MISC)));
-            BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.NETHERITE_BUSH, RenderLayer.getCutout());
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_REDSTONE_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "redstone_bush"), SupernaturalCropsBlocks.REDSTONE_BUSH);
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "redstone_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.REDSTONE_BUSH, new Item.Settings().group(ItemGroup.MISC)));
-            BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.REDSTONE_BUSH, RenderLayer.getCutout());
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_LAPIS_LAZULI_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "lapis_lazuli_bush"), SupernaturalCropsBlocks.LAPIS_LAZULI_BUSH);
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "lapis_lazuli_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.LAPIS_LAZULI_BUSH, new Item.Settings().group(ItemGroup.MISC)));
-            BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.LAPIS_LAZULI_BUSH, RenderLayer.getCutout());
         }
         //Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "scraped_stone"), SupernaturalCropsBlocks.SCRAPED_STONE);
         //Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "scraped_stone"), new BlockItem(SupernaturalCropsBlocks.SCRAPED_STONE, new Item.Settings().group(ItemGroup.DECORATIONS)));
@@ -94,6 +88,18 @@ public class SupernaturalCropsBlocks {
         Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "diamond_shard"), DIAMOND_SHARD);
         Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "emerald_shard"), EMERALD_SHARD);
         Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "netherite_flake"), NETHERITE_FLAKE);
+    }
+
+    @Environment(EnvType.CLIENT)
+    public static void registerRenderLayers() {
+        BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.LAPIS_LAZULI_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.REDSTONE_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.NETHERITE_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.EMERALD_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.DIAMOND_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.GOLD_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.IRON_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.COAL_BUSH, RenderLayer.getCutout());
     }
 }
 

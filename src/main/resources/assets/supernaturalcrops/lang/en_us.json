@@ -12,5 +12,26 @@
   "item.supernaturalcrops.seed_of_the_abyss": "Seed Of The Abyss",
   "item.supernaturalcrops.diamond_shard": "Diamond Shard",
   "item.supernaturalcrops.emerald_shard": "Emerald Shard",
-  "item.supernaturalcrops.netherite_flake": "Netherite Flake"
+  "item.supernaturalcrops.netherite_flake": "Netherite Flake",
+
+  "config.supernaturalcrops.enabled": "Enabled Features",
+  "config.supernaturalcrops.enabled.config_debug_print": "Enable Config Debug Print",
+  "config.supernaturalcrops.enabled.coal_crop_enabled": "Enable Coal Bushes",
+  "config.supernaturalcrops.enabled.iron_crop_enabled": "Enable Iron Bushes",
+  "config.supernaturalcrops.enabled.gold_crop_enabled": "Enable Gold Bushes",
+  "config.supernaturalcrops.enabled.diamond_crop_enabled": "Enable Diamond Bushes",
+  "config.supernaturalcrops.enabled.emerald_crop_enabled": "Enable Emerald Bushes",
+  "config.supernaturalcrops.enabled.netherite_crop_enabled": "Enable Netherite Bushes",
+  "config.supernaturalcrops.enabled.redstone_crop_enabled": "Enable Redstone Bushes",
+  "config.supernaturalcrops.enabled.lapis_lazuli_crop_enabled": "Enable Lapis Lazuli Bushes",
+  "config.supernaturalcrops.enabled.scraped_stone_magmated_damage_enabled": "Enable Magmated State 8 Damage",
+
+  "config.supernaturalcrops.nugget_balance": "Enable Nugget Drops",
+  "config.supernaturalcrops.nugget_balance.iron_crop_nuggets_enabled": "Enable Iron Nuggets",
+  "config.supernaturalcrops.nugget_balance.gold_crop_nuggets_enabled": "Enable Gold Nuggets",
+  "config.supernaturalcrops.nugget_balance.diamond_crop_nuggets_enabled": "Enable Diamond Shards",
+  "config.supernaturalcrops.nugget_balance.emerald_crop_nuggets_enabled": "Enable Emerald Shards",
+  "config.supernaturalcrops.nugget_balance.netherite_crop_nuggets_enabled": "Enable Netherite Flakes"
+
+
 }

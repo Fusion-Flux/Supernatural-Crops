@@ -25,6 +25,9 @@
     ],
     "client": [
       "com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsClientModInit"
+    ],
+    "modmenu" : [
+      "com.fusionflux.supernaturalcrops.compatibility.ModMenuIntegration"
     ]
   },
   "mixins": [

@@ -14,6 +14,8 @@
   "item.supernaturalcrops.emerald_shard": "Emerald Shard",
   "item.supernaturalcrops.netherite_flake": "Netherite Flake",
 
+  "config.supernaturalcrops": "Supernatural Crops Config",
+
   "config.supernaturalcrops.enabled": "Enabled Features",
   "config.supernaturalcrops.enabled.config_debug_print": "Enable Config Debug Print",
   "config.supernaturalcrops.enabled.coal_crop_enabled": "Enable Coal Bushes",

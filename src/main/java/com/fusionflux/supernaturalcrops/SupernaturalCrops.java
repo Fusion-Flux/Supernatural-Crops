@@ -31,23 +31,22 @@ public class SupernaturalCrops implements ModInitializer {
 
 	public static final Logger LOGGER = LogManager.getLogger("Supernatural Crops");
 
-	private static ConfiguredFeature<?, ?> EMBEDDED_ABYSS_VIEN = Feature.ORE
-			.configure(new OreFeatureConfig(
-					new BlockMatchRuleTest(Blocks.END_STONE), // base block is endstone in the end biomes
-					SupernaturalCropsBlocks.EMBEDDED_ABYSS.getDefaultState(),
-					10))
-			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
-					0,
-					0,
-					255)))
-			.spreadHorizontally()
-			.repeat(7);
-
 	@Override
 	public void onInitialize() {
 		processConfig();
 		SupernaturalCropsBlocks.registerBlocks();
 		SupernaturalCropsScrapedStone.registerScrapedStone();
+		ConfiguredFeature<?, ?> EMBEDDED_ABYSS_VIEN = Feature.ORE
+				.configure(new OreFeatureConfig(
+						new BlockMatchRuleTest(Blocks.END_STONE),
+						SupernaturalCropsBlocks.EMBEDDED_ABYSS.getDefaultState(),
+						10))
+				.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
+						0,
+						0,
+						255)))
+				.spreadHorizontally()
+				.repeat(7);
 		RegistryKey<ConfiguredFeature<?, ?>> oreWoolEnd = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
 				new Identifier("supernaturalcrops", "embedded_abyss_vien"));
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreWoolEnd.getValue(), EMBEDDED_ABYSS_VIEN);

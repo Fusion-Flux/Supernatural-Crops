@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "supernaturalcrops:block/core_stage3"
+    "cross": "supernaturalcrops:block/iron_bush_stage2"
   }
 }

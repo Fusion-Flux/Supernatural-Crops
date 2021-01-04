@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "supernaturalcrops:item/platinum_bush_seeds"
+    }
+}

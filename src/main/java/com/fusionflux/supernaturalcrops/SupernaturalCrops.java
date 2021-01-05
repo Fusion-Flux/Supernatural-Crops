@@ -3,11 +3,15 @@ package com.fusionflux.supernaturalcrops;
 import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsScrapedStone;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
+import com.fusionflux.supernaturalcrops.modsupport.BetterEndCropsBlocks;
+import com.fusionflux.supernaturalcrops.modsupport.BetterNetherCropsBlocks;
+import com.fusionflux.supernaturalcrops.modsupport.MythicMetalsCropsBlocks;
 import com.oroarmor.config.ConfigItemGroup;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.util.Identifier;
@@ -51,6 +55,16 @@ public class SupernaturalCrops implements ModInitializer {
 				new Identifier("supernaturalcrops", "embedded_abyss_vien"));
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreWoolEnd.getValue(), EMBEDDED_ABYSS_VIEN);
 		BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(), GenerationStep.Feature.UNDERGROUND_ORES, oreWoolEnd);
+
+		if (FabricLoader.getInstance().isModLoaded("mythicmetals")) {
+			MythicMetalsCropsBlocks.registerBlocks();
+		}
+		if (FabricLoader.getInstance().isModLoaded("betterend")) {
+			BetterEndCropsBlocks.registerBlocks();
+		}
+		if (FabricLoader.getInstance().isModLoaded("betternether")) {
+			BetterNetherCropsBlocks.registerBlocks();
+		}
 	}
 
 	private void processConfig() {

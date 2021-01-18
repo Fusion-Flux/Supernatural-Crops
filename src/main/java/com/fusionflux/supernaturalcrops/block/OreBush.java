@@ -36,7 +36,7 @@ public class OreBush extends SweetBerryBushBlock {
         int i = state.get(AGE);
         boolean bl = i == 3;
         if (!bl && player.getStackInHand(hand).getItem() == Items.BONE_MEAL) {
-            return ActionResult.FAIL;
+            return ActionResult.CONSUME;
         } else if (i > 1) {
             int j = world.random.nextInt(2);
             dropStack(world, pos, new ItemStack(resourceToDrop, j+(bl ? 1 : 0)));

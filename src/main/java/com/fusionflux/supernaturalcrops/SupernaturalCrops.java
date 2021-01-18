@@ -49,7 +49,6 @@ public class SupernaturalCrops implements ModInitializer {
 	public void onInitialize() {
 		RRPCallback.EVENT.register(a -> a.add(RESOURCE_PACK));
 		processConfig();
-		fuckFusionReallyItsNotFuckingHard();
 		SupernaturalCropsBlocks.registerBlocks();
 		SupernaturalCropsScrapedStone.registerScrapedStone();
 		ConfiguredFeature<?, ?> EMBEDDED_ABYSS_VIEN = Feature.ORE
@@ -79,50 +78,6 @@ public class SupernaturalCrops implements ModInitializer {
 		}
 	}
 
-	private void fuckFusionReallyItsNotFuckingHard() {
-		createRecipe("dirt",
-				"   ",
-				"AB ",
-				"   ",
-				Items.BARRIER,
-				createKey("A", Items.DIRT, Items.COBBLESTONE),
-				createKey("B", Items.WHEAT_SEEDS));
-	}
-
-	private KeyInformation createKey(String name, Item... items) {
-		return new KeyInformation(name, Arrays.asList(items));
-	}
-
-	private void createRecipe(String name, String pattern1, String pattern2, String pattern3, Item result, KeyInformation... keys) {
-		JKeys jKeys = JKeys.keys();
-		for (KeyInformation key : keys) {
-			JIngredient ingredients = JIngredient.ingredient();
-			for (Item item : key.items) {
-				ingredients.item(item);
-			}
-			jKeys.key(key.name, ingredients);
-		}
-
-		RESOURCE_PACK.addRecipe(new Identifier(MOD_ID, name), JRecipe.shaped(
-				JPattern.pattern(
-						pattern1,
-						pattern2,
-						pattern3
-				),
-				JKeys.keys()
-						.key("A",
-								JIngredient.ingredient()
-										.item(Items.DIRT)
-										.item(Items.COBBLESTONE)
-						)
-						.key("B",
-								JIngredient.ingredient()
-										.item(Items.WHEAT_SEEDS)
-						),
-				JResult.item(result)
-		));
-	}
-
 	private void processConfig() {
 		CONFIG.readConfigFromFile();
 
@@ -132,15 +87,5 @@ public class SupernaturalCrops implements ModInitializer {
 		}
 
 		ServerLifecycleEvents.SERVER_STOPPED.register(l -> CONFIG.saveConfigToFile());
-	}
-
-	private class KeyInformation {
-		public String name;
-		public List<Item> items;
-
-		public KeyInformation(String name, List<Item> items) {
-			this.name = name;
-			this.items = items;
-		}
 	}
 }

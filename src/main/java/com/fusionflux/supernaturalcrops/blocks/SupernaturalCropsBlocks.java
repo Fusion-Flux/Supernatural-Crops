@@ -2,6 +2,7 @@ package com.fusionflux.supernaturalcrops.blocks;
 
 import com.fusionflux.supernaturalcrops.SupernaturalCrops;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
+import net.devtech.arrp.json.recipe.*;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -25,6 +26,9 @@ import nourl.mythicmetals.ores.MythicMetalsOres;
 import nourl.mythicmetals.registry.RegisterIngots;
 import nourl.mythicmetals.registry.RegisterNuggets;
 import nourl.mythicmetals.tools.MythicMetalsToolMaterials;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class SupernaturalCropsBlocks {
 
@@ -58,40 +62,31 @@ public class SupernaturalCropsBlocks {
 
     public static void registerBlocks() {
         if (SupernaturalCropsConfig.ENABLED.ENABLE_COAL_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "coal_bush"), SupernaturalCropsBlocks.COAL_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "coal_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.COAL_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            registerBush("coal_bush", SupernaturalCropsBlocks.COAL_BUSH, Items.COAL);
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_IRON_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "iron_bush"), SupernaturalCropsBlocks.IRON_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "iron_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.IRON_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            registerBush("iron_bush", SupernaturalCropsBlocks.IRON_BUSH, Items.IRON_INGOT);
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_GOLD_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "gold_bush"), SupernaturalCropsBlocks.GOLD_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "gold_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.GOLD_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            registerBush("gold_bush", SupernaturalCropsBlocks.GOLD_BUSH, Items.GOLD_INGOT);
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_DIAMOND_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "diamond_bush"), SupernaturalCropsBlocks.DIAMOND_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "diamond_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.DIAMOND_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            registerBush("diamond_bush", SupernaturalCropsBlocks.DIAMOND_BUSH, Items.DIAMOND);
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_EMERALD_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "emerald_bush"), SupernaturalCropsBlocks.EMERALD_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "emerald_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.EMERALD_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            registerBush("emerald_bush", SupernaturalCropsBlocks.EMERALD_BUSH, Items.EMERALD);
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_NETHERITE_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "netherite_bush"), SupernaturalCropsBlocks.NETHERITE_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "netherite_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.NETHERITE_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            registerBush("netherite_bush", SupernaturalCropsBlocks.NETHERITE_BUSH, Items.NETHERITE_SCRAP);
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_REDSTONE_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "redstone_bush"), SupernaturalCropsBlocks.REDSTONE_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "redstone_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.REDSTONE_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            registerBush("redstone_bush", SupernaturalCropsBlocks.REDSTONE_BUSH, Items.REDSTONE);
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_LAPIS_LAZULI_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "lapis_lazuli_bush"), SupernaturalCropsBlocks.LAPIS_LAZULI_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "lapis_lazuli_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.LAPIS_LAZULI_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            registerBush("lapis_lazuli_bush", SupernaturalCropsBlocks.LAPIS_LAZULI_BUSH, Items.LAPIS_LAZULI);
         }
         if (SupernaturalCropsConfig.ENABLED.ENABLE_QUARTZ_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "quartz_bush"), SupernaturalCropsBlocks.QUARTZ_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "quartz_bush_seeds"), new BlockItem(SupernaturalCropsBlocks.QUARTZ_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            registerBush("quartz_bush", SupernaturalCropsBlocks.QUARTZ_BUSH, Items.QUARTZ);
         }
 
         Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), SupernaturalCropsBlocks.EMBEDDED_ABYSS);
@@ -100,6 +95,18 @@ public class SupernaturalCropsBlocks {
         Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "diamond_shard"), DIAMOND_SHARD);
         Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "emerald_shard"), EMERALD_SHARD);
         Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "netherite_flake"), NETHERITE_FLAKE);
+    }
+
+    public static void registerBush(String path, Block block, Item ingot) {
+        Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, path), block);
+        Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, path + "_seeds"), new BlockItem(block, new Item.Settings().group(ItemGroup.MISC)));
+        createRecipe(path,
+                "AAA",
+                "ABA",
+                "AAA",
+                Items.BARRIER,
+                createKey("A", ingot),
+                createKey("B", SEED_OF_THE_ABYSS));
     }
 
     @Environment(EnvType.CLIENT)
@@ -113,6 +120,50 @@ public class SupernaturalCropsBlocks {
         BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.GOLD_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.IRON_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.COAL_BUSH, RenderLayer.getCutout());
+    }
+
+    private static KeyInformation createKey(String name, Item... items) {
+        return new KeyInformation(name, Arrays.asList(items));
+    }
+
+    private static void createRecipe(String name, String pattern1, String pattern2, String pattern3, Item result, KeyInformation... keys) {
+        JKeys jKeys = JKeys.keys();
+        for (KeyInformation key : keys) {
+            JIngredient ingredients = JIngredient.ingredient();
+            for (Item item : key.items) {
+                ingredients.item(item);
+            }
+            jKeys.key(key.name, ingredients);
+        }
+
+        SupernaturalCrops.RESOURCE_PACK.addRecipe(new Identifier(SupernaturalCrops.MOD_ID, name), JRecipe.shaped(
+                JPattern.pattern(
+                        pattern1,
+                        pattern2,
+                        pattern3
+                ),
+                JKeys.keys()
+                        .key("A",
+                                JIngredient.ingredient()
+                                        .item(Items.DIRT)
+                                        .item(Items.COBBLESTONE)
+                        )
+                        .key("B",
+                                JIngredient.ingredient()
+                                        .item(Items.WHEAT_SEEDS)
+                        ),
+                JResult.item(result)
+        ));
+    }
+
+    private static class KeyInformation {
+        public String name;
+        public List<Item> items;
+
+        public KeyInformation(String name, List<Item> items) {
+            this.name = name;
+            this.items = items;
+        }
     }
 }
 

@@ -64,118 +64,118 @@ public class MythicMetalsCropsBlocks {
 
 	public static void registerBlocks() {
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Adamantite_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("adamantite_bush", MythicMetalsCropsBlocks.Adamantite_BUSH, RegisterItems.Adamantite_Dust);
+			SupernaturalCropsBlocks.registerBush("adamantite_bush", MythicMetalsCropsBlocks.Adamantite_BUSH, RegisterIngots.Adamantite_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Aetherium_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("aetherium_bush", MythicMetalsCropsBlocks.Aetherium_BUSH, RegisterItems.Aetherium_Dust);
+			SupernaturalCropsBlocks.registerBush("aetherium_bush", MythicMetalsCropsBlocks.Aetherium_BUSH, RegisterIngots.Aetherium_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Aquarium_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("aquarium_bush", MythicMetalsCropsBlocks.Aquarium_BUSH, RegisterItems.Aquarium_Dust);
+			SupernaturalCropsBlocks.registerBush("aquarium_bush", MythicMetalsCropsBlocks.Aquarium_BUSH, RegisterIngots.Aquarium_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Argonium_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("argonium_bush", MythicMetalsCropsBlocks.Argonium_BUSH, RegisterItems.Argonium_Dust);
+			SupernaturalCropsBlocks.registerBush("argonium_bush", MythicMetalsCropsBlocks.Argonium_BUSH, RegisterIngots.Argonium_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Banglum_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("banglum_bush", MythicMetalsCropsBlocks.Banglum_BUSH, RegisterItems.Banglum_Dust);
+			SupernaturalCropsBlocks.registerBush("banglum_bush", MythicMetalsCropsBlocks.Banglum_BUSH, RegisterIngots.Banglum_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Brass_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("mmbrass_bush", MythicMetalsCropsBlocks.MMBrass_BUSH, RegisterItems.Brass_Dust);
+			SupernaturalCropsBlocks.registerBush("mmbrass_bush", MythicMetalsCropsBlocks.MMBrass_BUSH, RegisterIngots.Brass_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Bronze_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("mmbronze_bush", MythicMetalsCropsBlocks.MMBronze_BUSH, RegisterItems.Bronze_Dust);
+			SupernaturalCropsBlocks.registerBush("mmbronze_bush", MythicMetalsCropsBlocks.MMBronze_BUSH, RegisterIngots.Bronze_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Carmot_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("carmot_bush", MythicMetalsCropsBlocks.Carmot_BUSH, RegisterItems.Carmot_Dust);
+			SupernaturalCropsBlocks.registerBush("carmot_bush", MythicMetalsCropsBlocks.Carmot_BUSH, RegisterIngots.Carmot_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Celestium_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("celestium_bush", MythicMetalsCropsBlocks.Celestium_BUSH, RegisterItems.Celestium_Dust);
+			SupernaturalCropsBlocks.registerBush("celestium_bush", MythicMetalsCropsBlocks.Celestium_BUSH, RegisterIngots.Celestium_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Copper_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("mmcopper_bush", MythicMetalsCropsBlocks.MMCopper_BUSH, RegisterItems.Copper_Dust);
+			SupernaturalCropsBlocks.registerBush("mmcopper_bush", MythicMetalsCropsBlocks.MMCopper_BUSH, RegisterIngots.Copper_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Discordium_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("discordium_bush", MythicMetalsCropsBlocks.Discordium_BUSH, RegisterItems.Discordium_Dust);
+			SupernaturalCropsBlocks.registerBush("discordium_bush", MythicMetalsCropsBlocks.Discordium_BUSH, RegisterIngots.Discordium_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Durasteel_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("durasteel_bush", MythicMetalsCropsBlocks.Durasteel_BUSH, RegisterItems.Durasteel_Dust);
+			SupernaturalCropsBlocks.registerBush("durasteel_bush", MythicMetalsCropsBlocks.Durasteel_BUSH, RegisterIngots.Durasteel_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Electrum_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("mmelectrum_bush", MythicMetalsCropsBlocks.MMElectrum_BUSH, RegisterItems.Electrum_Dust);
+			SupernaturalCropsBlocks.registerBush("mmelectrum_bush", MythicMetalsCropsBlocks.MMElectrum_BUSH, RegisterIngots.Electrum_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Etherite_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("etherite_bush", MythicMetalsCropsBlocks.Etherite_BUSH, RegisterItems.Etherite_Dust);
+			SupernaturalCropsBlocks.registerBush("etherite_bush", MythicMetalsCropsBlocks.Etherite_BUSH, RegisterIngots.Etherite_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Hallowed_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("hallowed_bush", MythicMetalsCropsBlocks.Hallowed_BUSH, RegisterItems.Hallowed_Dust);
+			SupernaturalCropsBlocks.registerBush("hallowed_bush", MythicMetalsCropsBlocks.Hallowed_BUSH, RegisterIngots.Hallowed_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Kyber_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("kyber_bush", MythicMetalsCropsBlocks.Kyber_BUSH, RegisterItems.Kyber_Dust);
+			SupernaturalCropsBlocks.registerBush("kyber_bush", MythicMetalsCropsBlocks.Kyber_BUSH, RegisterIngots.Kyber_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Manganese_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("manganese_bush", MythicMetalsCropsBlocks.Maganese_BUSH, RegisterItems.Manganese_Dust);
+			SupernaturalCropsBlocks.registerBush("manganese_bush", MythicMetalsCropsBlocks.Maganese_BUSH, RegisterIngots.Manganese_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Metallurgium_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("metallurgium_bush", MythicMetalsCropsBlocks.Metallurgium_BUSH, MythicMetalsBlocks.METALLURGIUM_BLOCK.asItem());
+			SupernaturalCropsBlocks.registerBush("metallurgium_bush", MythicMetalsCropsBlocks.Metallurgium_BUSH, RegisterIngots.Metallurgium_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Midas_Gold_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("midas_gold_bush", MythicMetalsCropsBlocks.Midas_Gold_BUSH, Items.BEDROCK);
+			SupernaturalCropsBlocks.registerBush("midas_gold_bush", MythicMetalsCropsBlocks.Midas_Gold_BUSH, RegisterIngots.Midas_Gold_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Mythril_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("mythril_bush", MythicMetalsCropsBlocks.Mythril_BUSH, RegisterItems.Mythril_Dust);
+			SupernaturalCropsBlocks.registerBush("mythril_bush", MythicMetalsCropsBlocks.Mythril_BUSH, RegisterIngots.Mythril_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Orichalcum_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("orichalcum_bush", MythicMetalsCropsBlocks.Orichalcum_BUSH, RegisterItems.Orichalcum_Dust);
+			SupernaturalCropsBlocks.registerBush("orichalcum_bush", MythicMetalsCropsBlocks.Orichalcum_BUSH, RegisterIngots.Orichalcum_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Osmium_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("osmium_bush", MythicMetalsCropsBlocks.Osmium_BUSH, RegisterItems.Osmium_Dust);
+			SupernaturalCropsBlocks.registerBush("osmium_bush", MythicMetalsCropsBlocks.Osmium_BUSH, RegisterIngots.Osmium_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Platinum_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("platinum_bush", MythicMetalsCropsBlocks.Platinum_BUSH, RegisterItems.Platinum_Dust);
+			SupernaturalCropsBlocks.registerBush("platinum_bush", MythicMetalsCropsBlocks.Platinum_BUSH, RegisterIngots.Platinum_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Prometheum_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("prometheum_bush", MythicMetalsCropsBlocks.Prometheum_BUSH, RegisterItems.Prometheum_Dust);
+			SupernaturalCropsBlocks.registerBush("prometheum_bush", MythicMetalsCropsBlocks.Prometheum_BUSH, RegisterIngots.Prometheum_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Quadrillum_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("quadrillum_bush", MythicMetalsCropsBlocks.Quadrillum_BUSH, RegisterItems.Quadrillum_Dust);
+			SupernaturalCropsBlocks.registerBush("quadrillum_bush", MythicMetalsCropsBlocks.Quadrillum_BUSH, RegisterIngots.Quadrillum_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Quicksilver_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("quicksilver_bush", MythicMetalsCropsBlocks.Quicksilver_BUSH, RegisterItems.Quicksilver_Dust);
+			SupernaturalCropsBlocks.registerBush("quicksilver_bush", MythicMetalsCropsBlocks.Quicksilver_BUSH, RegisterIngots.Quicksilver_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Runite_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("runite_bush", MythicMetalsCropsBlocks.Runite_BUSH, RegisterItems.Runite_Dust);
+			SupernaturalCropsBlocks.registerBush("runite_bush", MythicMetalsCropsBlocks.Runite_BUSH, RegisterIngots.Runite_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Silver_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("mmsilver_bush", MythicMetalsCropsBlocks.MMSilver_BUSH, RegisterItems.Silver_Dust);
+			SupernaturalCropsBlocks.registerBush("mmsilver_bush", MythicMetalsCropsBlocks.MMSilver_BUSH, RegisterIngots.Silver_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Slowsilver_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("slowsilver_bush", MythicMetalsCropsBlocks.Slowsilver_BUSH, RegisterItems.Slowsilver_Dust);
+			SupernaturalCropsBlocks.registerBush("slowsilver_bush", MythicMetalsCropsBlocks.Slowsilver_BUSH, RegisterIngots.Slowsilver_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Starrite_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("starrite_bush", MythicMetalsCropsBlocks.Starrite_BUSH, RegisterItems.Starrite_Dust);
+			SupernaturalCropsBlocks.registerBush("starrite_bush", MythicMetalsCropsBlocks.Starrite_BUSH, RegisterIngots.Starrite_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Steel_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("mmsteel_bush", MythicMetalsCropsBlocks.MMSteel_BUSH, RegisterItems.Steel_Dust);
+			SupernaturalCropsBlocks.registerBush("mmsteel_bush", MythicMetalsCropsBlocks.MMSteel_BUSH, RegisterIngots.Steel_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Stormyx_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("stormyx_bush", MythicMetalsCropsBlocks.Stormyx_BUSH, RegisterItems.Stormyx_Dust);
+			SupernaturalCropsBlocks.registerBush("stormyx_bush", MythicMetalsCropsBlocks.Stormyx_BUSH, RegisterIngots.Stormyx_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Tantalite_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("tantalite_bush", MythicMetalsCropsBlocks.Tantalite_BUSH, RegisterItems.Tantalite_Dust);
+			SupernaturalCropsBlocks.registerBush("tantalite_bush", MythicMetalsCropsBlocks.Tantalite_BUSH, RegisterIngots.Tantalite_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Tin_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("tin_bush", MythicMetalsCropsBlocks.Tin_BUSH, RegisterItems.Tin_Dust);
+			SupernaturalCropsBlocks.registerBush("tin_bush", MythicMetalsCropsBlocks.Tin_BUSH, RegisterIngots.Tin_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Truesilver_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("truesilver_bush", MythicMetalsCropsBlocks.Truesilver_BUSH, RegisterItems.Truesilver_Dust);
+			SupernaturalCropsBlocks.registerBush("truesilver_bush", MythicMetalsCropsBlocks.Truesilver_BUSH, RegisterIngots.Truesilver_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Unobtainium_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("unobtainium_bush", MythicMetalsCropsBlocks.Unobtanium_BUSH, RegisterItems.Unobtainium_Dust);
+			SupernaturalCropsBlocks.registerBush("unobtainium_bush", MythicMetalsCropsBlocks.Unobtanium_BUSH, RegisterIngots.Unobtainium_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Ur_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("ur_bush", MythicMetalsCropsBlocks.Ur_BUSH, RegisterItems.Ur_Dust);
+			SupernaturalCropsBlocks.registerBush("ur_bush", MythicMetalsCropsBlocks.Ur_BUSH, RegisterIngots.Ur_Ingot);
 		}
 		if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Zinc_CROPS.getValue()) {
-			SupernaturalCropsBlocks.registerBush("mmzinc_bush", MythicMetalsCropsBlocks.MMZinc_BUSH, RegisterItems.Zinc_Dust);
+			SupernaturalCropsBlocks.registerBush("mmzinc_bush", MythicMetalsCropsBlocks.MMZinc_BUSH, RegisterIngots.Zinc_Ingot);
 		}
 	}
 

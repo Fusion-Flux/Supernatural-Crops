@@ -2,6 +2,7 @@ package com.fusionflux.supernaturalcrops.modsupport;
 
 import com.fusionflux.supernaturalcrops.SupernaturalCrops;
 import com.fusionflux.supernaturalcrops.blocks.CustomBush;
+import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -26,12 +27,10 @@ public class BetterEndCropsBlocks {
 
     public static void registerBlocks() {
         if (SupernaturalCropsConfig.BETTER_END_ENABLED.ENABLE_TERMINITE_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "terminite_bush"), BetterEndCropsBlocks.TERMINITE_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "terminite_bush_seeds"), new BlockItem(BetterEndCropsBlocks.TERMINITE_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            SupernaturalCropsBlocks.registerBush("terminite_bush", BetterEndCropsBlocks.TERMINITE_BUSH, EndItems.TERMINITE_INGOT);
         }
         if (SupernaturalCropsConfig.BETTER_END_ENABLED.ENABLE_AMBER_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "amber_bush"), BetterEndCropsBlocks.AMBER_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "amber_bush_seeds"), new BlockItem(BetterEndCropsBlocks.AMBER_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            SupernaturalCropsBlocks.registerBush("amber_bush", BetterEndCropsBlocks.AMBER_BUSH, EndItems.AMBER_GEM);
         }
     }
 

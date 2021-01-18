@@ -2,6 +2,7 @@ package com.fusionflux.supernaturalcrops.modsupport;
 
 import com.fusionflux.supernaturalcrops.SupernaturalCrops;
 import com.fusionflux.supernaturalcrops.blocks.CustomBush;
+import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -15,6 +16,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import nourl.mythicmetals.registry.RegisterIngots;
 import paulevs.betternether.registry.ItemsRegistry;
 import ru.betterend.registry.EndItems;
 
@@ -24,12 +26,10 @@ public class BetterNetherCropsBlocks {
 
     public static void registerBlocks() {
         if (SupernaturalCropsConfig.BETTER_NETHER_ENABLED.ENABLE_CINCINNASITE_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "cincinnasite_bush"), BetterNetherCropsBlocks.CINCINNASITE_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "cincinnasite_bush_seeds"), new BlockItem(BetterNetherCropsBlocks.CINCINNASITE_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            SupernaturalCropsBlocks.registerBush("cincinnasite_bush", BetterNetherCropsBlocks.CINCINNASITE_BUSH, ItemsRegistry.CINCINNASITE_INGOT);
         }
         if (SupernaturalCropsConfig.BETTER_NETHER_ENABLED.ENABLE_NETHER_RUBY_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "nether_ruby_bush"), BetterNetherCropsBlocks.NETHER_RUBY_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "nether_ruby_bush_seeds"), new BlockItem(BetterNetherCropsBlocks.NETHER_RUBY_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            SupernaturalCropsBlocks.registerBush("nether_ruby_bush", BetterNetherCropsBlocks.NETHER_RUBY_BUSH, ItemsRegistry.NETHER_RUBY);
         }
     }
 

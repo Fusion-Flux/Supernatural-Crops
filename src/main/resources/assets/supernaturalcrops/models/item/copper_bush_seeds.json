@@ -1,6 +1,0 @@
-{
-    "parent": "item/handheld",
-    "textures": {
-        "layer0": "supernaturalcrops:item/copper_bush_seeds"
-    }
-}

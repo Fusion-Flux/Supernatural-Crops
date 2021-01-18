@@ -57,8 +57,18 @@ public class SupernaturalCropsBlocks {
 	public static final Item SEED_OF_THE_ABYSS = new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof());
 
 	public static void registerBlocks() {
+		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "seed_of_the_abyss"), SEED_OF_THE_ABYSS);
 		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), SupernaturalCropsBlocks.EMBEDDED_ABYSS);
 		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), new BlockItem(SupernaturalCropsBlocks.EMBEDDED_ABYSS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+
+		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, "seed_of_the_abyss"), JLootTable
+				.loot("minecraft:block")
+				.pool(JLootTable.pool()
+						.rolls(new JRoll(1, 1))
+						.entry(new JEntry()
+								.type("minecraft:item")
+								.name("supernaturalcrops:seed_of_the_abyss"))
+						.condition(new JCondition("minecraft:survives_explosion"))));
 
 		if (SupernaturalCropsConfig.ENABLED.ENABLE_COAL_CROPS.getValue()) {
 			registerBush("coal_bush", SupernaturalCropsBlocks.COAL_BUSH, Items.COAL);

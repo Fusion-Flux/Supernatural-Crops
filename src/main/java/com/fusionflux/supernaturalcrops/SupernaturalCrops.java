@@ -47,6 +47,7 @@ public class SupernaturalCrops implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		RRPCallback.EVENT.register(a -> a.add(RESOURCE_PACK));
 		processConfig();
 		fuckFusionReallyItsNotFuckingHard();
 		SupernaturalCropsBlocks.registerBlocks();
@@ -76,13 +77,14 @@ public class SupernaturalCrops implements ModInitializer {
 		if (FabricLoader.getInstance().isModLoaded("betternether")) {
 			BetterNetherCropsBlocks.registerBlocks();
 		}
-		RRPCallback.EVENT.register(a -> a.add(RESOURCE_PACK));
 	}
 
 	private void fuckFusionReallyItsNotFuckingHard() {
-		createRecipe("   ",
+		createRecipe("dirt",
+				"   ",
 				"AB ",
 				"   ",
+				Items.BARRIER,
 				createKey("A", Items.DIRT, Items.COBBLESTONE),
 				createKey("B", Items.WHEAT_SEEDS));
 	}
@@ -91,7 +93,7 @@ public class SupernaturalCrops implements ModInitializer {
 		return new KeyInformation(name, Arrays.asList(items));
 	}
 
-	private void createRecipe(String pattern1, String pattern2, String pattern3, KeyInformation... keys) {
+	private void createRecipe(String name, String pattern1, String pattern2, String pattern3, Item result, KeyInformation... keys) {
 		JKeys jKeys = JKeys.keys();
 		for (KeyInformation key : keys) {
 			JIngredient ingredients = JIngredient.ingredient();
@@ -101,7 +103,7 @@ public class SupernaturalCrops implements ModInitializer {
 			jKeys.key(key.name, ingredients);
 		}
 
-		RESOURCE_PACK.addRecipe(new Identifier("arrp", "shaped0"), JRecipe.shaped(
+		RESOURCE_PACK.addRecipe(new Identifier(MOD_ID, name), JRecipe.shaped(
 				JPattern.pattern(
 						pattern1,
 						pattern2,
@@ -117,7 +119,7 @@ public class SupernaturalCrops implements ModInitializer {
 								JIngredient.ingredient()
 										.item(Items.WHEAT_SEEDS)
 						),
-				JResult.item(Items.COBBLESTONE)
+				JResult.item(result)
 		));
 	}
 

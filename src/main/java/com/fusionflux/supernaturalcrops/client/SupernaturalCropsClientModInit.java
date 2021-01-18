@@ -4,6 +4,7 @@ import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.modsupport.BetterEndCropsBlocks;
 import com.fusionflux.supernaturalcrops.modsupport.BetterNetherCropsBlocks;
 import com.fusionflux.supernaturalcrops.modsupport.MythicMetalsCropsBlocks;
+import com.fusionflux.supernaturalcrops.modsupport.TechRebornCropsBlocks;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 
@@ -20,6 +21,9 @@ public class SupernaturalCropsClientModInit implements ClientModInitializer {
         }
         if (FabricLoader.getInstance().isModLoaded("betternether")) {
             BetterNetherCropsBlocks.registerRenderLayers();
+        }
+        if (FabricLoader.getInstance().isModLoaded("techreborn")) {
+            TechRebornCropsBlocks.registerRenderLayers();
         }
     }
 }

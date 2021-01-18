@@ -2,15 +2,13 @@ package com.fusionflux.supernaturalcrops.block;
 
 import com.fusionflux.supernaturalcrops.SupernaturalCrops;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
-import net.devtech.arrp.json.loot.JCondition;
-import net.devtech.arrp.json.loot.JEntry;
+import com.fusionflux.supernaturalcrops.item.SupernaturalCropsItems;
+import com.fusionflux.supernaturalcrops.item.group.ItemGroups;
 import net.devtech.arrp.json.loot.JLootTable;
-import net.devtech.arrp.json.loot.JRoll;
 import net.devtech.arrp.json.recipe.*;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
@@ -28,11 +26,7 @@ import java.util.List;
 
 public class SupernaturalCropsBlocks {
 
-	public static final Item DIAMOND_SHARD = registerShard(new Item(new FabricItemSettings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP).fireproof()), "diamond_shard", Items.DIAMOND, false);
-
-	public static final Item EMERALD_SHARD = registerShard(new Item(new FabricItemSettings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP).fireproof()), "emerald_shard", Items.EMERALD, false);
-
-	public static final Item NETHERITE_FLAKE = registerShard(new Item(new FabricItemSettings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP).fireproof()), "netherite_flake", Items.NETHERITE_SCRAP, true);
+	public static final ScrapedStone SCRAPED_STONE = new ScrapedStone(FabricBlockSettings.of(Material.STONE).hardness(1.5F).ticksRandomly());
 
 	public static final OreBush COAL_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.COAL);
 
@@ -40,11 +34,11 @@ public class SupernaturalCropsBlocks {
 
 	public static final OreBush GOLD_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_GOLD_CROP_NUGGETS.getValue() ? Items.GOLD_NUGGET : Items.GOLD_INGOT);
 
-	public static final OreBush DIAMOND_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_DIAMOND_CROP_NUGGETS.getValue() ? SupernaturalCropsBlocks.DIAMOND_SHARD : Items.DIAMOND);
+	public static final OreBush DIAMOND_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_DIAMOND_CROP_NUGGETS.getValue() ? SupernaturalCropsItems.DIAMOND_SHARD : Items.DIAMOND);
 
-	public static final OreBush EMERALD_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_EMERALD_CROP_NUGGETS.getValue() ? SupernaturalCropsBlocks.EMERALD_SHARD : Items.EMERALD);
+	public static final OreBush EMERALD_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_EMERALD_CROP_NUGGETS.getValue() ? SupernaturalCropsItems.EMERALD_SHARD : Items.EMERALD);
 
-	public static final OreBush NETHERITE_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_NETHERITE_CROP_NUGGETS.getValue() ? SupernaturalCropsBlocks.NETHERITE_FLAKE : Items.NETHERITE_SCRAP);
+	public static final OreBush NETHERITE_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_NETHERITE_CROP_NUGGETS.getValue() ? SupernaturalCropsItems.NETHERITE_FLAKE : Items.NETHERITE_SCRAP);
 
 	public static final OreBush REDSTONE_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.REDSTONE);
 
@@ -54,12 +48,14 @@ public class SupernaturalCropsBlocks {
 
 
 	public static final Block EMBEDDED_ABYSS = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.4F));
-	public static final Item SEED_OF_THE_ABYSS = new Item(new FabricItemSettings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP).fireproof());
 
-	public static void registerBlocks() {
-		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "seed_of_the_abyss"), SEED_OF_THE_ABYSS);
+	public static void register() {
+		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "scraped_stone"), SCRAPED_STONE);
+		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "scraped_stone"), new BlockItem(SCRAPED_STONE, new Item.Settings().group(ItemGroup.DECORATIONS)));
+
+
 		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), SupernaturalCropsBlocks.EMBEDDED_ABYSS);
-		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), new BlockItem(SupernaturalCropsBlocks.EMBEDDED_ABYSS, new Item.Settings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP)));
+		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), new BlockItem(SupernaturalCropsBlocks.EMBEDDED_ABYSS, new Item.Settings().group(ItemGroups.SUPERNATURAL_CROPS)));
 
 		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, "blocks/embedded_abyss"),
 				JLootTable.loot("minecraft:block")
@@ -99,27 +95,16 @@ public class SupernaturalCropsBlocks {
 		}
 	}
 
-	public static Item registerShard(Item shardItem, String shardPath, Item output, boolean isSpecialSnowflake) {
-		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, shardPath), shardItem);
-		createRecipe(shardPath,
-				isSpecialSnowflake ? "AA " : "AAA",
-				isSpecialSnowflake ? "AA " : "AAA",
-				isSpecialSnowflake ? "   " : "AAA",
-				output,
-				createKey("A", shardItem));
-		return shardItem;
-	}
-
 	public static void registerBush(String path, Block block, Item ingot) {
 		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, path), block);
-		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, path + "_seeds"), new BlockItem(block, new Item.Settings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP)));
+		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, path + "_seeds"), new BlockItem(block, new Item.Settings().group(ItemGroups.SUPERNATURAL_CROPS)));
 		createRecipe(path + "_seeds",
 				"AAA",
 				"ABA",
 				"AAA",
 				block.asItem(),
 				createKey("A", ingot),
-				createKey("B", SEED_OF_THE_ABYSS));
+				createKey("B", SupernaturalCropsItems.SEED_OF_THE_ABYSS));
 		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, "blocks/" + path),
 				JLootTable.loot("minecraft:block")
 				.pool(JLootTable.pool()
@@ -144,11 +129,11 @@ public class SupernaturalCropsBlocks {
 		BlockRenderLayerMap.INSTANCE.putBlock(SupernaturalCropsBlocks.COAL_BUSH, RenderLayer.getCutout());
 	}
 
-	private static KeyInformation createKey(String name, Item... items) {
+	public static KeyInformation createKey(String name, Item... items) {
 		return new KeyInformation(name, Arrays.asList(items));
 	}
 
-	private static void createRecipe(String name, String pattern1, String pattern2, String pattern3, Item result, KeyInformation... keys) {
+	public static void createRecipe(String name, String pattern1, String pattern2, String pattern3, Item result, KeyInformation... keys) {
 		JKeys jKeys = JKeys.keys();
 		for (KeyInformation key : keys) {
 			JIngredient ingredients = JIngredient.ingredient();
@@ -169,7 +154,7 @@ public class SupernaturalCropsBlocks {
 		));
 	}
 
-	private static class KeyInformation {
+	public static class KeyInformation {
 		public String name;
 		public List<Item> items;
 

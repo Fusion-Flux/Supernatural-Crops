@@ -61,16 +61,14 @@ public class SupernaturalCropsBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), SupernaturalCropsBlocks.EMBEDDED_ABYSS);
 		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), new BlockItem(SupernaturalCropsBlocks.EMBEDDED_ABYSS, new Item.Settings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP)));
 
-
-
-		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, "seed_of_the_abyss"), JLootTable
-				.loot("minecraft:block")
+		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, "seed_of_the_abyss"),
+				JLootTable.loot("minecraft:block")
 				.pool(JLootTable.pool()
-						.rolls(new JRoll(1, 1))
-						.entry(new JEntry()
+						.rolls(1)
+						.entry(JLootTable.entry()
 								.type("minecraft:item")
-								.name("supernaturalcrops:seed_of_the_abyss"))
-						.condition(new JCondition("minecraft:survives_explosion"))));
+								.name(SupernaturalCrops.MOD_ID + ":seed_of_the_abyss"))
+						.condition(JLootTable.predicate("minecraft:survives_explosion"))));
 
 		if (SupernaturalCropsConfig.ENABLED.ENABLE_COAL_CROPS.getValue()) {
 			registerBush("coal_bush", SupernaturalCropsBlocks.COAL_BUSH, Items.COAL);
@@ -125,11 +123,11 @@ public class SupernaturalCropsBlocks {
 		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, path), JLootTable
 				.loot("minecraft:block")
 				.pool(JLootTable.pool()
-				.rolls(new JRoll(1, 1))
-				.entry(new JEntry()
-						.type("minecraft:item")
-						.name("supernaturalcrops:" + path + "_seeds"))
-				.condition(new JCondition("minecraft:survives_explosion")))
+						.rolls(1)
+						.entry(JLootTable.entry()
+								.type("minecraft:item")
+								.name("supernaturalcrops:" + path + "_seeds"))
+						.condition(new JCondition("minecraft:survives_explosion")))
 		);
 	}
 

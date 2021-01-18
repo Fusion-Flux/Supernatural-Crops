@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 
 public class CustomBush extends SweetBerryBushBlock {
 
-    private Item resourceToDrop;
+    private final Item resourceToDrop;
 
     public CustomBush(Settings settings, Item resourceToDrop) {
         super(settings);

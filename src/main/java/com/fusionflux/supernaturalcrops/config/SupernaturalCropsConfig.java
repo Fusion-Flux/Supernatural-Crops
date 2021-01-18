@@ -298,6 +298,24 @@ public final class SupernaturalCropsConfig extends Config {
 		}
 	}
 
+	public static class TECHREBORN_NUGGET_BALANCE extends ConfigItemGroup {
+		public static final ConfigItem<Boolean> ENABLE_COPPER_CROP_NUGGETS = new ConfigItem<>("trcopper_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.techreborn_nugget_balance.copper_crop_enabled");
+		public static final List<ConfigItem<?>> OPTIONS = ImmutableList.of(ENABLE_COPPER_CROP_NUGGETS);
+		public TECHREBORN_NUGGET_BALANCE() {
+			super(OPTIONS, "techreborn_nugget_balance");
+		}
+	}
+
+	public static class TECHREBORN_ENABLED extends ConfigItemGroup {
+		public static final ConfigItem<Boolean> ENABLE_COPPER_CROPS = new ConfigItem<>("trcopper_enabled", true,
+				"config.supernaturalcrops.enabled.trcopper_crop_enabled");
+		public static final List<ConfigItem<?>> OPTIONS = ImmutableList.of(ENABLE_COPPER_CROPS);
+		public TECHREBORN_ENABLED() {
+			super(OPTIONS, "techreborn_enabled");
+		}
+	}
+
 
 	private static final String CONFIG_FILE_NAME = "supernaturalcrops.json";
 
@@ -306,7 +324,9 @@ public final class SupernaturalCropsConfig extends Config {
 			new MYTHICAL_METALS_ENABLED(),
 			new MYTHICAL_METALS_NUGGET_BALANCE(),
 			new BETTER_END_ENABLED(),
-			new BETTER_END_NUGGET_BALANCE());
+			new BETTER_END_NUGGET_BALANCE(),
+			new TECHREBORN_ENABLED(),
+			new TECHREBORN_NUGGET_BALANCE());
 
 
 	public SupernaturalCropsConfig() {

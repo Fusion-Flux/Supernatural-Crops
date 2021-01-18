@@ -28,11 +28,11 @@ import java.util.List;
 
 public class SupernaturalCropsBlocks {
 
-	public static final Item DIAMOND_SHARD = registerShard(new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), "diamond_shard", Items.DIAMOND, false);
+	public static final Item DIAMOND_SHARD = registerShard(new Item(new FabricItemSettings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP).fireproof()), "diamond_shard", Items.DIAMOND, false);
 
-	public static final Item EMERALD_SHARD = registerShard(new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), "emerald_shard", Items.EMERALD, false);
+	public static final Item EMERALD_SHARD = registerShard(new Item(new FabricItemSettings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP).fireproof()), "emerald_shard", Items.EMERALD, false);
 
-	public static final Item NETHERITE_FLAKE = registerShard(new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), "netherite_flake", Items.NETHERITE_SCRAP, true);
+	public static final Item NETHERITE_FLAKE = registerShard(new Item(new FabricItemSettings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP).fireproof()), "netherite_flake", Items.NETHERITE_SCRAP, true);
 
 	public static final OreBush COAL_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.COAL);
 
@@ -54,12 +54,14 @@ public class SupernaturalCropsBlocks {
 
 
 	public static final Block EMBEDDED_ABYSS = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.4F));
-	public static final Item SEED_OF_THE_ABYSS = new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof());
+	public static final Item SEED_OF_THE_ABYSS = new Item(new FabricItemSettings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP).fireproof());
 
 	public static void registerBlocks() {
 		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "seed_of_the_abyss"), SEED_OF_THE_ABYSS);
 		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), SupernaturalCropsBlocks.EMBEDDED_ABYSS);
-		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), new BlockItem(SupernaturalCropsBlocks.EMBEDDED_ABYSS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), new BlockItem(SupernaturalCropsBlocks.EMBEDDED_ABYSS, new Item.Settings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP)));
+
+
 
 		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, "seed_of_the_abyss"), JLootTable
 				.loot("minecraft:block")
@@ -112,7 +114,7 @@ public class SupernaturalCropsBlocks {
 
 	public static void registerBush(String path, Block block, Item ingot) {
 		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, path), block);
-		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, path + "_seeds"), new BlockItem(block, new Item.Settings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, path + "_seeds"), new BlockItem(block, new Item.Settings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP)));
 		createRecipe(path + "_seeds",
 				"AAA",
 				"ABA",

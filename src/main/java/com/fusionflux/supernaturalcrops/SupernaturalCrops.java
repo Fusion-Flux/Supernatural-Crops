@@ -6,6 +6,7 @@ import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import com.fusionflux.supernaturalcrops.modsupport.BetterEndCropsBlocks;
 import com.fusionflux.supernaturalcrops.modsupport.BetterNetherCropsBlocks;
 import com.fusionflux.supernaturalcrops.modsupport.MythicMetalsCropsBlocks;
+import com.fusionflux.supernaturalcrops.modsupport.TechRebornCropsBlocks;
 import com.oroarmor.config.ConfigItemGroup;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
@@ -13,10 +14,13 @@ import net.devtech.arrp.json.recipe.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.util.Identifier;
@@ -44,6 +48,10 @@ public class SupernaturalCrops implements ModInitializer {
 	public static final RuntimeResourcePack RESOURCE_PACK = RuntimeResourcePack.create(MOD_ID + ":runtime");
 
 	public static final Logger LOGGER = LogManager.getLogger("Supernatural Crops");
+
+	public static final ItemGroup SUPERNATURALCROPS_GROUP = FabricItemGroupBuilder.build(
+			new Identifier("supernaturalcrops", "general"),
+			() -> new ItemStack(SupernaturalCropsBlocks.SEED_OF_THE_ABYSS));
 
 	@Override
 	public void onInitialize() {
@@ -76,6 +84,9 @@ public class SupernaturalCrops implements ModInitializer {
 		}
 		if (FabricLoader.getInstance().isModLoaded("betternether")) {
 			BetterNetherCropsBlocks.registerBlocks();
+		}
+		if (FabricLoader.getInstance().isModLoaded("techreborn")) {
+			TechRebornCropsBlocks.registerBlocks();
 		}
 	}
 

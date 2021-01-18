@@ -28,11 +28,11 @@ import java.util.List;
 
 public class SupernaturalCropsBlocks {
 
-	public static final Item DIAMOND_SHARD = registerShard(new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), "diamond_shard", Items.DIAMOND);
+	public static final Item DIAMOND_SHARD = registerShard(new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), "diamond_shard", Items.DIAMOND, false);
 
-	public static final Item EMERALD_SHARD = registerShard(new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), "emerald_shard", Items.EMERALD);
+	public static final Item EMERALD_SHARD = registerShard(new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), "emerald_shard", Items.EMERALD, false);
 
-	public static final Item NETHERITE_FLAKE = registerShard(new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), "netherite_flake", Items.NETHERITE_SCRAP);
+	public static final Item NETHERITE_FLAKE = registerShard(new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), "netherite_flake", Items.NETHERITE_SCRAP, true);
 
 	public static final OreBush COAL_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.COAL);
 
@@ -89,12 +89,12 @@ public class SupernaturalCropsBlocks {
 		}
 	}
 
-	public static Item registerShard(Item shardItem, String shardPath, Item output) {
+	public static Item registerShard(Item shardItem, String shardPath, Item output, boolean isSpecialSnowflake) {
 		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, shardPath), shardItem);
 		createRecipe(shardPath,
-				"AA ",
-				"AA ",
-				"   ",
+				isSpecialSnowflake ? "AA " : "AAA",
+				isSpecialSnowflake ? "AA " : "AAA",
+				isSpecialSnowflake ? "   " : "AAA",
 				output,
 				createKey("A", shardItem));
 		return shardItem;

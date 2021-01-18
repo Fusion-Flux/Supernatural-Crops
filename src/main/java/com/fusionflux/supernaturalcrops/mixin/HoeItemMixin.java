@@ -1,14 +1,11 @@
 package com.fusionflux.supernaturalcrops.mixin;
 
-import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsScrapedStone;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.sound.SoundCategory;
@@ -28,38 +25,36 @@ import java.util.Set;
 @Mixin(HoeItem.class)
 public class HoeItemMixin extends MiningToolItem {
 
-    private static final Map<Block, BlockState> SCRAPED_BLOCKS;
+	private static final Map<Block, BlockState> SCRAPED_BLOCKS;
 
-    protected HoeItemMixin(float attackDamage, float attackSpeed, ToolMaterial material, Set<Block> effectiveBlocks, Settings settings) {
-        super(attackDamage, attackSpeed, material, effectiveBlocks, settings);
-    }
+	protected HoeItemMixin(float attackDamage, float attackSpeed, ToolMaterial material, Set<Block> effectiveBlocks, Settings settings) {
+		super(attackDamage, attackSpeed, material, effectiveBlocks, settings);
+	}
 
-@Inject(method = "useOnBlock", at = @At("TAIL"), cancellable = true)
-private void hoeStone(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
-    World world = context.getWorld();
-    BlockPos blockPos = context.getBlockPos();
-    if (this == Items.NETHERITE_HOE) {
-        if (context.getSide() != Direction.DOWN && world.getBlockState(blockPos.up()).isAir()) {
-            BlockState blockState = (BlockState)SCRAPED_BLOCKS.get(world.getBlockState(blockPos).getBlock());
-            if (blockState != null) {
-                PlayerEntity playerEntity = context.getPlayer();
-                world.playSound(playerEntity, blockPos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                if (!world.isClient) {
-                    world.setBlockState(blockPos, blockState, 11);
-                    if (playerEntity != null) {
-                        context.getStack().damage(1, playerEntity, (p) -> {
-                            p.sendToolBreakStatus(context.getHand());
-                        });
-                    }
-                }
+	@Inject(method = "useOnBlock", at = @At("TAIL"), cancellable = true)
+	private void hoeStone(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
+		World world = context.getWorld();
+		BlockPos blockPos = context.getBlockPos();
+		if (this == Items.NETHERITE_HOE) {
+			if (context.getSide() != Direction.DOWN && world.getBlockState(blockPos.up()).isAir()) {
+				BlockState blockState = SCRAPED_BLOCKS.get(world.getBlockState(blockPos).getBlock());
+				if (blockState != null) {
+					PlayerEntity playerEntity = context.getPlayer();
+					world.playSound(playerEntity, blockPos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					if (!world.isClient()) {
+						world.setBlockState(blockPos, blockState, 11);
+						if (playerEntity != null) {
+							context.getStack().damage(1, playerEntity, (p) -> p.sendToolBreakStatus(context.getHand()));
+						}
+					}
+					cir.setReturnValue(ActionResult.success(world.isClient));
+				}
+			}
+			cir.cancel();
+		}
+	}
 
-                cir.setReturnValue(ActionResult.success(world.isClient));
-            }
-        }
-        cir.cancel();
-    }
-}
-    static {
-        SCRAPED_BLOCKS = Maps.newHashMap(ImmutableMap.of(Blocks.STONE, SupernaturalCropsScrapedStone.SCRAPED_STONE.getDefaultState()));
-    }
+	static {
+		SCRAPED_BLOCKS = Maps.newHashMap(ImmutableMap.of(Blocks.STONE, SupernaturalCropsScrapedStone.SCRAPED_STONE.getDefaultState()));
+	}
 }

@@ -1,7 +1,11 @@
-package com.fusionflux.supernaturalcrops.blocks;
+package com.fusionflux.supernaturalcrops.block;
 
 import com.fusionflux.supernaturalcrops.SupernaturalCrops;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
+import net.devtech.arrp.json.loot.JCondition;
+import net.devtech.arrp.json.loot.JEntry;
+import net.devtech.arrp.json.loot.JLootTable;
+import net.devtech.arrp.json.loot.JRoll;
 import net.devtech.arrp.json.recipe.*;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -10,7 +14,6 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
-import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -19,42 +22,35 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import nourl.mythicmetals.MythicMetals;
-import nourl.mythicmetals.blocks.MythicMetalsAnvils;
-import nourl.mythicmetals.blocks.MythicMetalsBlocks;
-import nourl.mythicmetals.ores.MythicMetalsOres;
-import nourl.mythicmetals.registry.RegisterIngots;
-import nourl.mythicmetals.registry.RegisterNuggets;
-import nourl.mythicmetals.tools.MythicMetalsToolMaterials;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class SupernaturalCropsBlocks {
 
-	public static final Item DIAMOND_SHARD = new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof());
+	public static final Item DIAMOND_SHARD = registerShard(new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), "diamond_shard", Items.DIAMOND);
 
-	public static final Item EMERALD_SHARD = new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof());
+	public static final Item EMERALD_SHARD = registerShard(new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), "emerald_shard", Items.EMERALD);
 
-	public static final Item NETHERITE_FLAKE = new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof());
+	public static final Item NETHERITE_FLAKE = registerShard(new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), "netherite_flake", Items.NETHERITE_SCRAP);
 
-	public static final CustomBush COAL_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.COAL);
+	public static final OreBush COAL_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.COAL);
 
-	public static final CustomBush IRON_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_IRON_CROP_NUGGETS.getValue() ? Items.IRON_NUGGET : Items.IRON_INGOT);
+	public static final OreBush IRON_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_IRON_CROP_NUGGETS.getValue() ? Items.IRON_NUGGET : Items.IRON_INGOT);
 
-	public static final CustomBush GOLD_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_GOLD_CROP_NUGGETS.getValue() ? Items.GOLD_NUGGET : Items.GOLD_INGOT);
+	public static final OreBush GOLD_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_GOLD_CROP_NUGGETS.getValue() ? Items.GOLD_NUGGET : Items.GOLD_INGOT);
 
-	public static final CustomBush DIAMOND_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_DIAMOND_CROP_NUGGETS.getValue() ? SupernaturalCropsBlocks.DIAMOND_SHARD : Items.DIAMOND);
+	public static final OreBush DIAMOND_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_DIAMOND_CROP_NUGGETS.getValue() ? SupernaturalCropsBlocks.DIAMOND_SHARD : Items.DIAMOND);
 
-	public static final CustomBush EMERALD_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_EMERALD_CROP_NUGGETS.getValue() ? SupernaturalCropsBlocks.EMERALD_SHARD : Items.EMERALD);
+	public static final OreBush EMERALD_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_EMERALD_CROP_NUGGETS.getValue() ? SupernaturalCropsBlocks.EMERALD_SHARD : Items.EMERALD);
 
-	public static final CustomBush NETHERITE_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_NETHERITE_CROP_NUGGETS.getValue() ? SupernaturalCropsBlocks.NETHERITE_FLAKE : Items.NETHERITE_SCRAP);
+	public static final OreBush NETHERITE_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_NETHERITE_CROP_NUGGETS.getValue() ? SupernaturalCropsBlocks.NETHERITE_FLAKE : Items.NETHERITE_SCRAP);
 
-	public static final CustomBush REDSTONE_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.REDSTONE);
+	public static final OreBush REDSTONE_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.REDSTONE);
 
-	public static final CustomBush LAPIS_LAZULI_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.LAPIS_LAZULI);
+	public static final OreBush LAPIS_LAZULI_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.LAPIS_LAZULI);
 
-	public static final CustomBush QUARTZ_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.QUARTZ);
+	public static final OreBush QUARTZ_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.QUARTZ);
 
 
 	public static final Block EMBEDDED_ABYSS = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.4F));
@@ -63,10 +59,6 @@ public class SupernaturalCropsBlocks {
 	public static void registerBlocks() {
 		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), SupernaturalCropsBlocks.EMBEDDED_ABYSS);
 		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), new BlockItem(SupernaturalCropsBlocks.EMBEDDED_ABYSS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
-		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "seed_of_the_abyss"), SEED_OF_THE_ABYSS);
-		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "diamond_shard"), DIAMOND_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "emerald_shard"), EMERALD_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "netherite_flake"), NETHERITE_FLAKE);
 
 		if (SupernaturalCropsConfig.ENABLED.ENABLE_COAL_CROPS.getValue()) {
 			registerBush("coal_bush", SupernaturalCropsBlocks.COAL_BUSH, Items.COAL);
@@ -97,6 +89,17 @@ public class SupernaturalCropsBlocks {
 		}
 	}
 
+	public static Item registerShard(Item shardItem, String shardPath, Item output) {
+		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, shardPath), shardItem);
+		createRecipe(shardPath,
+				"AA ",
+				"AA ",
+				"   ",
+				output,
+				createKey("A", shardItem));
+		return shardItem;
+	}
+
 	public static void registerBush(String path, Block block, Item ingot) {
 		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, path), block);
 		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, path + "_seeds"), new BlockItem(block, new Item.Settings().group(ItemGroup.MISC)));
@@ -107,6 +110,15 @@ public class SupernaturalCropsBlocks {
 				block.asItem(),
 				createKey("A", ingot),
 				createKey("B", SEED_OF_THE_ABYSS));
+		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, path), JLootTable
+				.loot("minecraft:block")
+				.pool(JLootTable.pool()
+				.rolls(new JRoll(1, 1))
+				.entry(new JEntry()
+						.type("minecraft:item")
+						.name("supernaturalcrops:" + path + "_seeds"))
+				.condition(new JCondition("minecraft:survives_explosion")))
+		);
 	}
 
 	@Environment(EnvType.CLIENT)

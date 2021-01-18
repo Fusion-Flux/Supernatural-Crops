@@ -1,6 +1,6 @@
 package com.fusionflux.supernaturalcrops.mixin;
 
-import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsScrapedStone;
+import com.fusionflux.supernaturalcrops.block.SupernaturalCropsScrapedStone;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import net.minecraft.block.Block;

@@ -1,34 +1,26 @@
-package com.fusionflux.supernaturalcrops.blocks;
+package com.fusionflux.supernaturalcrops.block;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class CustomBush extends SweetBerryBushBlock {
+public class OreBush extends SweetBerryBushBlock {
 
     private final Item resourceToDrop;
 
-    public CustomBush(Settings settings, Item resourceToDrop) {
+    public OreBush(Settings settings, Item resourceToDrop) {
         super(settings);
         this.resourceToDrop = resourceToDrop;
 

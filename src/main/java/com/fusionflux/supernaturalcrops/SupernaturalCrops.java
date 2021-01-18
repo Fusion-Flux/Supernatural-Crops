@@ -1,7 +1,7 @@
 package com.fusionflux.supernaturalcrops;
 
-import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsBlocks;
-import com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsScrapedStone;
+import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
+import com.fusionflux.supernaturalcrops.block.SupernaturalCropsScrapedStone;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import com.fusionflux.supernaturalcrops.modsupport.BetterEndCropsBlocks;
 import com.fusionflux.supernaturalcrops.modsupport.BetterNetherCropsBlocks;

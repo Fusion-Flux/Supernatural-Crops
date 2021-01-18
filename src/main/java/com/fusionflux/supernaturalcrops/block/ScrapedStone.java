@@ -1,4 +1,4 @@
-package com.fusionflux.supernaturalcrops.blocks;
+package com.fusionflux.supernaturalcrops.block;
 
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import net.minecraft.block.*;
@@ -7,21 +7,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.state.property.Property;
 import net.minecraft.tag.FluidTags;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -30,11 +20,11 @@ import net.minecraft.world.*;
 import java.util.Iterator;
 import java.util.Random;
 
-public class CustomFarmland extends Block {
+public class ScrapedStone extends Block {
     public static final IntProperty MAGMATED;
     protected static final VoxelShape SHAPE;
 
-    protected CustomFarmland(Settings settings) {
+    protected ScrapedStone(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(MAGMATED, 0));
     }

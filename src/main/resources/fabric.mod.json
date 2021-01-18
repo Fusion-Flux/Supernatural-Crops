@@ -7,7 +7,8 @@
   "description": "A more balanced version of Mystical Agriculture for Fabric",
   "authors": [
     "Fusion Flux",
-    "Something Shard"
+    "Something Shard",
+    "Hydos"
   ],
   "contact": {
     "homepage": "https://github.com/Fusion-Flux/Supernatural-Crops",
@@ -24,7 +25,7 @@
       "com.fusionflux.supernaturalcrops.SupernaturalCrops"
     ],
     "client": [
-      "com.fusionflux.supernaturalcrops.blocks.SupernaturalCropsClientModInit"
+      "com.fusionflux.supernaturalcrops.client.SupernaturalCropsClientModInit"
     ],
     "modmenu" : [
       "com.fusionflux.supernaturalcrops.compatibility.ModMenuIntegration"

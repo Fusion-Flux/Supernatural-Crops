@@ -165,10 +165,17 @@
   "config.supernaturalcrops.mythical_metals_nugget_balance.zinc_crop_nuggets_enabled": "Enable Zinc Nuggets",
 
   "config.supernaturalcrops.better_end_enabled": "Better End Enabled Bushes",
+  "config.supernaturalcrops.enabled.terminite_crop_enabled": "Enable Terminite Bushes",
+  "config.supernaturalcrops.enabled.amber_crop_enabled": "Enable Amber Bushes",
 
   "config.supernaturalcrops.better_end_nugget_balance": "Enable Better End Nugget Drops",
+  "config.supernaturalcrops.better_end_nugget_balance.terminite_crop_enabled": "Enable End Dust",
+  "config.supernaturalcrops.better_end_nugget_balance.amber_crop_enabled": "Enable Raw Amber",
 
   "config.supernaturalcrops.better_nether_enabled": "Better Nether Enabled Bushes",
+  "config.supernaturalcrops.enabled.cincinnasite_crop_enabled": "Enable Cincinnasite Bushes",
+  "config.supernaturalcrops.enabled.nether_ruby_crop_enabled": "Enable Nether Ruby Bushes",
 
-  "config.supernaturalcrops.better_nether_nugget_balance": "Enable Better Nether Nugget Drops"
+  "config.supernaturalcrops.better_nether_nugget_balance": "Enable Better Nether Nugget Drops",
+  "config.supernaturalcrops.better_end_nugget_balance.cincinnasite_crop_enabled": "Enable Cincinnasite Nugget"
 }

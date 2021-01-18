@@ -290,8 +290,8 @@ public final class SupernaturalCropsConfig extends Config {
 	public static class BETTER_NETHER_ENABLED extends ConfigItemGroup {
 		public static final ConfigItem<Boolean> ENABLE_CINCINNASITE_CROPS = new ConfigItem<>("cincinnasite_enabled", true,
 				"config.supernaturalcrops.enabled.cincinnasite_crop_enabled");
-		public static final ConfigItem<Boolean> ENABLE_NETHER_RUBY_CROPS = new ConfigItem<>("cincinnasite_enabled", true,
-				"config.supernaturalcrops.enabled.cincinnasite_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_NETHER_RUBY_CROPS = new ConfigItem<>("nether_ruby_enabled", true,
+				"config.supernaturalcrops.enabled.nether_ruby_crop_enabled");
 		public static final List<ConfigItem<?>> OPTIONS = ImmutableList.of(ENABLE_CINCINNASITE_CROPS,ENABLE_NETHER_RUBY_CROPS);
 		public BETTER_NETHER_ENABLED() {
 			super(OPTIONS, "better_end_enabled");

@@ -120,14 +120,14 @@ public class SupernaturalCropsBlocks {
 				block.asItem(),
 				createKey("A", ingot),
 				createKey("B", SEED_OF_THE_ABYSS));
-		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, "blocks/" + path), JLootTable
-				.loot("minecraft:block")
+		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, "blocks/" + path),
+				JLootTable.loot("minecraft:block")
 				.pool(JLootTable.pool()
 						.rolls(1)
 						.entry(JLootTable.entry()
 								.type("minecraft:item")
 								.name("supernaturalcrops:" + path + "_seeds"))
-						.condition(new JCondition("minecraft:survives_explosion")))
+						.condition(JLootTable.predicate("minecraft:survives_explosion")))
 		);
 	}
 

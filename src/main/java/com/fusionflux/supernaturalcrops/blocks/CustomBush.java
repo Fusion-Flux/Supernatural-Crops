@@ -33,7 +33,7 @@ public class CustomBush extends SweetBerryBushBlock {
         this.resourceToDrop = resourceToDrop;
 
     }
-@Override
+    @Override
     @Environment(EnvType.CLIENT)
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
         return new ItemStack(this);
@@ -44,7 +44,7 @@ public class CustomBush extends SweetBerryBushBlock {
         int i = state.get(AGE);
         boolean bl = i == 3;
         if (!bl && player.getStackInHand(hand).getItem() == Items.BONE_MEAL) {
-            return ActionResult.CONSUME;
+            return ActionResult.FAIL;
         } else if (i > 1) {
             int j = world.random.nextInt(2);
             dropStack(world, pos, new ItemStack(resourceToDrop, j+(bl ? 1 : 0)));

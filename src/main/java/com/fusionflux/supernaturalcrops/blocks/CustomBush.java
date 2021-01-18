@@ -33,7 +33,7 @@ public class CustomBush extends SweetBerryBushBlock {
         this.resourceToDrop = resourceToDrop;
 
     }
-@Override
+    @Override
     @Environment(EnvType.CLIENT)
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
         return new ItemStack(this);

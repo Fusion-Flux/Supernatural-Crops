@@ -3,10 +3,7 @@ package com.fusionflux.supernaturalcrops;
 import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.block.SupernaturalCropsScrapedStone;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
-import com.fusionflux.supernaturalcrops.modsupport.BetterEndCropsBlocks;
-import com.fusionflux.supernaturalcrops.modsupport.BetterNetherCropsBlocks;
-import com.fusionflux.supernaturalcrops.modsupport.MythicMetalsCropsBlocks;
-import com.fusionflux.supernaturalcrops.modsupport.TechRebornCropsBlocks;
+import com.fusionflux.supernaturalcrops.modsupport.*;
 import com.oroarmor.config.ConfigItemGroup;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
@@ -87,6 +84,9 @@ public class SupernaturalCrops implements ModInitializer {
 		}
 		if (FabricLoader.getInstance().isModLoaded("techreborn")) {
 			TechRebornCropsBlocks.registerBlocks();
+		}
+		if (FabricLoader.getInstance().isModLoaded("lint")) {
+			LintCropsBlocks.registerBlocks();
 		}
 	}
 

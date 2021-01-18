@@ -316,6 +316,24 @@ public final class SupernaturalCropsConfig extends Config {
 		}
 	}
 
+	public static class LINT_NUGGET_BALANCE extends ConfigItemGroup {
+		public static final ConfigItem<Boolean> ENABLE_JUREL_CROP_NUGGETS = new ConfigItem<>("trcopper_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.lint_nugget_balance.jurel_crop_enabled");
+		public static final List<ConfigItem<?>> OPTIONS = ImmutableList.of(ENABLE_JUREL_CROP_NUGGETS);
+		public LINT_NUGGET_BALANCE() {
+			super(OPTIONS, "lint_nugget_balance");
+		}
+	}
+
+	public static class LINT_ENABLED extends ConfigItemGroup {
+		public static final ConfigItem<Boolean> ENABLE_JUREL_CROPS = new ConfigItem<>("trcopper_enabled", true,
+				"config.supernaturalcrops.enabled.jurel_crop_enabled");
+		public static final List<ConfigItem<?>> OPTIONS = ImmutableList.of(ENABLE_JUREL_CROPS);
+		public LINT_ENABLED() {
+			super(OPTIONS, "lint_enabled");
+		}
+	}
+
 
 	private static final String CONFIG_FILE_NAME = "supernaturalcrops.json";
 

@@ -4,7 +4,9 @@
   "package": "com.fusionflux.supernaturalcrops.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "HoeItemMixin"
+    "HoeItemMixin",
+    "MinecraftServerMixin",
+    "SinglePreparationResourceReloadListenerMixin"
   ],
   "client": [
   ],

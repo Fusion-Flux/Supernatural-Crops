@@ -7,12 +7,17 @@ import com.fusionflux.supernaturalcrops.modsupport.BetterEndCropsBlocks;
 import com.fusionflux.supernaturalcrops.modsupport.BetterNetherCropsBlocks;
 import com.fusionflux.supernaturalcrops.modsupport.MythicMetalsCropsBlocks;
 import com.oroarmor.config.ConfigItemGroup;
+import net.devtech.arrp.api.RRPCallback;
+import net.devtech.arrp.api.RuntimeResourcePack;
+import net.devtech.arrp.json.recipe.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -28,16 +33,22 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class SupernaturalCrops implements ModInitializer {
 	public static final String MOD_ID = "supernaturalcrops";
 
 	public static final SupernaturalCropsConfig CONFIG = new SupernaturalCropsConfig();
+
+	public static final RuntimeResourcePack RESOURCE_PACK = RuntimeResourcePack.create(MOD_ID + ":runtime");
 
 	public static final Logger LOGGER = LogManager.getLogger("Supernatural Crops");
 
 	@Override
 	public void onInitialize() {
 		processConfig();
+		fuckFusionReallyItsNotFuckingHard();
 		SupernaturalCropsBlocks.registerBlocks();
 		SupernaturalCropsScrapedStone.registerScrapedStone();
 		ConfiguredFeature<?, ?> EMBEDDED_ABYSS_VIEN = Feature.ORE
@@ -65,6 +76,49 @@ public class SupernaturalCrops implements ModInitializer {
 		if (FabricLoader.getInstance().isModLoaded("betternether")) {
 			BetterNetherCropsBlocks.registerBlocks();
 		}
+		RRPCallback.EVENT.register(a -> a.add(RESOURCE_PACK));
+	}
+
+	private void fuckFusionReallyItsNotFuckingHard() {
+		createRecipe("   ",
+				"AB ",
+				"   ",
+				createKey("A", Items.DIRT, Items.COBBLESTONE),
+				createKey("B", Items.WHEAT_SEEDS));
+	}
+
+	private KeyInformation createKey(String name, Item... items) {
+		return new KeyInformation(name, Arrays.asList(items));
+	}
+
+	private void createRecipe(String pattern1, String pattern2, String pattern3, KeyInformation... keys) {
+		JKeys jKeys = JKeys.keys();
+		for (KeyInformation key : keys) {
+			JIngredient ingredients = JIngredient.ingredient();
+			for (Item item : key.items) {
+				ingredients.item(item);
+			}
+			jKeys.key(key.name, ingredients);
+		}
+
+		RESOURCE_PACK.addRecipe(new Identifier("arrp", "shaped0"), JRecipe.shaped(
+				JPattern.pattern(
+						pattern1,
+						pattern2,
+						pattern3
+				),
+				JKeys.keys()
+						.key("A",
+								JIngredient.ingredient()
+										.item(Items.DIRT)
+										.item(Items.COBBLESTONE)
+						)
+						.key("B",
+								JIngredient.ingredient()
+										.item(Items.WHEAT_SEEDS)
+						),
+				JResult.item(Items.COBBLESTONE)
+		));
 	}
 
 	private void processConfig() {
@@ -78,4 +132,13 @@ public class SupernaturalCrops implements ModInitializer {
 		ServerLifecycleEvents.SERVER_STOPPED.register(l -> CONFIG.saveConfigToFile());
 	}
 
+	private class KeyInformation {
+		public String name;
+		public List<Item> items;
+
+		public KeyInformation(String name, List<Item> items) {
+			this.name = name;
+			this.items = items;
+		}
+	}
 }

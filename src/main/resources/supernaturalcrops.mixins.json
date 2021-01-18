@@ -4,9 +4,9 @@
   "package": "com.fusionflux.supernaturalcrops.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "HoeItemMixin"
   ],
   "client": [
-    "HoeItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

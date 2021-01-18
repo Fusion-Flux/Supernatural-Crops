@@ -24,14 +24,14 @@ public class MythicMetalsCropsBlocks {
     public static final CustomBush Aquarium_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Aquarium_CROP_NUGGETS.getValue() ? RegisterNuggets.Aquarium_Nugget : RegisterIngots.Aquarium_Ingot);
     public static final CustomBush Argonium_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Argonium_CROP_NUGGETS.getValue() ? RegisterNuggets.Argonium_Nugget : RegisterIngots.Argonium_Ingot);
     public static final CustomBush Banglum_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Banglum_CROP_NUGGETS.getValue() ? RegisterNuggets.Banglum_Nugget : RegisterIngots.Banglum_Ingot);
-    public static final CustomBush Brass_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Brass_CROP_NUGGETS.getValue() ? RegisterNuggets.Brass_Nugget : RegisterIngots.Brass_Ingot);
-    public static final CustomBush Bronze_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Bronze_CROP_NUGGETS.getValue() ? RegisterNuggets.Bronze_Nugget : RegisterIngots.Bronze_Ingot);
+    public static final CustomBush MMBrass_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Brass_CROP_NUGGETS.getValue() ? RegisterNuggets.Brass_Nugget : RegisterIngots.Brass_Ingot);
+    public static final CustomBush MMBronze_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Bronze_CROP_NUGGETS.getValue() ? RegisterNuggets.Bronze_Nugget : RegisterIngots.Bronze_Ingot);
     public static final CustomBush Carmot_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Carmot_CROP_NUGGETS.getValue() ? RegisterNuggets.Carmot_Nugget : RegisterIngots.Carmot_Ingot);
     public static final CustomBush Celestium_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Celestium_CROP_NUGGETS.getValue() ? RegisterNuggets.Celestium_Nugget : RegisterIngots.Celestium_Ingot);
-    public static final CustomBush Copper_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Copper_CROP_NUGGETS.getValue() ? RegisterNuggets.Copper_Nugget : RegisterIngots.Copper_Ingot);
+    public static final CustomBush MMCopper_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Copper_CROP_NUGGETS.getValue() ? RegisterNuggets.Copper_Nugget : RegisterIngots.Copper_Ingot);
     public static final CustomBush Discordium_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Discordium_CROP_NUGGETS.getValue() ? RegisterNuggets.Discordium_Nugget : RegisterIngots.Discordium_Ingot);
     public static final CustomBush Durasteel_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Durasteel_CROP_NUGGETS.getValue() ? RegisterNuggets.Durasteel_Nugget : RegisterIngots.Durasteel_Ingot);
-    public static final CustomBush Electrum_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Electrum_CROP_NUGGETS.getValue() ? RegisterNuggets.Electrum_Nugget : RegisterIngots.Electrum_Ingot);
+    public static final CustomBush MMElectrum_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Electrum_CROP_NUGGETS.getValue() ? RegisterNuggets.Electrum_Nugget : RegisterIngots.Electrum_Ingot);
     public static final CustomBush Etherite_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Etherite_CROP_NUGGETS.getValue() ? RegisterNuggets.Etherite_Nugget : RegisterIngots.Etherite_Ingot);
     public static final CustomBush Hallowed_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Hallowed_CROP_NUGGETS.getValue() ? RegisterNuggets.Hallowed_Nugget : RegisterIngots.Hallowed_Ingot);
     public static final CustomBush Kyber_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Kyber_CROP_NUGGETS.getValue() ? RegisterNuggets.Kyber_Nugget : RegisterIngots.Kyber_Ingot);
@@ -46,17 +46,17 @@ public class MythicMetalsCropsBlocks {
     public static final CustomBush Quadrillum_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Quadrillum_CROP_NUGGETS.getValue() ? RegisterNuggets.Quadrillum_Nugget : RegisterIngots.Quadrillum_Ingot);
     public static final CustomBush Quicksilver_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Quicksilver_CROP_NUGGETS.getValue() ? RegisterNuggets.Quicksilver_Nugget : RegisterIngots.Quicksilver_Ingot);
     public static final CustomBush Runite_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Runite_CROP_NUGGETS.getValue() ? RegisterNuggets.Runite_Nugget : RegisterIngots.Runite_Ingot);
-    public static final CustomBush Silver_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Silver_CROP_NUGGETS.getValue() ? RegisterNuggets.Silver_Nugget : RegisterIngots.Silver_Ingot);
+    public static final CustomBush MMSilver_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Silver_CROP_NUGGETS.getValue() ? RegisterNuggets.Silver_Nugget : RegisterIngots.Silver_Ingot);
     public static final CustomBush Slowsilver_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Slowsilver_CROP_NUGGETS.getValue() ? RegisterNuggets.Slowsilver_Nugget : RegisterIngots.Slowsilver_Ingot);
     public static final CustomBush Starrite_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Starrite_CROP_NUGGETS.getValue() ? RegisterNuggets.Starrite_Nugget : RegisterIngots.Starrite_Ingot);
-    public static final CustomBush Steel_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Steel_CROP_NUGGETS.getValue() ? RegisterNuggets.Steel_Nugget : RegisterIngots.Steel_Ingot);
+    public static final CustomBush MMSteel_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Steel_CROP_NUGGETS.getValue() ? RegisterNuggets.Steel_Nugget : RegisterIngots.Steel_Ingot);
     public static final CustomBush Stormyx_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Stormyx_CROP_NUGGETS.getValue() ? RegisterNuggets.Stormyx_Nugget : RegisterIngots.Stormyx_Ingot);
     public static final CustomBush Tantalite_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Tantalite_CROP_NUGGETS.getValue() ? RegisterNuggets.Tantalite_Nugget : RegisterIngots.Tantalite_Ingot);
     public static final CustomBush Tin_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Tin_CROP_NUGGETS.getValue() ? RegisterNuggets.Tin_Nugget : RegisterIngots.Tin_Ingot);
     public static final CustomBush Truesilver_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Truesilver_CROP_NUGGETS.getValue() ? RegisterNuggets.Truesilver_Nugget : RegisterIngots.Truesilver_Ingot);
     public static final CustomBush Unobtanium_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Unobtainium_CROP_NUGGETS.getValue() ? RegisterNuggets.Unobtainium_Nugget : RegisterIngots.Unobtainium_Ingot);
     public static final CustomBush Ur_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Ur_CROP_NUGGETS.getValue() ? RegisterNuggets.Ur_Nugget : RegisterIngots.Ur_Ingot);
-    public static final CustomBush Zinc_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Zinc_CROP_NUGGETS.getValue() ? RegisterNuggets.Zinc_Nugget : RegisterIngots.Zinc_Ingot);
+    public static final CustomBush MMZinc_BUSH = new CustomBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.ENABLE_Zinc_CROP_NUGGETS.getValue() ? RegisterNuggets.Zinc_Nugget : RegisterIngots.Zinc_Ingot);
 
     public static void registerBlocks() {
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Adamantite_CROPS.getValue()) {
@@ -80,12 +80,12 @@ public class MythicMetalsCropsBlocks {
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "banglum_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Banglum_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Brass_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "brass_bush"), MythicMetalsCropsBlocks.Brass_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "brass_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Brass_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "mmbrass_bush"), MythicMetalsCropsBlocks.MMBrass_BUSH);
+            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "mmbrass_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.MMBrass_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Bronze_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "bronze_bush"), MythicMetalsCropsBlocks.Bronze_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "bronze_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Bronze_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "mmbronze_bush"), MythicMetalsCropsBlocks.MMBronze_BUSH);
+            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "mmbronze_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.MMBronze_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Carmot_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "carmot_bush"), MythicMetalsCropsBlocks.Carmot_BUSH);
@@ -96,8 +96,8 @@ public class MythicMetalsCropsBlocks {
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "celestium_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Celestium_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Copper_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "copper_bush"), MythicMetalsCropsBlocks.Copper_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "copper_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Copper_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "mmcopper_bush"), MythicMetalsCropsBlocks.MMCopper_BUSH);
+            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "mmcopper_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.MMCopper_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Discordium_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "discordium_bush"), MythicMetalsCropsBlocks.Discordium_BUSH);
@@ -108,8 +108,8 @@ public class MythicMetalsCropsBlocks {
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "durasteel_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Durasteel_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Electrum_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "electrum_bush"), MythicMetalsCropsBlocks.Electrum_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "electrum_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Electrum_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "mmelectrum_bush"), MythicMetalsCropsBlocks.MMElectrum_BUSH);
+            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "mmelectrum_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.MMElectrum_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Etherite_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "etherite_bush"), MythicMetalsCropsBlocks.Etherite_BUSH);
@@ -168,8 +168,8 @@ public class MythicMetalsCropsBlocks {
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "runite_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Runite_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Silver_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "silver_bush"), MythicMetalsCropsBlocks.Silver_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "silver_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Silver_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "mmsilver_bush"), MythicMetalsCropsBlocks.MMSilver_BUSH);
+            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "mmsilver_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.MMSilver_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Slowsilver_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "slowsilver_bush"), MythicMetalsCropsBlocks.Slowsilver_BUSH);
@@ -180,8 +180,8 @@ public class MythicMetalsCropsBlocks {
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "starrite_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Starrite_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Steel_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "steel_bush"), MythicMetalsCropsBlocks.Steel_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "steel_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Steel_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "mmsteel_bush"), MythicMetalsCropsBlocks.MMSteel_BUSH);
+            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "mmsteel_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.MMSteel_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Stormyx_CROPS.getValue()) {
             Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "stormyx_bush"), MythicMetalsCropsBlocks.Stormyx_BUSH);
@@ -208,8 +208,8 @@ public class MythicMetalsCropsBlocks {
             Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "ur_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Ur_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
         if (SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.ENABLE_Zinc_CROPS.getValue()) {
-            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "zinc_bush"), MythicMetalsCropsBlocks.Zinc_BUSH);
-            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "zinc_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.Zinc_BUSH, new Item.Settings().group(ItemGroup.MISC)));
+            Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "mmzinc_bush"), MythicMetalsCropsBlocks.MMZinc_BUSH);
+            Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "mmzinc_bush_seeds"), new BlockItem(MythicMetalsCropsBlocks.MMZinc_BUSH, new Item.Settings().group(ItemGroup.MISC)));
         }
     }
     @Environment(EnvType.CLIENT)
@@ -219,14 +219,14 @@ public class MythicMetalsCropsBlocks {
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Aquarium_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Argonium_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Banglum_BUSH, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Brass_BUSH, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Bronze_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.MMBrass_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.MMBronze_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Carmot_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Celestium_BUSH, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Copper_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.MMCopper_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Discordium_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Durasteel_BUSH, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Electrum_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.MMElectrum_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Etherite_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Hallowed_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Kyber_BUSH, RenderLayer.getCutout());
@@ -241,16 +241,16 @@ public class MythicMetalsCropsBlocks {
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Quadrillum_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Quicksilver_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Runite_BUSH, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Silver_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.MMSilver_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Slowsilver_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Starrite_BUSH, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Steel_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.MMSteel_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Stormyx_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Tantalite_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Tin_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Truesilver_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Unobtanium_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Ur_BUSH, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.Zinc_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MythicMetalsCropsBlocks.MMZinc_BUSH, RenderLayer.getCutout());
     }
 }

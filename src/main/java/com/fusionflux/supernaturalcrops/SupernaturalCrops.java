@@ -88,6 +88,7 @@ public class SupernaturalCrops implements ModInitializer {
 		if (FabricLoader.getInstance().isModLoaded("techreborn")) {
 			TechRebornCropsBlocks.registerBlocks();
 		}
+		RESOURCE_PACK.dump();
 	}
 
 	private void fuckFusionReallyItsNotFuckingHard() {

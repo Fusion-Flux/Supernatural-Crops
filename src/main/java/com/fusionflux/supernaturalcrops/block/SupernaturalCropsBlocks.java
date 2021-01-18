@@ -61,7 +61,7 @@ public class SupernaturalCropsBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), SupernaturalCropsBlocks.EMBEDDED_ABYSS);
 		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), new BlockItem(SupernaturalCropsBlocks.EMBEDDED_ABYSS, new Item.Settings().group(SupernaturalCrops.SUPERNATURALCROPS_GROUP)));
 
-		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, "seed_of_the_abyss"),
+		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, "blocks/embedded_abyss"),
 				JLootTable.loot("minecraft:block")
 				.pool(JLootTable.pool()
 						.rolls(1)
@@ -120,7 +120,7 @@ public class SupernaturalCropsBlocks {
 				block.asItem(),
 				createKey("A", ingot),
 				createKey("B", SEED_OF_THE_ABYSS));
-		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, path), JLootTable
+		SupernaturalCrops.RESOURCE_PACK.addLootTable(new Identifier(SupernaturalCrops.MOD_ID, "blocks/" + path), JLootTable
 				.loot("minecraft:block")
 				.pool(JLootTable.pool()
 						.rolls(1)

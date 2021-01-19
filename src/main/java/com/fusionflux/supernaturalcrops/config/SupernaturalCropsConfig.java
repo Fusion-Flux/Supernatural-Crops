@@ -328,7 +328,11 @@ public final class SupernaturalCropsConfig extends Config {
 	public static class LINT_ENABLED extends ConfigItemGroup {
 		public static final ConfigItem<Boolean> ENABLE_JUREL_CROPS = new ConfigItem<>("trcopper_enabled", true,
 				"config.supernaturalcrops.enabled.jurel_crop_enabled");
-		public static final List<ConfigItem<?>> OPTIONS = ImmutableList.of(ENABLE_JUREL_CROPS);
+		public static final ConfigItem<Boolean> ENABLE_SICIERON_CROPS = new ConfigItem<>("sicieron_enabled", true,
+				"config.supernaturalcrops.enabled.sicieron_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_TARSCAN_CROPS = new ConfigItem<>("tarscan_enabled", true,
+				"config.supernaturalcrops.enabled.tarscan_crop_enabled");
+		public static final List<ConfigItem<?>> OPTIONS = ImmutableList.of(ENABLE_JUREL_CROPS,ENABLE_SICIERON_CROPS,ENABLE_TARSCAN_CROPS);
 		public LINT_ENABLED() {
 			super(OPTIONS, "lint_enabled");
 		}

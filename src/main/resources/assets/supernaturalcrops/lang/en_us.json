@@ -184,5 +184,13 @@
   "config.supernaturalcrops.enabled.nether_ruby_crop_enabled": "Enable Nether Ruby Bushes",
 
   "config.supernaturalcrops.better_nether_nugget_balance": "Enable Better Nether Nugget Drops",
-  "config.supernaturalcrops.better_end_nugget_balance.cincinnasite_crop_enabled": "Enable Cincinnasite Nugget"
+  "config.supernaturalcrops.better_end_nugget_balance.cincinnasite_crop_enabled": "Enable Cincinnasite Nugget",
+
+  "config.supernaturalcrops.lint_enabled": "Lint Enabled Bushes",
+  "config.supernaturalcrops.enabled.jurel_crop_enabled": "Enable Jurel Bushes",
+  "config.supernaturalcrops.enabled.sicieron_crop_enabled": "Enable Sicieron Bushes",
+  "config.supernaturalcrops.enabled.tarscan_crop_enabled": "Enable Tarscan Bushes",
+
+  "config.supernaturalcrops.lint_nugget_balance": "Enable Lint Nugget Drops",
+  "config.supernaturalcrops.lint_nugget_balance.jurel_crop_enabled": "Enable Jurel Dust"
 }

@@ -35,22 +35,23 @@ public class ModMenuIntegration implements ModMenuApi {
             ConfigCategory betterEndNuggetBalance = createCategory(builder, "config.supernaturalcrops.better_end_nugget_balance");
             ConfigCategory mythicMetalsEnabledFeatures = createCategory(builder, "config.supernaturalcrops.mythic_metals_enabled");
             ConfigCategory mythicMetalsNuggetBalance = createCategory(builder, "config.supernaturalcrops.mythic_metals_nugget_balance");
+            ConfigCategory lintEnabledFeatures = createCategory(builder, "config.supernaturalcrops.lint_enabled");
+            ConfigCategory lintNuggetBalance = createCategory(builder, "config.supernaturalcrops.lint_nugget_balance");
 
             SupernaturalCropsConfig.ENABLED.OPTIONS.forEach(ci -> setupBooleanConfigItem((ConfigItem<Boolean>) ci, enabledFeatures, entryBuilder));
-
             SupernaturalCropsConfig.NUGGET_BALANCE.OPTIONS.forEach(ci -> setupBooleanConfigItem((ConfigItem<Boolean>) ci, nuggetBalance, entryBuilder));
 
             SupernaturalCropsConfig.BETTER_END_ENABLED.OPTIONS.forEach(ci -> setupBooleanConfigItem((ConfigItem<Boolean>) ci, betterEndEnabledFeatures, entryBuilder));
-
             SupernaturalCropsConfig.BETTER_END_NUGGET_BALANCE.OPTIONS.forEach(ci -> setupBooleanConfigItem((ConfigItem<Boolean>) ci, betterEndNuggetBalance, entryBuilder));
 
             SupernaturalCropsConfig.BETTER_NETHER_ENABLED.OPTIONS.forEach(ci -> setupBooleanConfigItem((ConfigItem<Boolean>) ci, betterNetherEnabledFeatures, entryBuilder));
-
             SupernaturalCropsConfig.BETTER_NETHER_NUGGET_BALANCE.OPTIONS.forEach(ci -> setupBooleanConfigItem((ConfigItem<Boolean>) ci, betterNetherNuggetBalance, entryBuilder));
 
             SupernaturalCropsConfig.MYTHICAL_METALS_ENABLED.OPTIONS.forEach(ci -> setupBooleanConfigItem((ConfigItem<Boolean>) ci, mythicMetalsEnabledFeatures, entryBuilder));
-
             SupernaturalCropsConfig.MYTHICAL_METALS_NUGGET_BALANCE.OPTIONS.forEach(ci -> setupBooleanConfigItem((ConfigItem<Boolean>) ci, mythicMetalsNuggetBalance, entryBuilder));
+
+            SupernaturalCropsConfig.LINT_ENABLED.OPTIONS.forEach(ci -> setupBooleanConfigItem((ConfigItem<Boolean>) ci, lintEnabledFeatures, entryBuilder));
+            SupernaturalCropsConfig.LINT_NUGGET_BALANCE.OPTIONS.forEach(ci -> setupBooleanConfigItem((ConfigItem<Boolean>) ci, lintNuggetBalance, entryBuilder));
             return builder.build();
         };
     }

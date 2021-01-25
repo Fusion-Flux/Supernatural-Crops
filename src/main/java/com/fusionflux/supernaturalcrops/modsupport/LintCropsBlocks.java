@@ -1,6 +1,6 @@
 package com.fusionflux.supernaturalcrops.modsupport;
 
-import com.fusionflux.supernaturalcrops.block.OreBush;
+import com.fusionflux.supernaturalcrops.block.OreBushBlock;
 import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import me.hydos.lint.item.LintItems;
@@ -13,21 +13,21 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.sound.BlockSoundGroup;
 
 public class LintCropsBlocks {
-    public static final OreBush JUREL_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.LINT_NUGGET_BALANCE.ENABLE_JUREL_CROP_NUGGETS.getValue() ?  LintItems.JUREL_POWDER : LintItems.HARDENED_JUREL_INGOT);
-    public static final OreBush SICIERON_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), LintItems.SICIERON_INGOT);
-    public static final OreBush TARSCAN_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), LintItems.TARSCAN_SHARD);
+    public static final OreBushBlock JUREL_BUSH = new OreBushBlock(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.LINT_NUGGET_BALANCE.ENABLE_JUREL_CROP_NUGGETS.getValue() ?  LintItems.JUREL_POWDER : LintItems.HARDENED_JUREL_INGOT);
+    public static final OreBushBlock SICIERON_BUSH = new OreBushBlock(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), LintItems.SICIERON_INGOT);
+    public static final OreBushBlock TARSCAN_BUSH = new OreBushBlock(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), LintItems.TARSCAN_SHARD);
 
 
 
     public static void registerBlocks() {
         if (SupernaturalCropsConfig.LINT_ENABLED.ENABLE_JUREL_CROPS.getValue()) {
-            SupernaturalCropsBlocks.registerBush("jurel_bush", LintCropsBlocks.JUREL_BUSH, LintItems.HARDENED_JUREL_INGOT);
+            SupernaturalCropsBlocks.registerBush(LintCropsBlocks.JUREL_BUSH);
         }
         if (SupernaturalCropsConfig.LINT_ENABLED.ENABLE_SICIERON_CROPS.getValue()) {
-            SupernaturalCropsBlocks.registerBush("sicieron_bush", LintCropsBlocks.SICIERON_BUSH, LintItems.SICIERON_INGOT);
+            SupernaturalCropsBlocks.registerBush(LintCropsBlocks.SICIERON_BUSH);
         }
         if (SupernaturalCropsConfig.LINT_ENABLED.ENABLE_TARSCAN_CROPS.getValue()) {
-            SupernaturalCropsBlocks.registerBush("tarscan_bush", LintCropsBlocks.TARSCAN_BUSH, LintItems.TARSCAN_SHARD);
+            SupernaturalCropsBlocks.registerBush(LintCropsBlocks.TARSCAN_BUSH);
         }
     }
 

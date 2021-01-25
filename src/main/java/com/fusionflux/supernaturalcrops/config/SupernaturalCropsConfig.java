@@ -300,8 +300,44 @@ public final class SupernaturalCropsConfig extends Config {
 
 	public static class TECHREBORN_NUGGET_BALANCE extends ConfigItemGroup {
 		public static final ConfigItem<Boolean> ENABLE_COPPER_CROP_NUGGETS = new ConfigItem<>("trcopper_crop_nuggets_enabled", false,
-				"config.supernaturalcrops.techreborn_nugget_balance.copper_crop_enabled");
-		public static final List<ConfigItem<?>> OPTIONS = ImmutableList.of(ENABLE_COPPER_CROP_NUGGETS);
+				"config.supernaturalcrops.nugget_balance.trcopper_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_ALUMINUM_CROP_NUGGETS = new ConfigItem<>("traluminum_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.traluminum_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_BRASS_CROP_NUGGETS = new ConfigItem<>("trbrass_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trbrass_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_BRONZE_CROP_NUGGETS = new ConfigItem<>("trbronze_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trbronze_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_ELECTRUM_CROP_NUGGETS = new ConfigItem<>("trelectrum_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trelectrum_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_INVAR_CROP_NUGGETS = new ConfigItem<>("trinvar_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trinvar_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_IRIDIUM_CROP_NUGGETS = new ConfigItem<>("triridium_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.triridium_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_LEAD_CROP_NUGGETS = new ConfigItem<>("trlead_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trlead_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_NICKEL_CROP_NUGGETS = new ConfigItem<>("trnickel_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trnickel_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_PLATINUM_CROP_NUGGETS = new ConfigItem<>("trplatinum_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trplatinum_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_SILVER_CROP_NUGGETS = new ConfigItem<>("trsilver_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trsilver_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_STEEL_CROP_NUGGETS = new ConfigItem<>("trsteel_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trsteel_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_TIN_CROP_NUGGETS = new ConfigItem<>("trtin_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trtin_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_TITANIUM_CROP_NUGGETS = new ConfigItem<>("trtitanium_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trtitanium_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_TUNGSTEN_CROP_NUGGETS = new ConfigItem<>("trtungsten_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trtungsten_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_ZINC_CROP_NUGGETS = new ConfigItem<>("trzinc_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trzinc_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_REFINED_IRON_CROP_NUGGETS = new ConfigItem<>("trrefined_iron_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trrefined_iron_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_CHROME_CROP_NUGGETS = new ConfigItem<>("trchrome_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trchrome_crop_nuggets_enabled");
+		public static final ConfigItem<Boolean> ENABLE_TUNGSTENSTEEL_CROP_NUGGETS = new ConfigItem<>("trtungstensteel_crop_nuggets_enabled", false,
+				"config.supernaturalcrops.nugget_balance.trtungstensteel_crop_nuggets_enabled");
+		public static final List<ConfigItem<?>> OPTIONS = ImmutableList.of(ENABLE_COPPER_CROP_NUGGETS,ENABLE_ALUMINUM_CROP_NUGGETS,ENABLE_BRASS_CROP_NUGGETS,ENABLE_BRONZE_CROP_NUGGETS,ENABLE_ELECTRUM_CROP_NUGGETS,ENABLE_INVAR_CROP_NUGGETS,ENABLE_IRIDIUM_CROP_NUGGETS,ENABLE_LEAD_CROP_NUGGETS,ENABLE_NICKEL_CROP_NUGGETS,ENABLE_PLATINUM_CROP_NUGGETS,ENABLE_SILVER_CROP_NUGGETS,ENABLE_STEEL_CROP_NUGGETS,ENABLE_TIN_CROP_NUGGETS,ENABLE_TITANIUM_CROP_NUGGETS,ENABLE_TUNGSTEN_CROP_NUGGETS,ENABLE_ZINC_CROP_NUGGETS,ENABLE_REFINED_IRON_CROP_NUGGETS,ENABLE_CHROME_CROP_NUGGETS,ENABLE_TUNGSTENSTEEL_CROP_NUGGETS);
 		public TECHREBORN_NUGGET_BALANCE() {
 			super(OPTIONS, "techreborn_nugget_balance");
 		}
@@ -310,7 +346,43 @@ public final class SupernaturalCropsConfig extends Config {
 	public static class TECHREBORN_ENABLED extends ConfigItemGroup {
 		public static final ConfigItem<Boolean> ENABLE_COPPER_CROPS = new ConfigItem<>("trcopper_enabled", true,
 				"config.supernaturalcrops.enabled.trcopper_crop_enabled");
-		public static final List<ConfigItem<?>> OPTIONS = ImmutableList.of(ENABLE_COPPER_CROPS);
+		public static final ConfigItem<Boolean> ENABLE_ALUMINUM_CROPS = new ConfigItem<>("traluminum_enabled", true,
+				"config.supernaturalcrops.enabled.traluminum_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_BRASS_CROPS = new ConfigItem<>("trbrass_enabled", true,
+				"config.supernaturalcrops.enabled.trbrass_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_BRONZE_CROPS = new ConfigItem<>("trbronze_enabled", true,
+				"config.supernaturalcrops.enabled.trbronze_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_ELECTRUM_CROPS = new ConfigItem<>("trelectrum_enabled", false,
+				"config.supernaturalcrops.enabled.trelectrum_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_INVAR_CROPS = new ConfigItem<>("trinvar_enabled", false,
+				"config.supernaturalcrops.enabled.trinvar_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_IRIDIUM_CROPS = new ConfigItem<>("triridium_enabled", true,
+				"config.supernaturalcrops.enabled.triridium_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_LEAD_CROPS = new ConfigItem<>("trlead_enabled", true,
+				"config.supernaturalcrops.enabled.trlead_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_NICKEL_CROPS = new ConfigItem<>("trnickel_enabled", false,
+				"config.supernaturalcrops.enabled.trnickel_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_PLATINUM_CROPS = new ConfigItem<>("trplatinum_enabled", false,
+				"config.supernaturalcrops.enabled.trplatinum_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_SILVER_CROPS = new ConfigItem<>("trsilver_enabled", true,
+				"config.supernaturalcrops.enabled.trsilver_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_STEEL_CROPS = new ConfigItem<>("trsteel_enabled", false,
+				"config.supernaturalcrops.enabled.trsteel_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_TIN_CROPS = new ConfigItem<>("trtin_enabled", true,
+				"config.supernaturalcrops.enabled.trtin_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_TITANIUM_CROPS = new ConfigItem<>("trtitanium_enabled", false,
+				"config.supernaturalcrops.enabled.trtitanium_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_TUNGSTEN_CROPS = new ConfigItem<>("trtungsten_enabled", true,
+				"config.supernaturalcrops.enabled.trtungsten_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_ZINC_CROPS = new ConfigItem<>("trzinc_enabled", false,
+				"config.supernaturalcrops.enabled.trzinc_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_REFINED_IRON_CROPS = new ConfigItem<>("trrefined_iron_enabled", false,
+				"config.supernaturalcrops.enabled.trrefined_iron_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_CHROME_CROPS = new ConfigItem<>("trchrome_enabled", false,
+				"config.supernaturalcrops.enabled.trchrome_crop_enabled");
+		public static final ConfigItem<Boolean> ENABLE_TUNGSTENSTEEL_CROPS = new ConfigItem<>("trtungstensteel_enabled", false,
+				"config.supernaturalcrops.enabled.trtungstensteel_crop_enabled");
+		public static final List<ConfigItem<?>> OPTIONS = ImmutableList.of(ENABLE_COPPER_CROPS,ENABLE_ALUMINUM_CROPS,ENABLE_BRASS_CROPS,ENABLE_BRONZE_CROPS,ENABLE_ELECTRUM_CROPS,ENABLE_INVAR_CROPS,ENABLE_IRIDIUM_CROPS,ENABLE_LEAD_CROPS,ENABLE_NICKEL_CROPS,ENABLE_PLATINUM_CROPS,ENABLE_SILVER_CROPS,ENABLE_STEEL_CROPS,ENABLE_TIN_CROPS,ENABLE_TITANIUM_CROPS,ENABLE_TUNGSTEN_CROPS,ENABLE_ZINC_CROPS,ENABLE_REFINED_IRON_CROPS,ENABLE_CHROME_CROPS,ENABLE_TUNGSTENSTEEL_CROPS);
 		public TECHREBORN_ENABLED() {
 			super(OPTIONS, "techreborn_enabled");
 		}

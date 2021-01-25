@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cross",
+    "textures": {
+        "cross": "supernaturalcrops:block/lead_bush_stage2"
+    }
+}

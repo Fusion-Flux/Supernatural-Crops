@@ -51,7 +51,7 @@ public class SupernaturalCropsBlocks {
 
 	public static void register() {
 		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "scraped_stone"), SCRAPED_STONE);
-		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "scraped_stone"), new BlockItem(SCRAPED_STONE, new Item.Settings().group(ItemGroup.DECORATIONS)));
+		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "scraped_stone"), new BlockItem(SCRAPED_STONE, new Item.Settings().group(ItemGroups.SUPERNATURAL_CROPS)));
 
 
 		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), SupernaturalCropsBlocks.EMBEDDED_ABYSS);

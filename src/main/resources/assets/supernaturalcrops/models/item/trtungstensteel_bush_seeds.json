@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "supernaturalcrops:item/tungstensteel_bush_seeds"
+    }
+}

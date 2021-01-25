@@ -26,7 +26,6 @@ import java.util.List;
 
 public class SupernaturalCropsBlocks {
 
-	public static final ScrapedStone SCRAPED_STONE = new ScrapedStone(FabricBlockSettings.of(Material.STONE).hardness(1.5F).ticksRandomly());
 
 	public static final OreBush COAL_BUSH = new OreBush(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), Items.COAL);
 
@@ -50,8 +49,7 @@ public class SupernaturalCropsBlocks {
 	public static final Block EMBEDDED_ABYSS = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.4F));
 
 	public static void register() {
-		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "scraped_stone"), SCRAPED_STONE);
-		Registry.register(Registry.ITEM, new Identifier(SupernaturalCrops.MOD_ID, "scraped_stone"), new BlockItem(SCRAPED_STONE, new Item.Settings().group(ItemGroups.SUPERNATURAL_CROPS)));
+
 
 
 		Registry.register(Registry.BLOCK, new Identifier(SupernaturalCrops.MOD_ID, "embedded_abyss"), SupernaturalCropsBlocks.EMBEDDED_ABYSS);

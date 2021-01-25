@@ -1,5 +1,6 @@
 package com.fusionflux.supernaturalcrops;
 
+import com.fusionflux.supernaturalcrops.block.ScrapedStoneBlock;
 import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import com.fusionflux.supernaturalcrops.item.SupernaturalCropsItems;
@@ -28,9 +29,10 @@ public class SupernaturalCrops implements ModInitializer {
 	public void onInitialize() {
 		RRPCallback.EVENT.register(a -> a.add(RESOURCE_PACK));
 		readConfig();
-		SupernaturalCropsItems.register();
 		SupernaturalCropsBlocks.register();
+		SupernaturalCropsItems.register();
 		Features.register();
+		ScrapedStoneBlock.register();
 
 		if (FabricLoader.getInstance().isModLoaded("mythicmetals")) {
 			MythicMetalsCropsBlocks.registerBlocks();

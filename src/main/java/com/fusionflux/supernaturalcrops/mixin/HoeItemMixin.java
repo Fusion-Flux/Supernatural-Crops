@@ -1,5 +1,6 @@
 package com.fusionflux.supernaturalcrops.mixin;
 
+import com.fusionflux.supernaturalcrops.block.ScrapedStoneBlock;
 import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
@@ -55,6 +56,6 @@ public class HoeItemMixin extends MiningToolItem {
 	}
 
 	static {
-		SCRAPED_BLOCKS = Maps.newHashMap(ImmutableMap.of(Blocks.STONE, SupernaturalCropsBlocks.SCRAPED_STONE.getDefaultState()));
+		SCRAPED_BLOCKS = Maps.newHashMap(ImmutableMap.of(Blocks.STONE, ScrapedStoneBlock.SCRAPED_STONE.getDefaultState()));
 	}
 }

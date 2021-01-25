@@ -49,7 +49,7 @@ public class OreBush extends SweetBerryBushBlock {
     }
 
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(SupernaturalCropsBlocks.SCRAPED_STONE);
+        return floor.isOf(ScrapedStoneBlock.SCRAPED_STONE);
     }
 
 }

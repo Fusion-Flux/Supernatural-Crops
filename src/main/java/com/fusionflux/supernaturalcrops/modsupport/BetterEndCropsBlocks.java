@@ -20,15 +20,15 @@ import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResourc
 public class BetterEndCropsBlocks {
     public enum OreBushes implements OreBush {
         TERMINITE("terminite_bush", EndItems.TERMINITE_INGOT, new Lazy<>(() ->
-                SupernaturalCropsConfig.BETTER_END_NUGGET_BALANCE.ENABLE_TERMINITE_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.BetterEndNuggetBalance.ENABLE_TERMINITE_CROP_NUGGETS.getValue()
                         ? EndItems.ENDER_DUST
                         : EndItems.TERMINITE_INGOT),
-                SupernaturalCropsConfig.BETTER_END_ENABLED.ENABLE_TERMINITE_CROPS::getValue),
+                SupernaturalCropsConfig.BetterEndEnabled.ENABLE_TERMINITE_CROPS::getValue),
         AMBER("amber_bush", EndItems.AMBER_GEM, new Lazy<>(() ->
-                SupernaturalCropsConfig.BETTER_END_NUGGET_BALANCE.ENABLE_AMBER_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.BetterEndNuggetBalance.ENABLE_AMBER_CROP_NUGGETS.getValue()
                         ? EndItems.RAW_AMBER
                         : EndItems.AMBER_GEM),
-                SupernaturalCropsConfig.BETTER_END_ENABLED.ENABLE_AMBER_CROPS::getValue);
+                SupernaturalCropsConfig.BetterEndEnabled.ENABLE_AMBER_CROPS::getValue);
 
         private final String path;
         private final Item ingot;

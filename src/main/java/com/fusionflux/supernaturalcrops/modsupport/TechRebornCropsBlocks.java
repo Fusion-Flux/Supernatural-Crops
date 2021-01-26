@@ -2,16 +2,12 @@ package com.fusionflux.supernaturalcrops.modsupport;
 
 import com.fusionflux.supernaturalcrops.OreBush;
 import com.fusionflux.supernaturalcrops.block.OreBushBlock;
-import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Material;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Lazy;
 import techreborn.init.TRContent;
 
@@ -24,100 +20,100 @@ import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResourc
 public class TechRebornCropsBlocks {
     public enum OreBushes implements OreBush {
         COPPER("trcopper_bush", TRContent.Ingots.COPPER.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_COPPER_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_COPPER_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.COPPER.item
                         : TRContent.Ingots.COPPER.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_COPPER_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_COPPER_CROPS::getValue),
         ALUMINUM("traluminum_bush", TRContent.Ingots.ALUMINUM.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_ALUMINUM_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_ALUMINUM_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.ALUMINUM.item
                         : TRContent.Ingots.ALUMINUM.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_ALUMINUM_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_ALUMINUM_CROPS::getValue),
         BRASS("trbrass_bush", TRContent.Ingots.BRASS.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_BRASS_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_BRASS_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.BRASS.item
                         : TRContent.Ingots.BRASS.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_BRASS_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_BRASS_CROPS::getValue),
         BRONZE("trbronze_bush", TRContent.Ingots.BRONZE.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_BRONZE_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_BRONZE_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.BRONZE.item
                         : TRContent.Ingots.BRONZE.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_BRONZE_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_BRONZE_CROPS::getValue),
         ELECTRUM("trelectrum_bush", TRContent.Ingots.ELECTRUM.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_ELECTRUM_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_ELECTRUM_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.ELECTRUM.item
                         : TRContent.Ingots.ELECTRUM.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_ELECTRUM_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_ELECTRUM_CROPS::getValue),
         INVAR("invar_bush", TRContent.Ingots.INVAR.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_INVAR_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_INVAR_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.INVAR.item
                         : TRContent.Ingots.INVAR.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_INVAR_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_INVAR_CROPS::getValue),
         IRIDIUM("iridium_bush", TRContent.Ingots.IRIDIUM.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_IRIDIUM_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_IRIDIUM_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.IRIDIUM.item
                         : TRContent.Ingots.IRIDIUM.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_IRIDIUM_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_IRIDIUM_CROPS::getValue),
         LEAD("trlead_bush", TRContent.Ingots.LEAD.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_LEAD_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_LEAD_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.LEAD.item
                         : TRContent.Ingots.LEAD.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_LEAD_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_LEAD_CROPS::getValue),
         NICKEL("trnickel_bush", TRContent.Ingots.NICKEL.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_NICKEL_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_NICKEL_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.NICKEL.item
                         : TRContent.Ingots.NICKEL.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_NICKEL_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_NICKEL_CROPS::getValue),
         PLATINUM("trplatinum_bush", TRContent.Ingots.PLATINUM.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_PLATINUM_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_PLATINUM_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.PLATINUM.item
                         : TRContent.Ingots.PLATINUM.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_PLATINUM_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_PLATINUM_CROPS::getValue),
         SILVER("silver_bush", TRContent.Ingots.SILVER.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_SILVER_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_SILVER_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.SILVER.item
                         : TRContent.Ingots.SILVER.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_SILVER_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_SILVER_CROPS::getValue),
         STEEL("steel_bush", TRContent.Ingots.STEEL.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_STEEL_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_STEEL_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.STEEL.item
                         : TRContent.Ingots.STEEL.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_STEEL_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_STEEL_CROPS::getValue),
         TIN("tin_bush", TRContent.Ingots.TIN.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_TIN_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_TIN_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.TIN.item
                         : TRContent.Ingots.TIN.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_TIN_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_TIN_CROPS::getValue),
         TITANIUM("titanium_bush", TRContent.Ingots.TITANIUM.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_TITANIUM_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_TITANIUM_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.TITANIUM.item
                         : TRContent.Ingots.TITANIUM.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_TITANIUM_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_TITANIUM_CROPS::getValue),
         TUNGSTEN("trtungsten_bush", TRContent.Ingots.TUNGSTEN.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_TUNGSTEN_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_TUNGSTEN_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.TUNGSTEN.item
                         : TRContent.Ingots.TUNGSTEN.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_TUNGSTEN_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_TUNGSTEN_CROPS::getValue),
         ZINC("trzinc_bush", TRContent.Ingots.ZINC.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_ZINC_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_ZINC_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.ZINC.item
                         : TRContent.Ingots.ZINC.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_ZINC_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_ZINC_CROPS::getValue),
         REFINED_IRON("trrefined_iron_bush", TRContent.Ingots.REFINED_IRON.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_REFINED_IRON_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_REFINED_IRON_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.REFINED_IRON.item
                         : TRContent.Ingots.REFINED_IRON.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_REFINED_IRON_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_REFINED_IRON_CROPS::getValue),
         CHROME("trhrome_bush", TRContent.Ingots.CHROME.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_CHROME_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_CHROME_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.CHROME.item
                         : TRContent.Ingots.CHROME.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_CHROME_CROPS::getValue),
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_CHROME_CROPS::getValue),
         TUNGSTENSTEEL("trtungstensteel_bush", TRContent.Ingots.TUNGSTENSTEEL.item, new Lazy<>(() ->
-                SupernaturalCropsConfig.TECHREBORN_NUGGET_BALANCE.ENABLE_TUNGSTENSTEEL_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.TechRebornNuggetBalance.ENABLE_TUNGSTENSTEEL_CROP_NUGGETS.getValue()
                         ? TRContent.Nuggets.TUNGSTENSTEEL.item
                         : TRContent.Ingots.TUNGSTENSTEEL.item),
-                SupernaturalCropsConfig.TECHREBORN_ENABLED.ENABLE_TUNGSTENSTEEL_CROPS::getValue);
+                SupernaturalCropsConfig.TechRebornEnabled.ENABLE_TUNGSTENSTEEL_CROPS::getValue);
 
         private final String path;
         private final Item ingot;

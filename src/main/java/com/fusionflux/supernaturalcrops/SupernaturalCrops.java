@@ -48,7 +48,7 @@ public class SupernaturalCrops implements ModInitializer {
 	private void readConfig() {
 		CONFIG.readConfigFromFile();
 
-		if (SupernaturalCropsConfig.ENABLED.ENABLED_CONFIG_PRINT.getValue()) {
+		if (SupernaturalCropsConfig.Enabled.ENABLED_CONFIG_PRINT.getValue()) {
 			CONFIG.getConfigs().stream().map(ConfigItemGroup::getConfigs)
 					.forEach(l -> l.forEach(ci -> LOGGER.info(ci.toString())));
 		}

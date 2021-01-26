@@ -2,19 +2,14 @@ package com.fusionflux.supernaturalcrops.modsupport;
 
 import com.fusionflux.supernaturalcrops.OreBush;
 import com.fusionflux.supernaturalcrops.block.OreBushBlock;
-import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import me.hydos.lint.item.LintItems;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Material;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Lazy;
-import paulevs.betternether.registry.ItemsRegistry;
 
 import java.util.function.Supplier;
 
@@ -25,14 +20,14 @@ import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResourc
 public class LintCropsBlocks {
     public enum OreBushes implements OreBush {
         JUREL("jurel_bush", LintItems.HARDENED_JUREL_INGOT, new Lazy<>(() ->
-                SupernaturalCropsConfig.LINT_NUGGET_BALANCE.ENABLE_JUREL_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.LintNuggetBalance.ENABLE_JUREL_CROP_NUGGETS.getValue()
                         ?  LintItems.JUREL_POWDER
                         : LintItems.HARDENED_JUREL_INGOT),
-                SupernaturalCropsConfig.LINT_ENABLED.ENABLE_JUREL_CROPS::getValue),
+                SupernaturalCropsConfig.LintEnabled.ENABLE_JUREL_CROPS::getValue),
         SICIERON("sicieron_bush", LintItems.SICIERON_INGOT,
-                SupernaturalCropsConfig.LINT_ENABLED.ENABLE_SICIERON_CROPS::getValue),
+                SupernaturalCropsConfig.LintEnabled.ENABLE_SICIERON_CROPS::getValue),
         TARSCAN("tarscan_bush", LintItems.TARSCAN_SHARD,
-                SupernaturalCropsConfig.LINT_ENABLED.ENABLE_TARSCAN_CROPS::getValue);
+                SupernaturalCropsConfig.LintEnabled.ENABLE_TARSCAN_CROPS::getValue);
 
         private final String path;
         private final Item ingot;

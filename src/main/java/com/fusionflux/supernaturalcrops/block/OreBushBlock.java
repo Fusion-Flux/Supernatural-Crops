@@ -8,6 +8,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -22,6 +23,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Random;
 
 public class OreBushBlock extends SweetBerryBushBlock {
     private final OreBush bush;
@@ -38,7 +40,7 @@ public class OreBushBlock extends SweetBerryBushBlock {
     @Override
     @Environment(EnvType.CLIENT)
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(this);
+        return new ItemStack(bush.getSeeds());
     }
 
     @Override
@@ -51,10 +53,17 @@ public class OreBushBlock extends SweetBerryBushBlock {
     }
 
     @Override
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        if (!bush.isEnabled())
+            return;
+        super.randomTick(state, world, pos, random);
+    }
+
+    @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!bush.isEnabled()) {
             if (!world.isClient) {
-                player.sendMessage(new TranslatableText("text.supernaturalcrops.bush_disabled"), false);
+                player.sendMessage(new TranslatableText("text.supernaturalcrops.bush_disabled"), true);
                 world.breakBlock(pos, true, player);
             }
             return ActionResult.success(world.isClient);

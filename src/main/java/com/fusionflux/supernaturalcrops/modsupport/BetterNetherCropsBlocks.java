@@ -1,28 +1,76 @@
 package com.fusionflux.supernaturalcrops.modsupport;
 
+import com.fusionflux.supernaturalcrops.OreBush;
 import com.fusionflux.supernaturalcrops.block.OreBushBlock;
-import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Material;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.item.Item;
+import net.minecraft.util.Lazy;
 import paulevs.betternether.registry.ItemsRegistry;
 
+import java.util.function.Supplier;
+
+import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.bushBlockSettings;
+import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.registerBush;
+import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResources.registerBushResources;
+
 public class BetterNetherCropsBlocks {
-    public static final OreBushBlock CINCINNASITE_BUSH = new OreBushBlock(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), SupernaturalCropsConfig.BETTER_END_NUGGET_BALANCE.ENABLE_TERMINITE_CROP_NUGGETS.getValue() ? ItemsRegistry.CINCINNASITE : ItemsRegistry.CINCINNASITE_INGOT);
-    public static final OreBushBlock NETHER_RUBY_BUSH = new OreBushBlock(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH), ItemsRegistry.NETHER_RUBY);
+    public enum OreBushes implements OreBush {
+        CINCINNASITE("cincinnasite_bush", ItemsRegistry.CINCINNASITE_INGOT, new Lazy<>(() ->
+                SupernaturalCropsConfig.BETTER_NETHER_NUGGET_BALANCE.ENABLE_CINCINNASITE_CROP_NUGGETS.getValue()
+                        ? ItemsRegistry.CINCINNASITE
+                        : ItemsRegistry.CINCINNASITE_INGOT),
+                SupernaturalCropsConfig.BETTER_NETHER_ENABLED.ENABLE_CINCINNASITE_CROPS::getValue),
+        NETHER_RUBY("nether_ruby_bush", ItemsRegistry.NETHER_RUBY,
+                SupernaturalCropsConfig.BETTER_NETHER_ENABLED.ENABLE_NETHER_RUBY_CROPS::getValue);
+
+        private final String path;
+        private final Item ingot;
+        private final Lazy<Item> harvestResult;
+        private final Lazy<Boolean> enabled;
+
+        OreBushes(String path, Item ingot, Lazy<Item> harvestResult, Supplier<Boolean> enabled) {
+            this.path = path;
+            this.ingot = ingot;
+            this.harvestResult = harvestResult;
+            this.enabled = new Lazy<>(enabled);
+        }
+
+        OreBushes(String path, Item ingot, Supplier<Boolean> enabled) {
+            this(path, ingot, new Lazy<>(() -> ingot), enabled);
+        }
+
+        @Override
+        public boolean isEnabled() {
+            return enabled.get();
+        }
+
+        @Override
+        public String getPath() {
+            return path;
+        }
+
+        @Override
+        public Item getIngot() {
+            return ingot;
+        }
+
+        @Override
+        public Item getHarvestResult() {
+            return harvestResult.get();
+        }
+    }
+
+    public static final OreBushBlock CINCINNASITE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.CINCINNASITE);
+    public static final OreBushBlock NETHER_RUBY_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.NETHER_RUBY);
 
     public static void registerBlocks() {
-        if (SupernaturalCropsConfig.BETTER_NETHER_ENABLED.ENABLE_CINCINNASITE_CROPS.getValue()) {
-            SupernaturalCropsBlocks.registerBush(BetterNetherCropsBlocks.CINCINNASITE_BUSH);
-        }
-        if (SupernaturalCropsConfig.BETTER_NETHER_ENABLED.ENABLE_NETHER_RUBY_CROPS.getValue()) {
-            SupernaturalCropsBlocks.registerBush(BetterNetherCropsBlocks.NETHER_RUBY_BUSH);
-        }
+        registerBush(CINCINNASITE_BUSH);
+        registerBush(NETHER_RUBY_BUSH);
+        registerBushResources(OreBushes.values());
     }
 
     @Environment(EnvType.CLIENT)

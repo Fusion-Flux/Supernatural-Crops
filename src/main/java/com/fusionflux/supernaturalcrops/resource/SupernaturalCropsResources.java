@@ -2,7 +2,7 @@ package com.fusionflux.supernaturalcrops.resource;
 
 import com.fusionflux.supernaturalcrops.OreBush;
 import com.fusionflux.supernaturalcrops.SupernaturalCrops;
-import com.fusionflux.supernaturalcrops.VanillaOreBushes;
+import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.item.SupernaturalCropsItems;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
@@ -18,26 +18,29 @@ public class SupernaturalCropsResources {
     public static void register() {
         registerLootTables();
         registerRecipes();
+        registerBushResources(SupernaturalCropsBlocks.OreBushes.values());
         RRPCallback.EVENT.register(a -> a.add(RESOURCE_PACK));
+    }
+
+    public static void registerBushResources(OreBush... bushes) {
+        for (OreBush bush : bushes) {
+            registerBushLootTable(bush);
+            registerBushRecipes(bush);
+        }
     }
 
     private static void registerLootTables() {
         RESOURCE_PACK.addLootTable(id("blocks/embedded_abyss"), JLootTableFactory.createSimpleBlock(id("seeds_of_the_abyss")));
         RESOURCE_PACK.addLootTable(id("blocks/scraped_stone"),
                 JLootTableFactory.createSimpleBlock(Registry.BLOCK.getId(Blocks.STONE)));
-        for (OreBush bush : VanillaOreBushes.values())
-            registerBushLootTable(bush);
     }
 
-    public static void registerBushLootTable(OreBush bush) {
+    private static void registerBushLootTable(OreBush bush) {
         RESOURCE_PACK.addLootTable(id("blocks/" + bush.getPath()),
                 JLootTableFactory.createPlantBlock(bush.getBlockId(), 3, bush.getSeedsId(), bush.getHarvestResultId()));
     }
 
     private static void registerRecipes() {
-        for (OreBush bush : VanillaOreBushes.values())
-            registerBushRecipes(bush);
-
         RESOURCE_PACK.addRecipe(id("diamond_from_shards"), JRecipeFactory.create2x2(
                 "SS",
                 "SS",
@@ -56,7 +59,7 @@ public class SupernaturalCropsResources {
                 JRecipeFactory.key("F", SupernaturalCropsItems.NETHERITE_FLAKE)));
     }
 
-    public static void registerBushRecipes(OreBush bush) {
+    private static void registerBushRecipes(OreBush bush) {
         if (bush.isEnabled()) {
             // craft seeds
             RESOURCE_PACK.addRecipe(bush.getSeedsId(), JRecipeFactory.create3x3(

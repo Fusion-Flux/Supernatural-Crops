@@ -1,6 +1,7 @@
 package com.fusionflux.supernaturalcrops.block;
 
-import com.fusionflux.supernaturalcrops.VanillaOreBushes;
+import com.fusionflux.supernaturalcrops.OreBush;
+import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import com.fusionflux.supernaturalcrops.item.SupernaturalCropsItems;
 import com.fusionflux.supernaturalcrops.item.group.SupernaturalCropsItemGroups;
 import net.fabricmc.api.EnvType;
@@ -12,8 +13,12 @@ import net.minecraft.block.Material;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.Lazy;
 import net.minecraft.util.registry.Registry;
+
+import java.util.function.Supplier;
 
 import static com.fusionflux.supernaturalcrops.SupernaturalCrops.id;
 
@@ -25,15 +30,87 @@ public class SupernaturalCropsBlocks {
 				.sounds(BlockSoundGroup.SWEET_BERRY_BUSH);
 	}
 
-	public static final OreBushBlock COAL_BUSH = new OreBushBlock(bushBlockSettings(), VanillaOreBushes.COAL);
-	public static final OreBushBlock IRON_BUSH = new OreBushBlock(bushBlockSettings(), VanillaOreBushes.IRON);
-	public static final OreBushBlock GOLD_BUSH = new OreBushBlock(bushBlockSettings(), VanillaOreBushes.GOLD);
-	public static final OreBushBlock DIAMOND_BUSH = new OreBushBlock(bushBlockSettings(), VanillaOreBushes.DIAMOND);
-	public static final OreBushBlock EMERALD_BUSH = new OreBushBlock(bushBlockSettings(), VanillaOreBushes.EMERALD);
-	public static final OreBushBlock NETHERITE_BUSH = new OreBushBlock(bushBlockSettings(), VanillaOreBushes.NETHERITE);
-	public static final OreBushBlock REDSTONE_BUSH = new OreBushBlock(bushBlockSettings(), VanillaOreBushes.REDSTONE);
-	public static final OreBushBlock LAPIS_LAZULI_BUSH = new OreBushBlock(bushBlockSettings(), VanillaOreBushes.LAPIS_LAZULI);
-	public static final OreBushBlock QUARTZ_BUSH = new OreBushBlock(bushBlockSettings(), VanillaOreBushes.QUARTZ);
+	public enum OreBushes implements OreBush {
+		COAL("coal_bush", Items.COAL,
+				SupernaturalCropsConfig.ENABLED.ENABLE_COAL_CROPS::getValue),
+		IRON("iron_bush", Items.IRON_INGOT, new Lazy<>(() ->
+				SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_IRON_CROP_NUGGETS.getValue()
+						? Items.IRON_NUGGET
+						: Items.IRON_INGOT),
+				SupernaturalCropsConfig.ENABLED.ENABLE_IRON_CROPS::getValue),
+		GOLD("gold_bush", Items.GOLD_INGOT, new Lazy<>(() ->
+				SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_GOLD_CROP_NUGGETS.getValue()
+						? Items.GOLD_NUGGET
+						: Items.GOLD_INGOT),
+				SupernaturalCropsConfig.ENABLED.ENABLE_GOLD_CROPS::getValue),
+		DIAMOND("diamond_bush", Items.DIAMOND, new Lazy<>(() ->
+				SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_DIAMOND_CROP_NUGGETS.getValue()
+						? SupernaturalCropsItems.DIAMOND_SHARD
+						: Items.DIAMOND),
+				SupernaturalCropsConfig.ENABLED.ENABLE_DIAMOND_CROPS::getValue),
+		EMERALD("emerald_bush", Items.EMERALD, new Lazy<>(() ->
+				SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_EMERALD_CROP_NUGGETS.getValue()
+						? SupernaturalCropsItems.EMERALD_SHARD
+						: Items.EMERALD),
+				SupernaturalCropsConfig.ENABLED.ENABLE_EMERALD_CROPS::getValue),
+		NETHERITE("netherite_bush", Items.NETHERITE_INGOT, new Lazy<>(() ->
+				SupernaturalCropsConfig.NUGGET_BALANCE.ENABLE_NETHERITE_CROP_NUGGETS.getValue()
+						? SupernaturalCropsItems.NETHERITE_FLAKE
+						: Items.NETHERITE_SCRAP),
+				SupernaturalCropsConfig.ENABLED.ENABLE_NETHERITE_CROPS::getValue),
+		REDSTONE("redstone_bush", Items.REDSTONE,
+				SupernaturalCropsConfig.ENABLED.ENABLE_REDSTONE_CROPS::getValue),
+		LAPIS_LAZULI("lapis_lazuli_bush", Items.LAPIS_LAZULI,
+				SupernaturalCropsConfig.ENABLED.ENABLE_LAPIS_LAZULI_CROPS::getValue),
+		QUARTZ("quartz_bush", Items.QUARTZ,
+				SupernaturalCropsConfig.ENABLED.ENABLE_QUARTZ_CROPS::getValue);
+
+		private final String path;
+		private final Item ingot;
+		private final Lazy<Item> harvestResult;
+		private final Lazy<Boolean> enabled;
+
+		OreBushes(String path, Item ingot, Lazy<Item> harvestResult, Supplier<Boolean> enabled) {
+			this.path = path;
+			this.ingot = ingot;
+			this.harvestResult = harvestResult;
+			this.enabled = new Lazy<>(enabled);
+		}
+
+		OreBushes(String path, Item ingot, Supplier<Boolean> enabled) {
+			this(path, ingot, new Lazy<>(() -> ingot), enabled);
+		}
+
+		@Override
+		public boolean isEnabled() {
+			return enabled.get();
+		}
+
+		@Override
+		public String getPath() {
+			return path;
+		}
+
+		@Override
+		public Item getIngot() {
+			return ingot;
+		}
+
+		@Override
+		public Item getHarvestResult() {
+			return harvestResult.get();
+		}
+	}
+
+	public static final OreBushBlock COAL_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.COAL);
+	public static final OreBushBlock IRON_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.IRON);
+	public static final OreBushBlock GOLD_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.GOLD);
+	public static final OreBushBlock DIAMOND_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.DIAMOND);
+	public static final OreBushBlock EMERALD_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.EMERALD);
+	public static final OreBushBlock NETHERITE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.NETHERITE);
+	public static final OreBushBlock REDSTONE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.REDSTONE);
+	public static final OreBushBlock LAPIS_LAZULI_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.LAPIS_LAZULI);
+	public static final OreBushBlock QUARTZ_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.QUARTZ);
 
 	public static final Block EMBEDDED_ABYSS = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.4F));
     public static final ScrapedStoneBlock SCRAPED_STONE = new ScrapedStoneBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5F).ticksRandomly());

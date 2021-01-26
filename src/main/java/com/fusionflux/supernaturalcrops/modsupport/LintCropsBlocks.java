@@ -20,14 +20,14 @@ import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResourc
 public class LintCropsBlocks {
     public enum OreBushes implements OreBush {
         JUREL("jurel_bush", LintItems.HARDENED_JUREL_INGOT, new Lazy<>(() ->
-                SupernaturalCropsConfig.LintNuggetBalance.ENABLE_JUREL_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.get().lintNuggetBalance.enableJurelCropNuggets
                         ?  LintItems.JUREL_POWDER
                         : LintItems.HARDENED_JUREL_INGOT),
-                SupernaturalCropsConfig.LintEnabled.ENABLE_JUREL_CROPS::getValue),
+                () -> SupernaturalCropsConfig.get().lintEnabled.enableJurelCrops),
         SICIERON("sicieron_bush", LintItems.SICIERON_INGOT,
-                SupernaturalCropsConfig.LintEnabled.ENABLE_SICIERON_CROPS::getValue),
+                () -> SupernaturalCropsConfig.get().lintEnabled.enableSicieronCrops),
         TARSCAN("tarscan_bush", LintItems.TARSCAN_SHARD,
-                SupernaturalCropsConfig.LintEnabled.ENABLE_TARSCAN_CROPS::getValue);
+                () -> SupernaturalCropsConfig.get().lintEnabled.enableTarscanCrops);
 
         private final String path;
         private final Item ingot;

@@ -20,12 +20,12 @@ import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResourc
 public class BetterNetherCropsBlocks {
     public enum OreBushes implements OreBush {
         CINCINNASITE("cincinnasite_bush", ItemsRegistry.CINCINNASITE_INGOT, new Lazy<>(() ->
-                SupernaturalCropsConfig.BetterNetherNuggetBalance.ENABLE_CINCINNASITE_CROP_NUGGETS.getValue()
+                SupernaturalCropsConfig.get().betterNetherNuggetBalance.enableCincinnasiteCropNuggets
                         ? ItemsRegistry.CINCINNASITE
                         : ItemsRegistry.CINCINNASITE_INGOT),
-                SupernaturalCropsConfig.BetterNetherEnabled.ENABLE_CINCINNASITE_CROPS::getValue),
+                () -> SupernaturalCropsConfig.get().betterNetherEnabled.enableCincinnasiteCrops),
         NETHER_RUBY("nether_ruby_bush", ItemsRegistry.NETHER_RUBY,
-                SupernaturalCropsConfig.BetterNetherEnabled.ENABLE_NETHER_RUBY_CROPS::getValue);
+                () -> SupernaturalCropsConfig.get().betterNetherEnabled.enableNetherRubyCrops);
 
         private final String path;
         private final Item ingot;

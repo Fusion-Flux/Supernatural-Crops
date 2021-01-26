@@ -32,38 +32,38 @@ public class SupernaturalCropsBlocks {
 
 	public enum OreBushes implements OreBush {
 		COAL("coal_bush", Items.COAL,
-				SupernaturalCropsConfig.Enabled.ENABLE_COAL_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().enabled.enableCoalCrops),
 		IRON("iron_bush", Items.IRON_INGOT, new Lazy<>(() ->
-				SupernaturalCropsConfig.NuggetBalance.ENABLE_IRON_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().nuggetBalance.enableIronCropNuggets
 						? Items.IRON_NUGGET
 						: Items.IRON_INGOT),
-				SupernaturalCropsConfig.Enabled.ENABLE_IRON_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().enabled.enableIronCrops),
 		GOLD("gold_bush", Items.GOLD_INGOT, new Lazy<>(() ->
-				SupernaturalCropsConfig.NuggetBalance.ENABLE_GOLD_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().nuggetBalance.enableGoldCropNuggets
 						? Items.GOLD_NUGGET
 						: Items.GOLD_INGOT),
-				SupernaturalCropsConfig.Enabled.ENABLE_GOLD_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().enabled.enableGoldCrops),
 		DIAMOND("diamond_bush", Items.DIAMOND, new Lazy<>(() ->
-				SupernaturalCropsConfig.NuggetBalance.ENABLE_DIAMOND_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().nuggetBalance.enableDiamondCropNuggets
 						? SupernaturalCropsItems.DIAMOND_SHARD
 						: Items.DIAMOND),
-				SupernaturalCropsConfig.Enabled.ENABLE_DIAMOND_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().enabled.enableDiamondCrops),
 		EMERALD("emerald_bush", Items.EMERALD, new Lazy<>(() ->
-				SupernaturalCropsConfig.NuggetBalance.ENABLE_EMERALD_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().nuggetBalance.enableEmeraldCropNuggets
 						? SupernaturalCropsItems.EMERALD_SHARD
 						: Items.EMERALD),
-				SupernaturalCropsConfig.Enabled.ENABLE_EMERALD_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().enabled.enableEmeraldCrops),
 		NETHERITE("netherite_bush", Items.NETHERITE_INGOT, new Lazy<>(() ->
-				SupernaturalCropsConfig.NuggetBalance.ENABLE_NETHERITE_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().nuggetBalance.enableNetheriteCropNuggets
 						? SupernaturalCropsItems.NETHERITE_FLAKE
 						: Items.NETHERITE_SCRAP),
-				SupernaturalCropsConfig.Enabled.ENABLE_NETHERITE_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().enabled.enableNetheriteCrops),
 		REDSTONE("redstone_bush", Items.REDSTONE,
-				SupernaturalCropsConfig.Enabled.ENABLE_REDSTONE_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().enabled.enableRedstoneCrops),
 		LAPIS_LAZULI("lapis_lazuli_bush", Items.LAPIS_LAZULI,
-				SupernaturalCropsConfig.Enabled.ENABLE_LAPIS_LAZULI_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().enabled.enableLapisLazuliCrops),
 		QUARTZ("quartz_bush", Items.QUARTZ,
-				SupernaturalCropsConfig.Enabled.ENABLE_QUARTZ_CROPS::getValue);
+				() -> SupernaturalCropsConfig.get().enabled.enableQuartzCrops);
 
 		private final String path;
 		private final Item ingot;

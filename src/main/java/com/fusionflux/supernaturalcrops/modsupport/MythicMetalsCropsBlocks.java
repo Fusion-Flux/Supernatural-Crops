@@ -21,195 +21,195 @@ import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResourc
 public class MythicMetalsCropsBlocks {
 	public enum OreBushes implements OreBush {
 		ADAMANTITE("adamantite_bush", RegisterIngots.Adamantite_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_ADAMANTITE_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableAdamantiteCropNuggets
 						? RegisterNuggets.Adamantite_Nugget
 						: RegisterIngots.Adamantite_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_ADAMANTITE_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableAdamantiteCrops),
 		AETHERIUM("aetherium_bush", RegisterIngots.Aetherium_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_AETHERIUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableAetheriumCropNuggets
 						? RegisterNuggets.Aetherium_Nugget
 						: RegisterIngots.Aetherium_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_AETHERIUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableAetheriumCrops),
 		AQUARIUM("aquarium_bush", RegisterIngots.Aquarium_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_AQUARIUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableAquariumCropNuggets
 						? RegisterNuggets.Aquarium_Nugget
 						: RegisterIngots.Aquarium_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_AQUARIUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableAquariumCrops),
 		ARGONIUM("argonium_bush", RegisterIngots.Argonium_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_ARGONIUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableArgoniumCropNuggets
 						? RegisterNuggets.Argonium_Nugget
 						: RegisterIngots.Argonium_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_ARGONIUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableArgoniumCrops),
 		BANGLUM("banglum_bush", RegisterIngots.Banglum_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_BANGLUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableBanglumCropNuggets
 						? RegisterNuggets.Banglum_Nugget
 						: RegisterIngots.Banglum_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_BANGLUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableBanglumCrops),
 		BRASS("mmbrass_bush", RegisterIngots.Brass_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_BRASS_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableBrassCropNuggets
 						? RegisterNuggets.Brass_Nugget
 						: RegisterIngots.Brass_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_BRASS_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableBrassCrops),
 		BRONZE("mmbronze_bush", RegisterIngots.Bronze_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_BRONZE_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableBronzeCropNuggets
 						? RegisterNuggets.Bronze_Nugget
 						: RegisterIngots.Bronze_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_BRONZE_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableBronzeCrops),
 		CARMOT("carmot_bush", RegisterIngots.Carmot_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_CARMOT_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableCarmotCropNuggets
 						? RegisterNuggets.Carmot_Nugget
 						: RegisterIngots.Carmot_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_CARMOT_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableCarmotCrops),
 		CELESTIUM("celestium_bush", RegisterIngots.Celestium_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_CELESTIUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableCelestiumCropNuggets
 						? RegisterNuggets.Celestium_Nugget
 						: RegisterIngots.Celestium_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_CELESTIUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableCelestiumCrops),
 		COPPER("mmcopper_bush", RegisterIngots.Copper_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_COPPER_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableCopperCropNuggets
 						? RegisterNuggets.Copper_Nugget
 						: RegisterIngots.Copper_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_COPPER_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableCopperCrops),
 		DISCORDIUM("discordium_bush", RegisterIngots.Discordium_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_DISCORDIUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableDiscordiumCropNuggets
 						? RegisterNuggets.Discordium_Nugget
 						: RegisterIngots.Discordium_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_DISCORDIUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableDiscordiumCrops),
 		DURASTEEL("durasteel_bush", RegisterIngots.Durasteel_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_DURASTEEL_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableDurasteelCropNuggets
 						? RegisterNuggets.Durasteel_Nugget
 						: RegisterIngots.Durasteel_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_DURASTEEL_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableDurasteelCrops),
 		ELECTRUM("mmelectrum_bush", RegisterIngots.Electrum_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_ELECTRUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableElectrumCropNuggets
 						? RegisterNuggets.Electrum_Nugget
 						: RegisterIngots.Electrum_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_ELECTRUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableElectrumCrops),
 		ETHERITE("etherite_bush", RegisterIngots.Etherite_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_ETHERITE_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableEtheriteCropNuggets
 						? RegisterNuggets.Etherite_Nugget
 						: RegisterIngots.Etherite_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_ETHERITE_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableEtheriteCrops),
 		HALLOWED("hallowed_bush", RegisterIngots.Hallowed_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_HALLOWED_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableHallowedCropNuggets
 						? RegisterNuggets.Hallowed_Nugget
 						: RegisterIngots.Hallowed_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_HALLOWED_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableHallowedCrops),
 		KYBER("kyber_bush", RegisterIngots.Kyber_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_KYBER_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableKyberCropNuggets
 						? RegisterNuggets.Kyber_Nugget
 						: RegisterIngots.Kyber_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_KYBER_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableKyberCrops),
 		MANGANESE("manganese_bush", RegisterIngots.Manganese_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_MANGANESE_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableManganeseCropNuggets
 						? RegisterNuggets.Manganese_Nugget
 						: RegisterIngots.Manganese_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_MANGANESE_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableManganeseCrops),
 		METALLURGIUM("metallurgium_bush", RegisterIngots.Metallurgium_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_METALLURGIUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableMetallurgiumCropNuggets
 						? RegisterNuggets.Metallurgium_Nugget
 						: RegisterIngots.Metallurgium_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_METALLURGIUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableMetallurgiumCrops),
 		MIDAS_GOLD("midas_gold_bush", RegisterIngots.Midas_Gold_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_MIDAS_GOLD_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableMidasGoldCropNuggets
 						? RegisterNuggets.Midas_Gold_Nugget
 						: RegisterIngots.Midas_Gold_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_MIDAS_GOLD_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableMidasGoldCrops),
 		MYTHRIL("mythril_bush", RegisterIngots.Mythril_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_MYTHRIL_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableMythrilCropNuggets
 						? RegisterNuggets.Mythril_Nugget
 						: RegisterIngots.Mythril_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_MYTHRIL_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableMythrilCrops),
 		ORICHALCUM("orichalcum_bush", RegisterIngots.Orichalcum_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_ORICHALCUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableOrichalcumCropNuggets
 						? RegisterNuggets.Orichalcum_Nugget
 						: RegisterIngots.Orichalcum_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_ORICHALCUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableOrichalcumCrops),
 		OSMIUM("osmium_bush", RegisterIngots.Osmium_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_OSMIUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableOsmiumCropNuggets
 						? RegisterNuggets.Osmium_Nugget
 						: RegisterIngots.Osmium_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_OSMIUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableOsmiumCrops),
 		PLATINUM("platinum_bush", RegisterIngots.Platinum_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_PLATINUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enablePlatinumCropNuggets
 						? RegisterNuggets.Platinum_Nugget
 						: RegisterIngots.Platinum_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_PLATINUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enablePlatinumCrops),
 		PROMETHEUM("prometheum_bush", RegisterIngots.Prometheum_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_PROMETHEUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enablePrometheumCropNuggets
 						? RegisterNuggets.Prometheum_Nugget
 						: RegisterIngots.Prometheum_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_PROMETHEUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enablePrometheumCrops),
 		QUADRILLUM("quadrillum_bush", RegisterIngots.Quadrillum_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_QUADRILLUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableQuadrillumCropNuggets
 						? RegisterNuggets.Quadrillum_Nugget
 						: RegisterIngots.Quadrillum_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_QUADRILLUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableQuadrillumCrops),
 		QUICKSILVER("quicksilver_bush", RegisterIngots.Quicksilver_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_QUICKSILVER_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableQuicksilverCropNuggets
 						? RegisterNuggets.Quicksilver_Nugget
 						: RegisterIngots.Quicksilver_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_QUICKSILVER_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableQuicksilverCrops),
 		RUNITE("runite_bush", RegisterIngots.Runite_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_RUNITE_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableRuniteCropNuggets
 						? RegisterNuggets.Runite_Nugget
 						: RegisterIngots.Runite_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_RUNITE_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableRuniteCrops),
 		SILVER("mmsilver_bush", RegisterIngots.Silver_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_SILVER_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableSilverCropNuggets
 						? RegisterNuggets.Silver_Nugget
 						: RegisterIngots.Silver_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_SILVER_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableSilverCrops),
 		SLOWSILVER("slowsilver_bush", RegisterIngots.Slowsilver_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_SLOWSILVER_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableSlowsilverCropNuggets
 						? RegisterNuggets.Slowsilver_Nugget
 						: RegisterIngots.Slowsilver_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_SLOWSILVER_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableSlowsilverCrops),
 		STARRITE("starrite_bush", RegisterIngots.Starrite_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_STARRITE_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableStarriteCropNuggets
 						? RegisterNuggets.Starrite_Nugget
 						: RegisterIngots.Starrite_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_STARRITE_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableStarriteCrops),
 		STEEL("mmsteel_bush", RegisterIngots.Steel_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_STEEL_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableSteelCropNuggets
 						? RegisterNuggets.Steel_Nugget
 						: RegisterIngots.Steel_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_STEEL_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableSteelCrops),
 		STORMYX("stormyx_bush", RegisterIngots.Stormyx_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_STORMYX_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableStormyxCropNuggets
 						? RegisterNuggets.Stormyx_Nugget
 						: RegisterIngots.Stormyx_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_STORMYX_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableStormyxCrops),
 		TANTALITE("tantalite_bush", RegisterIngots.Tantalite_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_TANTALITE_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableTantaliteCropNuggets
 						? RegisterNuggets.Tantalite_Nugget
 						: RegisterIngots.Tantalite_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_TANTALITE_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableTantaliteCrops),
 		TIN("tin_bush", RegisterIngots.Tin_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_TIN_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableTinCropNuggets
 						? RegisterNuggets.Tin_Nugget
 						: RegisterIngots.Tin_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_TIN_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableTinCrops),
 		TRUESILVER("truesilver_bush", RegisterIngots.Truesilver_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_TRUESILVER_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableTruesilverCropNuggets
 						? RegisterNuggets.Truesilver_Nugget
 						: RegisterIngots.Truesilver_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_TRUESILVER_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableTruesilverCrops),
 		UNOBTAINIUM("unobtainium_bush", RegisterIngots.Unobtainium_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_UNOBTAINIUM_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableUnobtainiumCropNuggets
 						? RegisterNuggets.Unobtainium_Nugget
 						: RegisterIngots.Unobtainium_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_UNOBTAINIUM_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableUnobtainiumCrops),
 		UR("ur_bush", RegisterIngots.Ur_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_UR_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableUrCropNuggets
 						? RegisterNuggets.Ur_Nugget
 						: RegisterIngots.Ur_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_UR_CROPS::getValue),
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableUrCrops),
 		ZINC("mmzinc_bush", RegisterIngots.Zinc_Ingot, new Lazy<>(() ->
-				SupernaturalCropsConfig.MythicalMetalsNuggetBalance.ENABLE_ZINC_CROP_NUGGETS.getValue()
+				SupernaturalCropsConfig.get().mythicalMetalsNuggetBalance.enableZincCropNuggets
 						? RegisterNuggets.Zinc_Nugget
 						: RegisterIngots.Zinc_Ingot),
-				SupernaturalCropsConfig.MythicalMetalsEnabled.ENABLE_ZINC_CROPS::getValue);
+				() -> SupernaturalCropsConfig.get().mythicalMetalsEnabled.enableZincCrops);
 
 		private final String path;
 		private final Item ingot;

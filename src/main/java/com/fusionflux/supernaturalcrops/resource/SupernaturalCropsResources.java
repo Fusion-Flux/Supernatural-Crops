@@ -6,14 +6,9 @@ import com.fusionflux.supernaturalcrops.VanillaOreBushes;
 import com.fusionflux.supernaturalcrops.item.SupernaturalCropsItems;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
-import net.devtech.arrp.json.loot.JLootTable;
-import net.devtech.arrp.json.recipe.*;
-import net.minecraft.item.Item;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Items;
-import net.minecraft.util.Identifier;
-
-import java.util.Arrays;
-import java.util.List;
+import net.minecraft.util.registry.Registry;
 
 import static com.fusionflux.supernaturalcrops.SupernaturalCrops.id;
 
@@ -27,90 +22,57 @@ public class SupernaturalCropsResources {
     }
 
     private static void registerLootTables() {
-        RESOURCE_PACK.addLootTable(id("blocks/embedded_abyss"), createSimpleBlockLootTable(id("seeds_of_the_abyss")));
+        RESOURCE_PACK.addLootTable(id("blocks/embedded_abyss"), JLootTableFactory.createSimpleBlock(id("seeds_of_the_abyss")));
+        RESOURCE_PACK.addLootTable(id("blocks/scraped_stone"),
+                JLootTableFactory.createSimpleBlock(Registry.BLOCK.getId(Blocks.STONE)));
         for (OreBush bush : VanillaOreBushes.values())
             registerBushLootTable(bush);
     }
 
-    public static JLootTable createSimpleBlockLootTable(Identifier itemId) {
-        return JLootTable.loot("minecraft:block")
-                .pool(JLootTable.pool()
-                        .rolls(1)
-                        .entry(JLootTable.entry()
-                                .type("minecraft:item")
-                                .name(itemId.toString()))
-                    .condition(JLootTable.predicate("minecraft:survives_explosion")));
-    }
-
     public static void registerBushLootTable(OreBush bush) {
-        RESOURCE_PACK.addLootTable(id("blocks/" + bush.getPath()), createSimpleBlockLootTable(bush.getSeedsId()));
+        RESOURCE_PACK.addLootTable(id("blocks/" + bush.getPath()),
+                JLootTableFactory.createPlantBlock(bush.getBlockId(), 3, bush.getSeedsId(), bush.getHarvestResultId()));
     }
 
     private static void registerRecipes() {
         for (OreBush bush : VanillaOreBushes.values())
-            registerBushRecipe(bush);
+            registerBushRecipes(bush);
 
-        RESOURCE_PACK.addRecipe(id("diamond_from_shards"), createRecipe2x2(
+        RESOURCE_PACK.addRecipe(id("diamond_from_shards"), JRecipeFactory.create2x2(
                 "SS",
                 "SS",
                 Items.DIAMOND,
-                key("S", SupernaturalCropsItems.DIAMOND_SHARD)));
-        RESOURCE_PACK.addRecipe(id("emerald_from_shards"), createRecipe2x2(
+                JRecipeFactory.key("S", SupernaturalCropsItems.DIAMOND_SHARD)));
+        RESOURCE_PACK.addRecipe(id("emerald_from_shards"), JRecipeFactory.create2x2(
                 "SS",
                 "SS",
                 Items.EMERALD,
-                key("S", SupernaturalCropsItems.EMERALD_SHARD)));
-        RESOURCE_PACK.addRecipe(id("netherite_scrap_from_flakes"), createRecipe3x3(
+                JRecipeFactory.key("S", SupernaturalCropsItems.EMERALD_SHARD)));
+        RESOURCE_PACK.addRecipe(id("netherite_scrap_from_flakes"), JRecipeFactory.create3x3(
                 "FFF",
                 "FFF",
                 "FFF",
                 Items.NETHERITE_SCRAP,
-                key("F", SupernaturalCropsItems.NETHERITE_FLAKE)));
+                JRecipeFactory.key("F", SupernaturalCropsItems.NETHERITE_FLAKE)));
     }
 
-    public static void registerBushRecipe(OreBush bush) {
+    public static void registerBushRecipes(OreBush bush) {
         if (bush.isEnabled()) {
-            RESOURCE_PACK.addRecipe(bush.getSeedsId(), createRecipe3x3(
+            // craft seeds
+            RESOURCE_PACK.addRecipe(bush.getSeedsId(), JRecipeFactory.create3x3(
                     "RRR",
                     "RSR",
                     "RRR",
                     bush.getSeeds(),
-                    key("S", SupernaturalCropsItems.SEED_OF_THE_ABYSS),
-                    key("R", bush.getIngot())
+                    JRecipeFactory.key("S", SupernaturalCropsItems.SEED_OF_THE_ABYSS),
+                    JRecipeFactory.key("R", bush.getIngot())
             ));
         }
+
+        // uncraft seeds
+        RESOURCE_PACK.addRecipe(id(bush.getIngotId().getPath() + "_from_seed"), JRecipeFactory.createSingle(
+                bush.getSeeds(), bush.getIngot(), 8
+        ));
     }
 
-    public static JKeys createRecipeKeys(KeyInfo... keys) {
-        JKeys jKeys = JKeys.keys();
-        for (KeyInfo key : keys) {
-            JIngredient ingredient = JIngredient.ingredient();
-            for (Item item : key.items)
-                ingredient.item(item);
-            jKeys.key(key.name, ingredient);
-        }
-        return jKeys;
-    }
-
-    public static JRecipe createRecipe2x2(String pat1, String pat2, Item result, KeyInfo... keys) {
-        return JRecipe.shaped(JPattern.pattern(pat1, pat2), createRecipeKeys(keys), JResult.item(result));
-    }
-
-    public static JRecipe createRecipe3x3(String pat1, String pat2, String pat3, Item result, KeyInfo... keys) {
-        return JRecipe.shaped(JPattern.pattern(pat1, pat2, pat3), createRecipeKeys(keys), JResult.item(result));
-    }
-
-    public static KeyInfo key(String name, Item... items) {
-        return new KeyInfo(name, Arrays.asList(items));
-    }
-
-    public static final class KeyInfo {
-        public final String name;
-        public final List<Item> items;
-
-        private KeyInfo(String name, List<Item> items) {
-            this.name = name;
-            this.items = items;
-        }
-    }
 }

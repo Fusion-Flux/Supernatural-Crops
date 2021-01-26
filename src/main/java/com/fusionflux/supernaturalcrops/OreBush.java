@@ -13,6 +13,14 @@ public interface OreBush {
     Item getHarvestResult();
     boolean isEnabled();
 
+    default Identifier getIngotId() {
+        return Registry.ITEM.getId(getIngot());
+    }
+
+    default Identifier getHarvestResultId() {
+        return Registry.ITEM.getId(getIngot());
+    }
+
     default Identifier getBlockId() {
         return id(getPath());
     }

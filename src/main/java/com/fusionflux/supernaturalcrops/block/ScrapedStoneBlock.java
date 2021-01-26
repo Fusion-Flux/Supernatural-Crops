@@ -31,22 +31,24 @@ public class ScrapedStoneBlock extends Block {
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
-        if (direction == Direction.UP && !state.canPlaceAt(world, pos)) {
+        if (direction == Direction.UP && !state.canPlaceAt(world, pos))
             world.getBlockTickScheduler().schedule(pos, this, 1);
-        }
-
         return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
     }
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockState blockState = world.getBlockState(pos.up());
-        return !blockState.getMaterial().isSolid() || blockState.getBlock() instanceof FenceGateBlock || blockState.getBlock() instanceof PistonExtensionBlock;
+        return !blockState.getMaterial().isSolid()
+                || blockState.getBlock() instanceof FenceGateBlock
+                || blockState.getBlock() instanceof PistonExtensionBlock;
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return !getDefaultState().canPlaceAt(ctx.getWorld(), ctx.getBlockPos()) ? Blocks.STONE.getDefaultState() : super.getPlacementState(ctx);
+        return !getDefaultState().canPlaceAt(ctx.getWorld(), ctx.getBlockPos())
+                ? Blocks.STONE.getDefaultState()
+                : super.getPlacementState(ctx);
     }
 
     @Override

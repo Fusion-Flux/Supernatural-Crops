@@ -5,7 +5,7 @@ import com.fusionflux.supernaturalcrops.modsupport.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 
-public class SupernaturalCropsClientModInit implements ClientModInitializer {
+public class SupernaturalCropsClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {

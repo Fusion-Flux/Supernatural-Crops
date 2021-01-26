@@ -25,7 +25,7 @@
       "com.fusionflux.supernaturalcrops.SupernaturalCrops"
     ],
     "client": [
-      "com.fusionflux.supernaturalcrops.client.SupernaturalCropsClientModInit"
+      "com.fusionflux.supernaturalcrops.client.SupernaturalCropsClient"
     ],
     "modmenu" : [
       "com.fusionflux.supernaturalcrops.compatibility.ModMenuIntegration"

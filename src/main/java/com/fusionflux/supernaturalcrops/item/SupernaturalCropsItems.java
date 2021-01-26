@@ -1,5 +1,6 @@
 package com.fusionflux.supernaturalcrops.item;
 
+import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import com.fusionflux.supernaturalcrops.item.group.SupernaturalCropsItemGroups;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
@@ -13,8 +14,9 @@ public class SupernaturalCropsItems {
 	}
 
 	public static FabricItemSettings bushSeedSettings() {
-		return baseSettings()
-				.recipeRemainder(SupernaturalCropsItems.SEED_OF_THE_ABYSS);
+		if (SupernaturalCropsConfig.get().recipes.uncraftingRecipe == SupernaturalCropsConfig.UncraftingRecipeOption.TO_INGOTS_AND_SEED)
+			return baseSettings().recipeRemainder(SupernaturalCropsItems.SEED_OF_THE_ABYSS);
+		return baseSettings();
 	}
 
 	public static FabricItemSettings shardSettings() {

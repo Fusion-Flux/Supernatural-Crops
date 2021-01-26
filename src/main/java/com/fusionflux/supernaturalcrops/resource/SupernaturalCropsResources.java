@@ -3,6 +3,7 @@ package com.fusionflux.supernaturalcrops.resource;
 import com.fusionflux.supernaturalcrops.OreBush;
 import com.fusionflux.supernaturalcrops.SupernaturalCrops;
 import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
+import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import com.fusionflux.supernaturalcrops.item.SupernaturalCropsItems;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
@@ -73,9 +74,20 @@ public class SupernaturalCropsResources {
         }
 
         // uncraft seeds
-        RESOURCE_PACK.addRecipe(id(bush.getIngotId().getPath() + "_from_seed"), JRecipeFactory.createSingle(
-                bush.getSeeds(), bush.getIngot(), 8
-        ));
+        switch (SupernaturalCropsConfig.get().recipes.uncraftingRecipe) {
+        case TO_SEED:
+            RESOURCE_PACK.addRecipe(id(bush.getIngotId().getPath() + "_from_seed"), JRecipeFactory.createSingle(
+                    bush.getSeeds(), SupernaturalCropsItems.SEED_OF_THE_ABYSS
+            ));
+            break;
+        case TO_INGOTS_AND_SEED:
+        case TO_INGOTS:
+            RESOURCE_PACK.addRecipe(id(bush.getIngotId().getPath() + "_from_seed"), JRecipeFactory.createSingle(
+                    bush.getSeeds(), bush.getIngot(), 8
+            ));
+        case OFF:
+            break;
+        }
     }
 
 }

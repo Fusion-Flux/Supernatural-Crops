@@ -5,16 +5,13 @@ import com.fusionflux.supernaturalcrops.block.OreBushBlock;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.Lazy;
 import paulevs.betternether.registry.ItemsRegistry;
 
 import java.util.function.Supplier;
 
-import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.bushBlockSettings;
-import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.registerBush;
+import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.*;
 import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResources.registerBushResources;
 
 public class BetterNetherCropsBlocks {
@@ -31,12 +28,14 @@ public class BetterNetherCropsBlocks {
         private final Item ingot;
         private final Lazy<Item> harvestResult;
         private final Lazy<Boolean> enabled;
+        private final Lazy<OreBushBlock> block;
 
         OreBushes(String path, Item ingot, Lazy<Item> harvestResult, Supplier<Boolean> enabled) {
             this.path = path;
             this.ingot = ingot;
             this.harvestResult = harvestResult;
             this.enabled = new Lazy<>(enabled);
+            block = new Lazy<>(() -> new OreBushBlock(bushBlockSettings(), this));
         }
 
         OreBushes(String path, Item ingot, Supplier<Boolean> enabled) {
@@ -54,6 +53,11 @@ public class BetterNetherCropsBlocks {
         }
 
         @Override
+        public OreBushBlock getBlock() {
+            return block.get();
+        }
+
+        @Override
         public Item getIngot() {
             return ingot;
         }
@@ -64,19 +68,14 @@ public class BetterNetherCropsBlocks {
         }
     }
 
-    public static final OreBushBlock CINCINNASITE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.CINCINNASITE);
-    public static final OreBushBlock NETHER_RUBY_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.NETHER_RUBY);
-
     public static void registerBlocks() {
-        registerBush(CINCINNASITE_BUSH);
-        registerBush(NETHER_RUBY_BUSH);
+        registerBushBlocksAndItems(OreBushes.values());
         registerBushResources(OreBushes.values());
     }
 
     @Environment(EnvType.CLIENT)
     public static void registerRenderLayers() {
-        BlockRenderLayerMap.INSTANCE.putBlock(BetterNetherCropsBlocks.CINCINNASITE_BUSH, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BetterNetherCropsBlocks.NETHER_RUBY_BUSH, RenderLayer.getCutout());
+        registerBushRenderLayers(OreBushes.values());
     }
 
 }

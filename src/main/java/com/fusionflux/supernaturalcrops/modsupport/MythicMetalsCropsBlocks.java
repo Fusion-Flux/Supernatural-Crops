@@ -5,8 +5,6 @@ import com.fusionflux.supernaturalcrops.block.OreBushBlock;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.Lazy;
 import nourl.mythicmetals.registry.RegisterIngots;
@@ -14,8 +12,7 @@ import nourl.mythicmetals.registry.RegisterNuggets;
 
 import java.util.function.Supplier;
 
-import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.bushBlockSettings;
-import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.registerBush;
+import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.*;
 import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResources.registerBushResources;
 
 public class MythicMetalsCropsBlocks {
@@ -215,12 +212,14 @@ public class MythicMetalsCropsBlocks {
 		private final Item ingot;
 		private final Lazy<Item> harvestResult;
 		private final Lazy<Boolean> enabled;
+		private final Lazy<OreBushBlock> block;
 
 		OreBushes(String path, Item ingot, Lazy<Item> harvestResult, Supplier<Boolean> enabled) {
 			this.path = path;
 			this.ingot = ingot;
 			this.harvestResult = harvestResult;
 			this.enabled = new Lazy<>(enabled);
+			block = new Lazy<>(() -> new OreBushBlock(bushBlockSettings(), this));
 		}
 
 		@Override
@@ -234,6 +233,11 @@ public class MythicMetalsCropsBlocks {
 		}
 
 		@Override
+		public OreBushBlock getBlock() {
+			return block.get();
+		}
+
+		@Override
 		public Item getIngot() {
 			return ingot;
 		}
@@ -244,126 +248,13 @@ public class MythicMetalsCropsBlocks {
 		}
 	}
 
-	public static final OreBushBlock ADAMANTITE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.ADAMANTITE);
-	public static final OreBushBlock AETHERIUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.AETHERIUM);
-	public static final OreBushBlock AQUARIUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.AQUARIUM);
-	public static final OreBushBlock ARGONIUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.ARGONIUM);
-	public static final OreBushBlock BANGLUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.BANGLUM);
-	public static final OreBushBlock BRASS_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.BRASS);
-	public static final OreBushBlock BRONZE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.BRONZE);
-	public static final OreBushBlock CARMOT_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.CARMOT);
-	public static final OreBushBlock CELESTIUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.CELESTIUM);
-	public static final OreBushBlock COPPER_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.COPPER);
-	public static final OreBushBlock DISCORDIUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.DISCORDIUM);
-	public static final OreBushBlock DURASTEEL_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.DURASTEEL);
-	public static final OreBushBlock ELECTRUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.ELECTRUM);
-	public static final OreBushBlock ETHERITE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.ETHERITE);
-	public static final OreBushBlock HALLOWED_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.HALLOWED);
-	public static final OreBushBlock KYBER_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.KYBER);
-	public static final OreBushBlock MANGANESE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.MANGANESE);
-	public static final OreBushBlock METALLURGIUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.METALLURGIUM);
-	public static final OreBushBlock MIDAS_GOLD_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.MIDAS_GOLD);
-	public static final OreBushBlock MYTHRIL_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.MYTHRIL);
-	public static final OreBushBlock ORICHALCUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.ORICHALCUM);
-	public static final OreBushBlock OSMIUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.OSMIUM);
-	public static final OreBushBlock PLATINUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.PLATINUM);
-	public static final OreBushBlock PROMETHEUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.PROMETHEUM);
-	public static final OreBushBlock QUADRILLUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.QUADRILLUM);
-	public static final OreBushBlock QUICKSILVER_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.QUICKSILVER);
-	public static final OreBushBlock RUNITE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.RUNITE);
-	public static final OreBushBlock SILVER_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.SILVER);
-	public static final OreBushBlock SLOWSILVER_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.SLOWSILVER);
-	public static final OreBushBlock STARRITE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.STARRITE);
-	public static final OreBushBlock STEEL_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.STEEL);
-	public static final OreBushBlock STORMYX_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.STORMYX);
-	public static final OreBushBlock TANTALITE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.TANTALITE);
-	public static final OreBushBlock TIN_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.TIN);
-	public static final OreBushBlock TRUESILVER_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.TRUESILVER);
-	public static final OreBushBlock UNOBTAINIUM_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.UNOBTAINIUM);
-	public static final OreBushBlock UR_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.UR);
-	public static final OreBushBlock ZINC_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.ZINC);
-
 	public static void registerBlocks() {
-		registerBush(ADAMANTITE_BUSH);
-		registerBush(AETHERIUM_BUSH);
-		registerBush(AQUARIUM_BUSH);
-		registerBush(ARGONIUM_BUSH);
-		registerBush(BANGLUM_BUSH);
-		registerBush(BRASS_BUSH);
-		registerBush(BRONZE_BUSH);
-		registerBush(CARMOT_BUSH);
-		registerBush(CELESTIUM_BUSH);
-		registerBush(COPPER_BUSH);
-		registerBush(DISCORDIUM_BUSH);
-		registerBush(DURASTEEL_BUSH);
-		registerBush(ELECTRUM_BUSH);
-		registerBush(ETHERITE_BUSH);
-		registerBush(HALLOWED_BUSH);
-		registerBush(KYBER_BUSH);
-		registerBush(MANGANESE_BUSH);
-		registerBush(METALLURGIUM_BUSH);
-		registerBush(MIDAS_GOLD_BUSH);
-		registerBush(MYTHRIL_BUSH);
-		registerBush(ORICHALCUM_BUSH);
-		registerBush(OSMIUM_BUSH);
-		registerBush(PLATINUM_BUSH);
-		registerBush(PROMETHEUM_BUSH);
-		registerBush(QUADRILLUM_BUSH);
-		registerBush(QUICKSILVER_BUSH);
-		registerBush(RUNITE_BUSH);
-		registerBush(SILVER_BUSH);
-		registerBush(SLOWSILVER_BUSH);
-		registerBush(STARRITE_BUSH);
-		registerBush(STEEL_BUSH);
-		registerBush(STORMYX_BUSH);
-		registerBush(TANTALITE_BUSH);
-		registerBush(TIN_BUSH);
-		registerBush(TRUESILVER_BUSH);
-		registerBush(UNOBTAINIUM_BUSH);
-		registerBush(UR_BUSH);
-		registerBush(ZINC_BUSH);
+		registerBushBlocksAndItems(OreBushes.values());
 		registerBushResources(OreBushes.values());
 	}
 
 	@Environment(EnvType.CLIENT)
 	public static void registerRenderLayers() {
-		BlockRenderLayerMap.INSTANCE.putBlock(ADAMANTITE_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(AETHERIUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(AQUARIUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(ARGONIUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(BANGLUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(BRASS_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(BRONZE_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(CARMOT_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(CELESTIUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(COPPER_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(DISCORDIUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(DURASTEEL_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(ELECTRUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(ETHERITE_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(HALLOWED_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(KYBER_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(MANGANESE_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(METALLURGIUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(MIDAS_GOLD_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(MYTHRIL_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(ORICHALCUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(OSMIUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(PLATINUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(PROMETHEUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(QUADRILLUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(QUICKSILVER_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(RUNITE_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(SILVER_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(SLOWSILVER_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(STARRITE_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(STEEL_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(STORMYX_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(TANTALITE_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(TIN_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(TRUESILVER_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(UNOBTAINIUM_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(UR_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(ZINC_BUSH, RenderLayer.getCutout());
+		registerBushRenderLayers(OreBushes.values());
 	}
 }

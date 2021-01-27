@@ -1,6 +1,0 @@
-{
-    "parent": "item/handheld",
-    "textures": {
-        "layer0": "supernaturalcrops:item/celestium_bush_seeds"
-    }
-}

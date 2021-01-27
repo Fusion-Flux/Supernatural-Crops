@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/handheld",
+    "textures": {
+        "layer": "supernaturalcrops:item/lint_jurel_bush_seeds"
+    }
+}

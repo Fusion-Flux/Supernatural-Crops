@@ -1,6 +1,0 @@
-{
-    "parent": "item/handheld",
-    "textures": {
-        "layer0": "supernaturalcrops:item/truesilver_bush_seeds"
-    }
-}

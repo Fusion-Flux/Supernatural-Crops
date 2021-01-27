@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cross",
+    "textures": {
+        "cross": "supernaturalcrops:block/betterend_terminite_bush_stage3"
+    }
+}

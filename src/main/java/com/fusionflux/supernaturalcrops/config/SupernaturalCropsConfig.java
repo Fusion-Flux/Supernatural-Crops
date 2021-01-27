@@ -6,6 +6,8 @@ import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.JanksonConfigSerializer;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 
 @Config(name = SupernaturalCrops.MOD_ID)
 public final class SupernaturalCropsConfig implements ConfigData {
@@ -19,6 +21,19 @@ public final class SupernaturalCropsConfig implements ConfigData {
 
 	public static void save() {
 		AutoConfig.getConfigHolder(SupernaturalCropsConfig.class).save();
+	}
+
+	public enum UncraftingRecipeOption {
+		OFF, TO_INGOTS_AND_SEED, TO_INGOTS, TO_SEED;
+
+		public Text toText() {
+			// TODO
+			return new LiteralText(name());
+		}
+	}
+	
+	public static class Recipes {
+		public UncraftingRecipeOption uncraftingRecipe = UncraftingRecipeOption.TO_INGOTS_AND_SEED;
 	}
 
 	public static class Enabled {
@@ -43,7 +58,7 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		public boolean enableNetheriteCropNuggets = false;
 	}
 
-	public static class MythicalMetalsEnabled {
+	public static class MythicMetalsEnabled {
 		public boolean enableAdamantiteCrops = true;
 		public boolean enableAetheriumCrops = true;
 		public boolean enableAquariumCrops = true;
@@ -58,7 +73,6 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		public boolean enableDurasteelCrops = true;
 		public boolean enableElectrumCrops = true;
 		public boolean enableEtheriteCrops = true;
-		public boolean enableHallowedCrops = true;
 		public boolean enableKyberCrops = true;
 		public boolean enableManganeseCrops = true;
 		public boolean enableMetallurgiumCrops = true;
@@ -84,7 +98,7 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		public boolean enableZincCrops = true;
 	}
 
-	public static class MythicalMetalsNuggetBalance {
+	public static class MythicMetalsNuggetBalance {
 		public boolean enableAdamantiteCropNuggets = false;
 		public boolean enableAetheriumCropNuggets = false;
 		public boolean enableAquariumCropNuggets = false;
@@ -99,7 +113,6 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		public boolean enableDurasteelCropNuggets = false;
 		public boolean enableElectrumCropNuggets = false;
 		public boolean enableEtheriteCropNuggets = false;
-		public boolean enableHallowedCropNuggets = false;
 		public boolean enableKyberCropNuggets = false;
 		public boolean enableManganeseCropNuggets = false;
 		public boolean enableMetallurgiumCropNuggets = false;
@@ -197,47 +210,51 @@ public final class SupernaturalCropsConfig implements ConfigData {
 	public static class LintNuggetBalance {
 		public boolean enableJurelCropNuggets = false;
 	}
+
+	@ConfigEntry.Gui.TransitiveObject
+	@ConfigEntry.Category("recipes")
+	public Recipes recipes = new Recipes();
 	
 	@ConfigEntry.Gui.TransitiveObject
 	@ConfigEntry.Category("enabled")
 	public Enabled enabled = new Enabled();
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("nugget_balance")
+	@ConfigEntry.Category("nuggetBalance")
 	public NuggetBalance nuggetBalance = new NuggetBalance();
 
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("mythicalmetals_enabled")
-	public MythicalMetalsEnabled mythicalMetalsEnabled = new MythicalMetalsEnabled();
+	@ConfigEntry.Category("mythicalMetalsEnabled")
+	public MythicMetalsEnabled mythicMetalsEnabled = new MythicMetalsEnabled();
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("mythicalmetals_nugget_balance")
-	public MythicalMetalsNuggetBalance mythicalMetalsNuggetBalance = new MythicalMetalsNuggetBalance();
+	@ConfigEntry.Category("mythicalMetalsNuggetBalance")
+	public MythicMetalsNuggetBalance mythicMetalsNuggetBalance = new MythicMetalsNuggetBalance();
 
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("betterend_enabled")
+	@ConfigEntry.Category("betterEndEnabled")
 	public BetterEndEnabled betterEndEnabled = new BetterEndEnabled();
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("betterend_nugget_balance")
+	@ConfigEntry.Category("betterEndNuggetBalance")
 	public BetterEndNuggetBalance betterEndNuggetBalance = new BetterEndNuggetBalance();
 
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("betternether_enabled")
+	@ConfigEntry.Category("betterNetherEnabled")
 	public BetterNetherEnabled betterNetherEnabled = new BetterNetherEnabled();
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("betternether_nugget_balance")
+	@ConfigEntry.Category("betterNetherNuggetBalance")
 	public BetterNetherNuggetBalance betterNetherNuggetBalance = new BetterNetherNuggetBalance();
 
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("techerborn_enabled")
+	@ConfigEntry.Category("techRebornEnabled")
 	public TechRebornEnabled techRebornEnabled = new TechRebornEnabled();
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("techerborn_nugget_balance")
+	@ConfigEntry.Category("techRebornNuggetBalance")
 	public TechRebornNuggetBalance techRebornNuggetBalance = new TechRebornNuggetBalance();
 
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("lint_enabled")
+	@ConfigEntry.Category("lintEnabled")
 	public LintEnabled lintEnabled = new LintEnabled();
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("lint_nugget_balance")
+	@ConfigEntry.Category("lintNuggetBalance")
 	public LintNuggetBalance lintNuggetBalance = new LintNuggetBalance();
 
 	@Override
@@ -247,10 +264,10 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		if (nuggetBalance == null)
 			nuggetBalance = new NuggetBalance();
 
-		if (mythicalMetalsEnabled == null)
-			mythicalMetalsEnabled = new MythicalMetalsEnabled();
-		if (mythicalMetalsNuggetBalance == null)
-			mythicalMetalsNuggetBalance = new MythicalMetalsNuggetBalance();
+		if (mythicMetalsEnabled == null)
+            mythicMetalsEnabled = new MythicMetalsEnabled();
+		if (mythicMetalsNuggetBalance == null)
+            mythicMetalsNuggetBalance = new MythicMetalsNuggetBalance();
 
 		if (betterEndEnabled == null)
 			betterEndEnabled = new BetterEndEnabled();

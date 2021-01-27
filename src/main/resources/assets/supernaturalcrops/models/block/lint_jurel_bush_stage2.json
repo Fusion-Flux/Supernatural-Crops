@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cross",
+    "textures": {
+        "cross": "supernaturalcrops:block/lint_jurel_bush_stage2"
+    }
+}

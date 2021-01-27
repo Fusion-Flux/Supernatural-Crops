@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/handheld",
+    "textures": {
+        "layer": "supernaturalcrops:item/techreborn_tin_bush_seeds"
+    }
+}

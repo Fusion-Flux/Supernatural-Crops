@@ -2,6 +2,7 @@ package com.fusionflux.supernaturalcrops.block;
 
 import com.fusionflux.supernaturalcrops.OreBush;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
+import com.fusionflux.supernaturalcrops.item.BushSeedItem;
 import com.fusionflux.supernaturalcrops.item.SupernaturalCropsItems;
 import com.fusionflux.supernaturalcrops.item.group.SupernaturalCropsItemGroups;
 import net.fabricmc.api.EnvType;
@@ -69,12 +70,14 @@ public class SupernaturalCropsBlocks {
 		private final Item ingot;
 		private final Lazy<Item> harvestResult;
 		private final Lazy<Boolean> enabled;
+		private final Lazy<OreBushBlock> block;
 
 		OreBushes(String path, Item ingot, Lazy<Item> harvestResult, Supplier<Boolean> enabled) {
 			this.path = path;
 			this.ingot = ingot;
 			this.harvestResult = harvestResult;
 			this.enabled = new Lazy<>(enabled);
+			block = new Lazy<>(() -> new OreBushBlock(bushBlockSettings(), this));
 		}
 
 		OreBushes(String path, Item ingot, Supplier<Boolean> enabled) {
@@ -92,6 +95,11 @@ public class SupernaturalCropsBlocks {
 		}
 
 		@Override
+		public OreBushBlock getBlock() {
+			return block.get();
+		}
+
+		@Override
 		public Item getIngot() {
 			return ingot;
 		}
@@ -101,16 +109,6 @@ public class SupernaturalCropsBlocks {
 			return harvestResult.get();
 		}
 	}
-
-	public static final OreBushBlock COAL_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.COAL);
-	public static final OreBushBlock IRON_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.IRON);
-	public static final OreBushBlock GOLD_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.GOLD);
-	public static final OreBushBlock DIAMOND_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.DIAMOND);
-	public static final OreBushBlock EMERALD_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.EMERALD);
-	public static final OreBushBlock NETHERITE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.NETHERITE);
-	public static final OreBushBlock REDSTONE_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.REDSTONE);
-	public static final OreBushBlock LAPIS_LAZULI_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.LAPIS_LAZULI);
-	public static final OreBushBlock QUARTZ_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.QUARTZ);
 
 	public static final Block EMBEDDED_ABYSS = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.4F));
     public static final ScrapedStoneBlock SCRAPED_STONE = new ScrapedStoneBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5F).ticksRandomly());
@@ -123,34 +121,26 @@ public class SupernaturalCropsBlocks {
 		Registry.register(Registry.ITEM, id("scraped_stone"),
 				new BlockItem(SCRAPED_STONE, new Item.Settings().group(SupernaturalCropsItemGroups.GENERAL)));
 
-		registerBush(COAL_BUSH);
-		registerBush(IRON_BUSH);
-		registerBush(GOLD_BUSH);
-		registerBush(DIAMOND_BUSH);
-		registerBush(EMERALD_BUSH);
-		registerBush(NETHERITE_BUSH);
-		registerBush(REDSTONE_BUSH);
-		registerBush(LAPIS_LAZULI_BUSH);
-		registerBush(QUARTZ_BUSH);
+		registerBushBlocksAndItems(OreBushes.values());
 	}
 
-	public static void registerBush(OreBushBlock bushBlock) {
-		Registry.register(Registry.BLOCK, bushBlock.getBush().getBlockId(), bushBlock);
-		Registry.register(Registry.ITEM, bushBlock.getBush().getSeedsId(),
-				new BlockItem(bushBlock, SupernaturalCropsItems.bushSeedSettings()));
+	public static void registerBushBlocksAndItems(OreBush... bushes) {
+    	for (OreBush bush : bushes) {
+			Registry.register(Registry.BLOCK, bush.getBlockId(), bush.getBlock());
+			Registry.register(Registry.ITEM, bush.getSeedsId(),
+					new BushSeedItem(bush.getBlock()));
+		}
 	}
 
 	@Environment(EnvType.CLIENT)
 	public static void registerRenderLayers() {
-		BlockRenderLayerMap.INSTANCE.putBlock(QUARTZ_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(LAPIS_LAZULI_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(REDSTONE_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(NETHERITE_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(EMERALD_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(DIAMOND_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(GOLD_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(IRON_BUSH, RenderLayer.getCutout());
-		BlockRenderLayerMap.INSTANCE.putBlock(COAL_BUSH, RenderLayer.getCutout());
+		registerBushRenderLayers(OreBushes.values());
+	}
+
+	@Environment(EnvType.CLIENT)
+	public static void registerBushRenderLayers(OreBush... bushes) {
+    	for (OreBush bush : bushes)
+    		BlockRenderLayerMap.INSTANCE.putBlock(bush.getBlock(), RenderLayer.getCutout());
 	}
 }
 

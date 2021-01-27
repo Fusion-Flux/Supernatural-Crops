@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/handheld",
+    "textures": {
+        "layer": "supernaturalcrops:item/mythicmetals_etherite_bush_seeds"
+    }
+}

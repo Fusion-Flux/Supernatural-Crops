@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cross",
+    "textures": {
+        "cross": "supernaturalcrops:block/techreborn_invar_bush_stage3"
+    }
+}

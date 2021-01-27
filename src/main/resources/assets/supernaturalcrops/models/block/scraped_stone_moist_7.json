@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_farmland",
-  "textures": {
-    "dirt": "supernaturalcrops:block/scraped_stone_side",
-    "top": "supernaturalcrops:block/scraped_stone_moist_7"
-  }
-}

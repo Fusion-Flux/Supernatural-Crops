@@ -1,4 +1,6 @@
 {
-  "parent": "item/generated",
-  "textures": { "layer0": "supernaturalcrops:item/emerald_bush_seeds" }
+    "parent": "minecraft:item/handheld",
+    "textures": {
+        "layer": "supernaturalcrops:item/emerald_bush_seeds"
+    }
 }

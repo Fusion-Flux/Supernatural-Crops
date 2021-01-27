@@ -13,8 +13,7 @@ import net.minecraft.util.Lazy;
 
 import java.util.function.Supplier;
 
-import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.bushBlockSettings;
-import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.registerBush;
+import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.*;
 import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResources.registerBushResources;
 
 public class LintCropsBlocks {
@@ -33,12 +32,14 @@ public class LintCropsBlocks {
         private final Item ingot;
         private final Lazy<Item> harvestResult;
         private final Lazy<Boolean> enabled;
+        private final Lazy<OreBushBlock> block;
 
         OreBushes(String path, Item ingot, Lazy<Item> harvestResult, Supplier<Boolean> enabled) {
-            this.path = path;
+            this.path = "lint_" + path;
             this.ingot = ingot;
             this.harvestResult = harvestResult;
             this.enabled = new Lazy<>(enabled);
+            block = new Lazy<>(() -> new OreBushBlock(bushBlockSettings(), this));
         }
 
         OreBushes(String path, Item ingot, Supplier<Boolean> enabled) {
@@ -53,6 +54,11 @@ public class LintCropsBlocks {
         @Override
         public String getPath() {
             return path;
+        }
+
+        @Override
+        public OreBushBlock getBlock() {
+            return block.get();
         }
 
         @Override
@@ -71,17 +77,12 @@ public class LintCropsBlocks {
     public static final OreBushBlock TARSCAN_BUSH = new OreBushBlock(bushBlockSettings(), OreBushes.TARSCAN);
 
     public static void registerBlocks() {
-        registerBush(LintCropsBlocks.JUREL_BUSH);
-        registerBush(LintCropsBlocks.SICIERON_BUSH);
-        registerBush(LintCropsBlocks.TARSCAN_BUSH);
+        registerBushBlocksAndItems(OreBushes.values());
         registerBushResources(OreBushes.values());
     }
 
     @Environment(EnvType.CLIENT)
     public static void registerRenderLayers() {
-        BlockRenderLayerMap.INSTANCE.putBlock(LintCropsBlocks.JUREL_BUSH, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(LintCropsBlocks.SICIERON_BUSH, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(LintCropsBlocks.TARSCAN_BUSH, RenderLayer.getCutout());
+        registerBushRenderLayers(OreBushes.values());
     }
-
 }

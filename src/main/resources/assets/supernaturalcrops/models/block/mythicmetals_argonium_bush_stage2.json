@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cross",
+    "textures": {
+        "cross": "supernaturalcrops:block/mythicmetals_argonium_bush_stage2"
+    }
+}

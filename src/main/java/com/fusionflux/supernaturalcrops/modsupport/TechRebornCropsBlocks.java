@@ -41,12 +41,12 @@ public class TechRebornCropsBlocks {
                         ? TRContent.Nuggets.ELECTRUM.item
                         : TRContent.Ingots.ELECTRUM.item),
                 () -> SupernaturalCropsConfig.get().techRebornEnabled.enableElectrumCrops),
-        INVAR("invar_bush", TRContent.Ingots.INVAR.item, new Lazy<>(() ->
+        INVAR("trinvar_bush", TRContent.Ingots.INVAR.item, new Lazy<>(() ->
                 SupernaturalCropsConfig.get().techRebornNuggetBalance.enableInvarCropNuggets
                         ? TRContent.Nuggets.INVAR.item
                         : TRContent.Ingots.INVAR.item),
                 () -> SupernaturalCropsConfig.get().techRebornEnabled.enableInvarCrops),
-        IRIDIUM("iridium_bush", TRContent.Ingots.IRIDIUM.item, new Lazy<>(() ->
+        IRIDIUM("triridium_bush", TRContent.Ingots.IRIDIUM.item, new Lazy<>(() ->
                 SupernaturalCropsConfig.get().techRebornNuggetBalance.enableIridiumCropNuggets
                         ? TRContent.Nuggets.IRIDIUM.item
                         : TRContent.Ingots.IRIDIUM.item),
@@ -66,17 +66,17 @@ public class TechRebornCropsBlocks {
                         ? TRContent.Nuggets.PLATINUM.item
                         : TRContent.Ingots.PLATINUM.item),
                 () -> SupernaturalCropsConfig.get().techRebornEnabled.enablePlatinumCrops),
-        SILVER("silver_bush", TRContent.Ingots.SILVER.item, new Lazy<>(() ->
+        SILVER("trsilver_bush", TRContent.Ingots.SILVER.item, new Lazy<>(() ->
                 SupernaturalCropsConfig.get().techRebornNuggetBalance.enableSilverCropNuggets
                         ? TRContent.Nuggets.SILVER.item
                         : TRContent.Ingots.SILVER.item),
                 () -> SupernaturalCropsConfig.get().techRebornEnabled.enableSilverCrops),
-        STEEL("steel_bush", TRContent.Ingots.STEEL.item, new Lazy<>(() ->
+        STEEL("trsteel_bush", TRContent.Ingots.STEEL.item, new Lazy<>(() ->
                 SupernaturalCropsConfig.get().techRebornNuggetBalance.enableSteelCropNuggets
                         ? TRContent.Nuggets.STEEL.item
                         : TRContent.Ingots.STEEL.item),
                 () -> SupernaturalCropsConfig.get().techRebornEnabled.enableSteelCrops),
-        TIN("tin_bush", TRContent.Ingots.TIN.item, new Lazy<>(() ->
+        TIN("trtin_bush", TRContent.Ingots.TIN.item, new Lazy<>(() ->
                 SupernaturalCropsConfig.get().techRebornNuggetBalance.enableTinCropNuggets
                         ? TRContent.Nuggets.TIN.item
                         : TRContent.Ingots.TIN.item),
@@ -101,7 +101,7 @@ public class TechRebornCropsBlocks {
                         ? TRContent.Nuggets.REFINED_IRON.item
                         : TRContent.Ingots.REFINED_IRON.item),
                 () -> SupernaturalCropsConfig.get().techRebornEnabled.enableRefinedIronCrops),
-        CHROME("trhrome_bush", TRContent.Ingots.CHROME.item, new Lazy<>(() ->
+        CHROME("trchrome_bush", TRContent.Ingots.CHROME.item, new Lazy<>(() ->
                 SupernaturalCropsConfig.get().techRebornNuggetBalance.enableChromeCropNuggets
                         ? TRContent.Nuggets.CHROME.item
                         : TRContent.Ingots.CHROME.item),

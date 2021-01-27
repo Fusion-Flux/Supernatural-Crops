@@ -5,8 +5,6 @@ import com.fusionflux.supernaturalcrops.block.OreBushBlock;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.Lazy;
 import techreborn.init.TRContent;

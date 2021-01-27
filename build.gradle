@@ -10,6 +10,7 @@ repositories {
         url = "https://jitpack.io"
     }
     maven { url = "https://www.cursemaven.com" }
+    maven { url = "https://maven.terraformersmc.com/releases" }
 }
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -27,11 +28,11 @@ dependencies {
     modImplementation group: 'net.devtech', name: 'arrp', version: '0.3.2'
     include group: 'net.devtech', name: 'arrp', version: '0.3.2'
 
-    modCompileOnly 'curse.maven:mythicmetals-410127:3153510'
-    modCompileOnly 'curse.maven:betterend-413596:3147042'
-    modCompileOnly 'curse.maven:betternether-311377:3133763'
-    modCompileOnly 'curse.maven:techreborn-233564:3151153'
-    modCompileOnly 'curse.maven:lint-374071:3167698'
+    modCompileOnly "curse.maven:mythicmetals-410127:${project.mythicmetals_fileid}"
+    modCompileOnly "curse.maven:betterend-413596:${project.betterend_fileid}"
+    modCompileOnly "curse.maven:betternether-311377:${project.betternether_fileid}"
+    modCompileOnly "curse.maven:techreborn-233564:${project.techreborn_fileid}"
+    modCompileOnly "curse.maven:lint-374071:${project.lint_fileid}"
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
@@ -45,10 +46,9 @@ dependencies {
     }
     include "me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig1u_version}"
 
-    modCompileOnly("io.github.prospector:modmenu:${project.modmenu_version}") {
+    modCompileOnly("com.terraformersmc:modmenu:${project.modmenu_version}") {
         exclude(module: "fabric-api")
     }
-    include "io.github.prospector:modmenu:${project.modmenu_version}"
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
 }

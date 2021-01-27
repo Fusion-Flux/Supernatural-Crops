@@ -58,7 +58,7 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		public boolean enableNetheriteCropNuggets = false;
 	}
 
-	public static class MythicalMetalsEnabled {
+	public static class MythicMetalsEnabled {
 		public boolean enableAdamantiteCrops = true;
 		public boolean enableAetheriumCrops = true;
 		public boolean enableAquariumCrops = true;
@@ -73,7 +73,6 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		public boolean enableDurasteelCrops = true;
 		public boolean enableElectrumCrops = true;
 		public boolean enableEtheriteCrops = true;
-		public boolean enableHallowedCrops = true;
 		public boolean enableKyberCrops = true;
 		public boolean enableManganeseCrops = true;
 		public boolean enableMetallurgiumCrops = true;
@@ -99,7 +98,7 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		public boolean enableZincCrops = true;
 	}
 
-	public static class MythicalMetalsNuggetBalance {
+	public static class MythicMetalsNuggetBalance {
 		public boolean enableAdamantiteCropNuggets = false;
 		public boolean enableAetheriumCropNuggets = false;
 		public boolean enableAquariumCropNuggets = false;
@@ -114,7 +113,6 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		public boolean enableDurasteelCropNuggets = false;
 		public boolean enableElectrumCropNuggets = false;
 		public boolean enableEtheriteCropNuggets = false;
-		public boolean enableHallowedCropNuggets = false;
 		public boolean enableKyberCropNuggets = false;
 		public boolean enableManganeseCropNuggets = false;
 		public boolean enableMetallurgiumCropNuggets = false;
@@ -226,10 +224,10 @@ public final class SupernaturalCropsConfig implements ConfigData {
 
 	@ConfigEntry.Gui.TransitiveObject
 	@ConfigEntry.Category("mythicalMetalsEnabled")
-	public MythicalMetalsEnabled mythicalMetalsEnabled = new MythicalMetalsEnabled();
+	public MythicMetalsEnabled mythicMetalsEnabled = new MythicMetalsEnabled();
 	@ConfigEntry.Gui.TransitiveObject
 	@ConfigEntry.Category("mythicalMetalsNuggetBalance")
-	public MythicalMetalsNuggetBalance mythicalMetalsNuggetBalance = new MythicalMetalsNuggetBalance();
+	public MythicMetalsNuggetBalance mythicMetalsNuggetBalance = new MythicMetalsNuggetBalance();
 
 	@ConfigEntry.Gui.TransitiveObject
 	@ConfigEntry.Category("betterEndEnabled")
@@ -266,10 +264,10 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		if (nuggetBalance == null)
 			nuggetBalance = new NuggetBalance();
 
-		if (mythicalMetalsEnabled == null)
-			mythicalMetalsEnabled = new MythicalMetalsEnabled();
-		if (mythicalMetalsNuggetBalance == null)
-			mythicalMetalsNuggetBalance = new MythicalMetalsNuggetBalance();
+		if (mythicMetalsEnabled == null)
+            mythicMetalsEnabled = new MythicMetalsEnabled();
+		if (mythicMetalsNuggetBalance == null)
+            mythicMetalsNuggetBalance = new MythicMetalsNuggetBalance();
 
 		if (betterEndEnabled == null)
 			betterEndEnabled = new BetterEndEnabled();

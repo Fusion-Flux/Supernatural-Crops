@@ -31,7 +31,7 @@ public class BetterNetherCropsBlocks {
         private final Lazy<OreBushBlock> block;
 
         OreBushes(String path, Item ingot, Lazy<Item> harvestResult, Supplier<Boolean> enabled) {
-            this.path = path;
+            this.path = "betternether_" + path;
             this.ingot = ingot;
             this.harvestResult = harvestResult;
             this.enabled = new Lazy<>(enabled);

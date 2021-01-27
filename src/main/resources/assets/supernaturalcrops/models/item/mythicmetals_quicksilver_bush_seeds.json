@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/handheld",
+    "textures": {
+        "layer": "supernaturalcrops:item/mythicmetals_quicksilver_bush_seeds"
+    }
+}

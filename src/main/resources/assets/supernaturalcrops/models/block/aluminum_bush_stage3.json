@@ -1,6 +1,0 @@
-{
-    "parent": "minecraft:block/cross",
-    "textures": {
-        "cross": "supernaturalcrops:block/aluminum_bush_stage3"
-    }
-}

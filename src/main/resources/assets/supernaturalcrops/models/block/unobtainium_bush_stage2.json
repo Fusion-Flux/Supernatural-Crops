@@ -1,6 +1,0 @@
-{
-    "parent": "minecraft:block/cross",
-    "textures": {
-        "cross": "supernaturalcrops:block/unobtainium_bush_stage2"
-    }
-}

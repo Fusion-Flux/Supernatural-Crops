@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "supernaturalcrops:block/diamond_bush_stage2"
-  }
+    "parent": "minecraft:block/cross",
+    "textures": {
+        "cross": "supernaturalcrops:block/diamond_bush_stage2"
+    }
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "supernaturalcrops:block/ender_bush_base_stage1"
-  }
-}

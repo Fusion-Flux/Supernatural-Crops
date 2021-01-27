@@ -42,12 +42,12 @@ public class MythicMetalsCropsBlocks {
 						? RegisterNuggets.Banglum_Nugget
 						: RegisterIngots.Banglum_Ingot),
 				() -> SupernaturalCropsConfig.get().mythicMetalsEnabled.enableBanglumCrops),
-		BRASS("mmbrass_bush", RegisterIngots.Brass_Ingot, new Lazy<>(() ->
+		BRASS("brass_bush", RegisterIngots.Brass_Ingot, new Lazy<>(() ->
 				SupernaturalCropsConfig.get().mythicMetalsNuggetBalance.enableBrassCropNuggets
 						? RegisterNuggets.Brass_Nugget
 						: RegisterIngots.Brass_Ingot),
 				() -> SupernaturalCropsConfig.get().mythicMetalsEnabled.enableBrassCrops),
-		BRONZE("mmbronze_bush", RegisterIngots.Bronze_Ingot, new Lazy<>(() ->
+		BRONZE("bronze_bush", RegisterIngots.Bronze_Ingot, new Lazy<>(() ->
 				SupernaturalCropsConfig.get().mythicMetalsNuggetBalance.enableBronzeCropNuggets
 						? RegisterNuggets.Bronze_Nugget
 						: RegisterIngots.Bronze_Ingot),
@@ -62,7 +62,7 @@ public class MythicMetalsCropsBlocks {
 						? RegisterNuggets.Celestium_Nugget
 						: RegisterIngots.Celestium_Ingot),
 				() -> SupernaturalCropsConfig.get().mythicMetalsEnabled.enableCelestiumCrops),
-		COPPER("mmcopper_bush", RegisterIngots.Copper_Ingot, new Lazy<>(() ->
+		COPPER("copper_bush", RegisterIngots.Copper_Ingot, new Lazy<>(() ->
 				SupernaturalCropsConfig.get().mythicMetalsNuggetBalance.enableCopperCropNuggets
 						? RegisterNuggets.Copper_Nugget
 						: RegisterIngots.Copper_Ingot),
@@ -77,7 +77,7 @@ public class MythicMetalsCropsBlocks {
 						? RegisterNuggets.Durasteel_Nugget
 						: RegisterIngots.Durasteel_Ingot),
 				() -> SupernaturalCropsConfig.get().mythicMetalsEnabled.enableDurasteelCrops),
-		ELECTRUM("mmelectrum_bush", RegisterIngots.Electrum_Ingot, new Lazy<>(() ->
+		ELECTRUM("electrum_bush", RegisterIngots.Electrum_Ingot, new Lazy<>(() ->
 				SupernaturalCropsConfig.get().mythicMetalsNuggetBalance.enableElectrumCropNuggets
 						? RegisterNuggets.Electrum_Nugget
 						: RegisterIngots.Electrum_Ingot),
@@ -147,7 +147,7 @@ public class MythicMetalsCropsBlocks {
 						? RegisterNuggets.Runite_Nugget
 						: RegisterIngots.Runite_Ingot),
 				() -> SupernaturalCropsConfig.get().mythicMetalsEnabled.enableRuniteCrops),
-		SILVER("mmsilver_bush", RegisterIngots.Silver_Ingot, new Lazy<>(() ->
+		SILVER("silver_bush", RegisterIngots.Silver_Ingot, new Lazy<>(() ->
 				SupernaturalCropsConfig.get().mythicMetalsNuggetBalance.enableSilverCropNuggets
 						? RegisterNuggets.Silver_Nugget
 						: RegisterIngots.Silver_Ingot),
@@ -162,7 +162,7 @@ public class MythicMetalsCropsBlocks {
 						? RegisterNuggets.Starrite_Nugget
 						: RegisterIngots.Starrite_Ingot),
 				() -> SupernaturalCropsConfig.get().mythicMetalsEnabled.enableStarriteCrops),
-		STEEL("mmsteel_bush", RegisterIngots.Steel_Ingot, new Lazy<>(() ->
+		STEEL("steel_bush", RegisterIngots.Steel_Ingot, new Lazy<>(() ->
 				SupernaturalCropsConfig.get().mythicMetalsNuggetBalance.enableSteelCropNuggets
 						? RegisterNuggets.Steel_Nugget
 						: RegisterIngots.Steel_Ingot),
@@ -197,7 +197,7 @@ public class MythicMetalsCropsBlocks {
 						? RegisterNuggets.Ur_Nugget
 						: RegisterIngots.Ur_Ingot),
 				() -> SupernaturalCropsConfig.get().mythicMetalsEnabled.enableUrCrops),
-		ZINC("mmzinc_bush", RegisterIngots.Zinc_Ingot, new Lazy<>(() ->
+		ZINC("zinc_bush", RegisterIngots.Zinc_Ingot, new Lazy<>(() ->
 				SupernaturalCropsConfig.get().mythicMetalsNuggetBalance.enableZincCropNuggets
 						? RegisterNuggets.Zinc_Nugget
 						: RegisterIngots.Zinc_Ingot),
@@ -210,7 +210,7 @@ public class MythicMetalsCropsBlocks {
 		private final Lazy<OreBushBlock> block;
 
 		OreBushes(String path, Item ingot, Lazy<Item> harvestResult, Supplier<Boolean> enabled) {
-			this.path = path;
+			this.path = "mythicmetals_" + path;
 			this.ingot = ingot;
 			this.harvestResult = harvestResult;
 			this.enabled = new Lazy<>(enabled);

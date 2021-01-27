@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "supernaturalcrops:block/netherite_bush_stage3"
-  }
+    "parent": "minecraft:block/cross",
+    "textures": {
+        "cross": "supernaturalcrops:block/netherite_bush_stage3"
+    }
 }

@@ -2,6 +2,7 @@ package com.fusionflux.supernaturalcrops.block;
 
 import com.fusionflux.supernaturalcrops.OreBush;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
+import com.fusionflux.supernaturalcrops.item.BushSeedItem;
 import com.fusionflux.supernaturalcrops.item.SupernaturalCropsItems;
 import com.fusionflux.supernaturalcrops.item.group.SupernaturalCropsItemGroups;
 import net.fabricmc.api.EnvType;
@@ -127,7 +128,7 @@ public class SupernaturalCropsBlocks {
     	for (OreBush bush : bushes) {
 			Registry.register(Registry.BLOCK, bush.getBlockId(), bush.getBlock());
 			Registry.register(Registry.ITEM, bush.getSeedsId(),
-					new BlockItem(bush.getBlock(), SupernaturalCropsItems.bushSeedSettings()));
+					new BushSeedItem(bush.getBlock()));
 		}
 	}
 

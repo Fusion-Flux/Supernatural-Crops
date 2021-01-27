@@ -1,6 +1,0 @@
-{
-    "parent": "minecraft:block/cross",
-    "textures": {
-        "cross": "supernaturalcrops:block/tantalite_bush_stage3"
-    }
-}

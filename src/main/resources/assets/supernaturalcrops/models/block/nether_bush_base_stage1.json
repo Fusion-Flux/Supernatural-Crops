@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "supernaturalcrops:block/nether_bush_base_stage1"
+  }
+}

@@ -26,7 +26,7 @@ public final class SupernaturalCropsConfig implements ConfigData {
 	}
 
 	public enum UncraftingRecipeOption {
-		OFF("off"), TO_INGOTS_AND_SEED("toIngotsAndSeed"), TO_INGOTS("toIngots"), TO_SEED("toSeeds");
+		OFF("off"), TO_INGOTS_AND_SEED("toIngotsAndSeed"), TO_INGOTS("toIngots"), TO_SEED("toSeed");
 
 		private final String key;
 

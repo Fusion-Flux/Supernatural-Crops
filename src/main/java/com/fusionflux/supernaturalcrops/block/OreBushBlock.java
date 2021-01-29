@@ -3,11 +3,11 @@ package com.fusionflux.supernaturalcrops.block;
 import com.fusionflux.supernaturalcrops.OreBush;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -31,10 +31,6 @@ public class OreBushBlock extends SweetBerryBushBlock {
     public OreBushBlock(Settings settings, OreBush bush) {
         super(settings);
         this.bush = bush;
-    }
-
-    public OreBush getBush() {
-        return bush;
     }
 
     @Override
@@ -70,21 +66,29 @@ public class OreBushBlock extends SweetBerryBushBlock {
         }
 
         int i = state.get(AGE);
-        boolean bl = i == 3;
-        if (!bl && player.getStackInHand(hand).getItem() == Items.BONE_MEAL)
-            return ActionResult.CONSUME;
-        else if (i > 1) {
+        if (i > 1) {
             int j = world.random.nextInt(2);
-            dropStack(world, pos, new ItemStack(bush.getHarvestResult(), j + (bl ? 1 : 0)));
+            dropStack(world, pos, new ItemStack(bush.getHarvestResult(), j + (i == 3 ? 1 : 0)));
             world.playSound(null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS,
                     1.0F, 0.8F + world.random.nextFloat() * 0.4F);
             world.setBlockState(pos, state.with(AGE, 1), 2);
             return ActionResult.success(world.isClient);
-        } else
-            return super.onUse(state, world, pos, player, hand, hit);
+        }
+        return ActionResult.PASS;
     }
 
+    @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
         return floor.isOf(SupernaturalCropsBlocks.SCRAPED_STONE);
+    }
+
+    @Override
+    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
+        return false;
+    }
+
+    @Override
+    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+        return false;
     }
 }

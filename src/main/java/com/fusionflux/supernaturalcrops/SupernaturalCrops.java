@@ -2,6 +2,7 @@ package com.fusionflux.supernaturalcrops;
 
 import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
 import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
+import com.fusionflux.supernaturalcrops.datafixer.SupernaturalCropsDataFixer;
 import com.fusionflux.supernaturalcrops.item.SupernaturalCropsItems;
 import com.fusionflux.supernaturalcrops.modsupport.*;
 import com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResources;
@@ -28,6 +29,7 @@ public class SupernaturalCrops implements ModInitializer {
 		SupernaturalCropsBlocks.register();
 		SupernaturalCropsFeatures.register();
 		SupernaturalCropsResources.register();
+		SupernaturalCropsDataFixer.register();
 
 		if (FabricLoader.getInstance().isModLoaded("mythicmetals"))
 			MythicMetalsCropsBlocks.registerBlocks();

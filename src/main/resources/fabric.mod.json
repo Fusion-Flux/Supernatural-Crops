@@ -22,9 +22,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
+      "adudecalledleo.dfubuddy.impl.Initializer",
       "com.fusionflux.supernaturalcrops.SupernaturalCrops"
     ],
     "client": [
+      "adudecalledleo.dfubuddy.impl.client.ClientInitializer",
       "com.fusionflux.supernaturalcrops.client.SupernaturalCropsClient"
     ],
     "modmenu" : [
@@ -32,6 +34,7 @@
     ]
   },
   "mixins": [
+    "dfubuddy.mixins.json",
     "supernaturalcrops.mixins.json"
   ],
 

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer": "supernaturalcrops:item/lapis_lazuli_bush_seeds"
+        "layer0": "supernaturalcrops:item/lapis_lazuli_bush_seeds"
     }
 }

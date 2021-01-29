@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer": "supernaturalcrops:item/coal_bush_seeds"
+        "layer0": "supernaturalcrops:item/coal_bush_seeds"
     }
 }

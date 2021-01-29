@@ -34,7 +34,7 @@ public class LintCropsBlocks {
         private final Lazy<OreBushBlock> block;
 
         OreBushes(String path, Item ingot, Supplier<Item> harvestResult, BooleanSupplier enabled) {
-            this.path = path;
+            this.path = "lint_" + path;
             this.ingot = ingot;
             this.harvestResult = harvestResult;
             this.enabled = enabled;

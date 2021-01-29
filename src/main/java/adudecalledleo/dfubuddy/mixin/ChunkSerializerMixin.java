@@ -12,8 +12,8 @@ public abstract class ChunkSerializerMixin {
     @ModifyVariable(method = "serialize",
                     at = @At(value = "INVOKE", target = "net/minecraft/nbt/CompoundTag.putInt(Ljava/lang/String;I)V", ordinal = 0),
                     name = "compoundTag")
-    private static CompoundTag addFixerVersions(CompoundTag input) {
-        ModDataFixesInternals.addFixerVersions(input);
+    private static CompoundTag addModDataVersions(CompoundTag input) {
+        ModDataFixesInternals.addModDataVersions(input);
         return input;
     }
 }

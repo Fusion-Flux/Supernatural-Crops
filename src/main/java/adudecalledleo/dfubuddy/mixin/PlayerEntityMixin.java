@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin {
     @Inject(method = "writeCustomDataToTag", at = @At("RETURN"))
-    public void addFixerVersions(CompoundTag tag, CallbackInfo ci) {
-        ModDataFixesInternals.addFixerVersions(tag);
+    public void addModDataVersions(CompoundTag tag, CallbackInfo ci) {
+        ModDataFixesInternals.addModDataVersions(tag);
     }
 }

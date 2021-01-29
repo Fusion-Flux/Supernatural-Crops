@@ -1,6 +1,5 @@
 package adudecalledleo.dfubuddy.impl;
 
-import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.DataFixUtils;
 import com.mojang.datafixers.DataFixer;
 import com.mojang.datafixers.schemas.Schema;
@@ -17,6 +16,7 @@ import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.function.BiFunction;
 
@@ -59,7 +59,7 @@ public final class ModDataFixesInternals {
         return currentTag;
     }
 
-    public static void addFixerVersions(@NotNull CompoundTag compoundTag) {
+    public static void addModDataVersions(@NotNull CompoundTag compoundTag) {
         for (Map.Entry<String, DataFixerEntry> entry : modDataFixers.entrySet())
             compoundTag.putInt(entry.getKey() + "_DataVersion", entry.getValue().currentVersion);
     }
@@ -70,7 +70,7 @@ public final class ModDataFixesInternals {
 
     public static void lock() {
         if (!locked) {
-            modDataFixers = ImmutableMap.copyOf(modDataFixers);
+            modDataFixers = Collections.unmodifiableMap(modDataFixers);
             LOGGER.info("DataFixer registration locked!");
         }
         locked = true;

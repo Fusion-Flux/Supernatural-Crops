@@ -8,6 +8,7 @@ import com.mojang.datafixers.DataFixerBuilder;
 import com.mojang.datafixers.schemas.Schema;
 import it.unimi.dsi.fastutil.objects.Object2ReferenceMap;
 import it.unimi.dsi.fastutil.objects.Object2ReferenceOpenHashMap;
+import net.minecraft.datafixer.schema.IdentifierNormalizingSchema;
 import net.minecraft.util.Util;
 
 public final class SupernaturalCropsDataFixer {
@@ -20,7 +21,7 @@ public final class SupernaturalCropsDataFixer {
     public static void register() {
         DataFixerBuilder builder = new DataFixerBuilder(DATA_VERSION);
         builder.addSchema(0, ModDataFixes.MOD_SCHEMA);
-        Schema schemaV1 = builder.addSchema(1, Schema::new);
+        Schema schemaV1 = builder.addSchema(1, IdentifierNormalizingSchema::new);
         SchemaV1Data.initialize(builder, schemaV1);
         DataFixer fixer = builder.build(Util.getBootstrapExecutor());
         ModDataFixes.registerFixer(SupernaturalCrops.MOD_ID, DATA_VERSION, fixer);

@@ -14,7 +14,7 @@ public abstract class HotbarStorageMixin {
     @Inject(method = "save",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/nbt/NbtIo;write(Lnet/minecraft/nbt/CompoundTag;Ljava/io/File;)V"),
             locals = LocalCapture.CAPTURE_FAILEXCEPTION)
-    public void addFixerVersions(CallbackInfo ci, CompoundTag tag) {
-        ModDataFixesInternals.addFixerVersions(tag);
+    public void addModDataVersions(CallbackInfo ci, CompoundTag tag) {
+        ModDataFixesInternals.addModDataVersions(tag);
     }
 }

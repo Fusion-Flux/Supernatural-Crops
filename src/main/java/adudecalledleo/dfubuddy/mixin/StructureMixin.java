@@ -11,9 +11,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Structure.class)
 public abstract class StructureMixin {
     @Inject(method = "toTag", at = @At("TAIL"), cancellable = true)
-    private void addFixerVersions(CompoundTag tag, CallbackInfoReturnable<CompoundTag> cir) {
+    private void addModDataVersions(CompoundTag tag, CallbackInfoReturnable<CompoundTag> cir) {
         CompoundTag out = cir.getReturnValue();
-        ModDataFixesInternals.addFixerVersions(out);
+        ModDataFixesInternals.addModDataVersions(out);
         cir.setReturnValue(out);
     }
 }

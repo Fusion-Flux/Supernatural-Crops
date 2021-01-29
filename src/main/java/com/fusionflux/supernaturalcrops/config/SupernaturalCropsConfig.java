@@ -35,7 +35,7 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		}
 
 		public Text toText() {
-			MutableText text = new TranslatableText("text.autoconfig.supernaturalcrops.general.uncraftingRecipe." + key);
+			MutableText text = new TranslatableText("text.autoconfig.supernaturalcrops.option.general.uncraftingRecipe." + key);
 			if (this == OFF)
 				text = text.styled(style -> style.withColor(Formatting.RED));
 			return text;

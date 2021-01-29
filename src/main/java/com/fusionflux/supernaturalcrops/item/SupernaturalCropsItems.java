@@ -14,7 +14,7 @@ public class SupernaturalCropsItems {
 	}
 
 	public static FabricItemSettings bushSeedSettings() {
-		if (SupernaturalCropsConfig.get().recipes.uncraftingRecipe == SupernaturalCropsConfig.UncraftingRecipeOption.TO_INGOTS_AND_SEED)
+		if (SupernaturalCropsConfig.get().general.uncraftingRecipe == SupernaturalCropsConfig.UncraftingRecipeOption.TO_INGOTS_AND_SEED)
 			return baseSettings().recipeRemainder(SupernaturalCropsItems.SEED_OF_THE_ABYSS);
 		return baseSettings();
 	}

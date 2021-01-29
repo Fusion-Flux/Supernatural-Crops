@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Lazy;
 import paulevs.betternether.registry.ItemsRegistry;
 
+import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
 import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.*;
@@ -16,35 +17,35 @@ import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResourc
 
 public class BetterNetherCropsBlocks {
     public enum OreBushes implements OreBush {
-        CINCINNASITE("cincinnasite_bush", ItemsRegistry.CINCINNASITE_INGOT, new Lazy<>(() ->
+        CINCINNASITE("cincinnasite_bush", ItemsRegistry.CINCINNASITE_INGOT, () ->
                 SupernaturalCropsConfig.get().betterNetherNuggetBalance.enableCincinnasiteCropNuggets
                         ? ItemsRegistry.CINCINNASITE
-                        : ItemsRegistry.CINCINNASITE_INGOT),
+                        : ItemsRegistry.CINCINNASITE_INGOT,
                 () -> SupernaturalCropsConfig.get().betterNetherEnabled.enableCincinnasiteCrops),
         NETHER_RUBY("nether_ruby_bush", ItemsRegistry.NETHER_RUBY,
                 () -> SupernaturalCropsConfig.get().betterNetherEnabled.enableNetherRubyCrops);
 
         private final String path;
         private final Item ingot;
-        private final Lazy<Item> harvestResult;
-        private final Lazy<Boolean> enabled;
+        private final Supplier<Item> harvestResult;
+        private final BooleanSupplier enabled;
         private final Lazy<OreBushBlock> block;
 
-        OreBushes(String path, Item ingot, Lazy<Item> harvestResult, Supplier<Boolean> enabled) {
+        OreBushes(String path, Item ingot, Supplier<Item> harvestResult, BooleanSupplier enabled) {
             this.path = "betternether_" + path;
             this.ingot = ingot;
             this.harvestResult = harvestResult;
-            this.enabled = new Lazy<>(enabled);
+            this.enabled = enabled;
             block = new Lazy<>(() -> new OreBushBlock(bushBlockSettings(), this));
         }
 
-        OreBushes(String path, Item ingot, Supplier<Boolean> enabled) {
-            this(path, ingot, new Lazy<>(() -> ingot), enabled);
+        OreBushes(String path, Item ingot, BooleanSupplier enabled) {
+            this(path, ingot, () -> ingot, enabled);
         }
 
         @Override
         public boolean isEnabled() {
-            return enabled.get();
+            return enabled.getAsBoolean();
         }
 
         @Override

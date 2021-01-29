@@ -107,7 +107,7 @@ public class ScrapedStoneBlock extends Block {
 
     @Override
     public void onSteppedOn(World world, BlockPos pos, Entity entity) {
-        if (SupernaturalCropsConfig.get().enabled.enableScrapedStoneMagmatedDamage) {
+        if (SupernaturalCropsConfig.get().general.enableScrapedStoneMagmatedDamage) {
             if (world.getBlockState(pos).get(MAGMATED) > 7) {
                 if (!entity.isFireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity))
                     entity.damage(DamageSource.HOT_FLOOR, 1.0F);

@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Lazy;
 import ru.betterend.registry.EndItems;
 
+import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
 import static com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks.*;
@@ -16,34 +17,34 @@ import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResourc
 
 public class BetterEndCropsBlocks {
     public enum OreBushes implements OreBush {
-        TERMINITE("terminite_bush", EndItems.TERMINITE_INGOT, new Lazy<>(() ->
+        TERMINITE("terminite_bush", EndItems.TERMINITE_INGOT, () ->
                 SupernaturalCropsConfig.get().betterEndNuggetBalance.enableTerminiteCropNuggets
                         ? EndItems.ENDER_DUST
-                        : EndItems.TERMINITE_INGOT),
+                        : EndItems.TERMINITE_INGOT,
                 () -> SupernaturalCropsConfig.get().betterEndEnabled.enableTerminiteCrops),
-        AMBER("amber_bush", EndItems.AMBER_GEM, new Lazy<>(() ->
+        AMBER("amber_bush", EndItems.AMBER_GEM, () ->
                 SupernaturalCropsConfig.get().betterEndNuggetBalance.enableAmberCropNuggets
                         ? EndItems.RAW_AMBER
-                        : EndItems.AMBER_GEM),
+                        : EndItems.AMBER_GEM,
                 () -> SupernaturalCropsConfig.get().betterEndEnabled.enableAmberCrops);
 
         private final String path;
         private final Item ingot;
-        private final Lazy<Item> harvestResult;
-        private final Lazy<Boolean> enabled;
+        private final Supplier<Item> harvestResult;
+        private final BooleanSupplier enabled;
         private final Lazy<OreBushBlock> block;
 
-        OreBushes(String path, Item ingot, Lazy<Item> harvestResult, Supplier<Boolean> enabled) {
+        OreBushes(String path, Item ingot, Supplier<Item> harvestResult, BooleanSupplier enabled) {
             this.path = "betterend_" + path;
             this.ingot = ingot;
             this.harvestResult = harvestResult;
-            this.enabled = new Lazy<>(enabled);
+            this.enabled = enabled;
             block = new Lazy<>(() -> new OreBushBlock(bushBlockSettings(), this));
         }
 
         @Override
         public boolean isEnabled() {
-            return enabled.get();
+            return enabled.getAsBoolean();
         }
 
         @Override

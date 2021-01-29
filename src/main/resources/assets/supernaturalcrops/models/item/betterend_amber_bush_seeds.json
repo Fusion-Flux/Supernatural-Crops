@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer": "supernaturalcrops:item/betterend_amber_bush_seeds"
+        "layer0": "supernaturalcrops:item/betterend_amber_bush_seeds"
     }
 }

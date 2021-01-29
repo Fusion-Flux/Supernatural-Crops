@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer": "supernaturalcrops:item/techreborn_lead_bush_seeds"
+        "layer0": "supernaturalcrops:item/techreborn_lead_bush_seeds"
     }
 }

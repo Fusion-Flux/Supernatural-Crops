@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer": "supernaturalcrops:item/betternether_nether_ruby_bush_seeds"
+        "layer0": "supernaturalcrops:item/betternether_nether_ruby_bush_seeds"
     }
 }

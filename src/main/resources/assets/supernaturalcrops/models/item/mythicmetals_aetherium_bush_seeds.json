@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer": "supernaturalcrops:item/mythicmetals_aetherium_bush_seeds"
+        "layer0": "supernaturalcrops:item/mythicmetals_aetherium_bush_seeds"
     }
 }

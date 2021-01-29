@@ -19,6 +19,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Lazy;
 import net.minecraft.util.registry.Registry;
 
+import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
 import static com.fusionflux.supernaturalcrops.SupernaturalCrops.id;
@@ -34,30 +35,30 @@ public class SupernaturalCropsBlocks {
 	public enum OreBushes implements OreBush {
 		COAL("coal_bush", Items.COAL,
 				() -> SupernaturalCropsConfig.get().enabled.enableCoalCrops),
-		IRON("iron_bush", Items.IRON_INGOT, new Lazy<>(() ->
+		IRON("iron_bush", Items.IRON_INGOT, () ->
 				SupernaturalCropsConfig.get().nuggetBalance.enableIronCropNuggets
 						? Items.IRON_NUGGET
-						: Items.IRON_INGOT),
+						: Items.IRON_INGOT,
 				() -> SupernaturalCropsConfig.get().enabled.enableIronCrops),
-		GOLD("gold_bush", Items.GOLD_INGOT, new Lazy<>(() ->
+		GOLD("gold_bush", Items.GOLD_INGOT, () ->
 				SupernaturalCropsConfig.get().nuggetBalance.enableGoldCropNuggets
 						? Items.GOLD_NUGGET
-						: Items.GOLD_INGOT),
+						: Items.GOLD_INGOT,
 				() -> SupernaturalCropsConfig.get().enabled.enableGoldCrops),
-		DIAMOND("diamond_bush", Items.DIAMOND, new Lazy<>(() ->
+		DIAMOND("diamond_bush", Items.DIAMOND, () ->
 				SupernaturalCropsConfig.get().nuggetBalance.enableDiamondCropNuggets
 						? SupernaturalCropsItems.DIAMOND_SHARD
-						: Items.DIAMOND),
+						: Items.DIAMOND,
 				() -> SupernaturalCropsConfig.get().enabled.enableDiamondCrops),
-		EMERALD("emerald_bush", Items.EMERALD, new Lazy<>(() ->
+		EMERALD("emerald_bush", Items.EMERALD, () ->
 				SupernaturalCropsConfig.get().nuggetBalance.enableEmeraldCropNuggets
 						? SupernaturalCropsItems.EMERALD_SHARD
-						: Items.EMERALD),
+						: Items.EMERALD,
 				() -> SupernaturalCropsConfig.get().enabled.enableEmeraldCrops),
-		NETHERITE("netherite_bush", Items.NETHERITE_INGOT, new Lazy<>(() ->
+		NETHERITE("netherite_bush", Items.NETHERITE_INGOT, () ->
 				SupernaturalCropsConfig.get().nuggetBalance.enableNetheriteCropNuggets
 						? SupernaturalCropsItems.NETHERITE_FLAKE
-						: Items.NETHERITE_SCRAP),
+						: Items.NETHERITE_SCRAP,
 				() -> SupernaturalCropsConfig.get().enabled.enableNetheriteCrops),
 		REDSTONE("redstone_bush", Items.REDSTONE,
 				() -> SupernaturalCropsConfig.get().enabled.enableRedstoneCrops),
@@ -68,25 +69,25 @@ public class SupernaturalCropsBlocks {
 
 		private final String path;
 		private final Item ingot;
-		private final Lazy<Item> harvestResult;
-		private final Lazy<Boolean> enabled;
+		private final Supplier<Item> harvestResult;
+		private final BooleanSupplier enabled;
 		private final Lazy<OreBushBlock> block;
 
-		OreBushes(String path, Item ingot, Lazy<Item> harvestResult, Supplier<Boolean> enabled) {
+		OreBushes(String path, Item ingot, Supplier<Item> harvestResult, BooleanSupplier enabled) {
 			this.path = path;
 			this.ingot = ingot;
 			this.harvestResult = harvestResult;
-			this.enabled = new Lazy<>(enabled);
+			this.enabled = enabled;
 			block = new Lazy<>(() -> new OreBushBlock(bushBlockSettings(), this));
 		}
 
-		OreBushes(String path, Item ingot, Supplier<Boolean> enabled) {
-			this(path, ingot, new Lazy<>(() -> ingot), enabled);
+		OreBushes(String path, Item ingot, BooleanSupplier enabled) {
+			this(path, ingot, () -> ingot, enabled);
 		}
 
 		@Override
 		public boolean isEnabled() {
-			return enabled.get();
+			return enabled.getAsBoolean();
 		}
 
 		@Override

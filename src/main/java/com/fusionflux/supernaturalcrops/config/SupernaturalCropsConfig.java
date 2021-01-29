@@ -6,8 +6,10 @@ import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.JanksonConfigSerializer;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 
 @Config(name = SupernaturalCrops.MOD_ID)
 public final class SupernaturalCropsConfig implements ConfigData {
@@ -24,21 +26,29 @@ public final class SupernaturalCropsConfig implements ConfigData {
 	}
 
 	public enum UncraftingRecipeOption {
-		OFF, TO_INGOTS_AND_SEED, TO_INGOTS, TO_SEED;
+		OFF("off"), TO_INGOTS_AND_SEED("toIngotsAndSeed"), TO_INGOTS("toIngots"), TO_SEED("toSeeds");
+
+		private final String key;
+
+		UncraftingRecipeOption(String key) {
+			this.key = key;
+		}
 
 		public Text toText() {
-			// TODO
-			return new LiteralText(name());
+			MutableText text = new TranslatableText("text.autoconfig.supernaturalcrops.general.uncraftingRecipe." + key);
+			if (this == OFF)
+				text = text.styled(style -> style.withColor(Formatting.RED));
+			return text;
 		}
 	}
-	
-	public static class Recipes {
-		public UncraftingRecipeOption uncraftingRecipe = UncraftingRecipeOption.TO_INGOTS_AND_SEED;
+
+	public static class General {
+		@ConfigEntry.Gui.RequiresRestart
+		public UncraftingRecipeOption uncraftingRecipe = UncraftingRecipeOption.OFF;
+		public boolean enableScrapedStoneMagmatedDamage = false;
 	}
 
 	public static class Enabled {
-		public boolean enableScrapedStoneMagmatedDamage = false;
-
 		public boolean enableCoalCrops = true;
 		public boolean enableIronCrops = true;
 		public boolean enableGoldCrops = true;
@@ -212,8 +222,8 @@ public final class SupernaturalCropsConfig implements ConfigData {
 	}
 
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("recipes")
-	public Recipes recipes = new Recipes();
+	@ConfigEntry.Category("general")
+	public General general = new General();
 	
 	@ConfigEntry.Gui.TransitiveObject
 	@ConfigEntry.Category("enabled")
@@ -223,10 +233,10 @@ public final class SupernaturalCropsConfig implements ConfigData {
 	public NuggetBalance nuggetBalance = new NuggetBalance();
 
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("mythicalMetalsEnabled")
+	@ConfigEntry.Category("mythicMetalsEnabled")
 	public MythicMetalsEnabled mythicMetalsEnabled = new MythicMetalsEnabled();
 	@ConfigEntry.Gui.TransitiveObject
-	@ConfigEntry.Category("mythicalMetalsNuggetBalance")
+	@ConfigEntry.Category("mythicMetalsNuggetBalance")
 	public MythicMetalsNuggetBalance mythicMetalsNuggetBalance = new MythicMetalsNuggetBalance();
 
 	@ConfigEntry.Gui.TransitiveObject
@@ -259,6 +269,9 @@ public final class SupernaturalCropsConfig implements ConfigData {
 
 	@Override
 	public void validatePostLoad() {
+		if (general == null)
+			general = new General();
+
 		if (enabled == null)
 			enabled = new Enabled();
 		if (nuggetBalance == null)

@@ -38,7 +38,7 @@ public class SupernaturalCropsResources {
 
     private static void registerBushLootTable(OreBush bush) {
         RESOURCE_PACK.addLootTable(id("blocks/" + bush.getPath()),
-                JLootTableFactory.createPlantBlock(bush.getBlockId(), 3, bush.getSeedsId(), bush.getHarvestResultId()));
+                JLootTableFactory.createSimpleBlock(bush.getSeedsId()));
     }
 
     private static void registerRecipes() {
@@ -74,7 +74,7 @@ public class SupernaturalCropsResources {
         }
 
         // uncraft seeds
-        switch (SupernaturalCropsConfig.get().recipes.uncraftingRecipe) {
+        switch (SupernaturalCropsConfig.get().general.uncraftingRecipe) {
         case TO_SEED:
             RESOURCE_PACK.addRecipe(id(bush.getIngotId().getPath() + "_from_seed"), JRecipeFactory.createSingle(
                     bush.getSeeds(), SupernaturalCropsItems.SEED_OF_THE_ABYSS

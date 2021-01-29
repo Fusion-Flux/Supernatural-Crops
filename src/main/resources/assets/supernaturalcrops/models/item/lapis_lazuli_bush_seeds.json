@@ -1,5 +1,5 @@
 {
-    "parent": "minecraft:item/handheld",
+    "parent": "item/generated",
     "textures": {
         "layer": "supernaturalcrops:item/lapis_lazuli_bush_seeds"
     }

@@ -1,5 +1,5 @@
 {
-    "parent": "minecraft:item/handheld",
+    "parent": "item/generated",
     "textures": {
         "layer": "supernaturalcrops:item/mythicmetals_celestium_bush_seeds"
     }

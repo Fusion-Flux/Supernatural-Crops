@@ -42,20 +42,21 @@ public class SupernaturalCropsResources {
     }
 
     private static void registerRecipes() {
-        RESOURCE_PACK.addRecipe(id("diamond_from_shards"), JRecipeFactory.create2x2(
-                "SS",
-                "SS",
+        RESOURCE_PACK.addRecipe(id("diamond_from_shards"), JRecipeFactory.create3x3(
+                "SSS",
+                "SSS",
+                "SSS",
                 Items.DIAMOND,
                 JRecipeFactory.key("S", SupernaturalCropsItems.DIAMOND_SHARD)));
-        RESOURCE_PACK.addRecipe(id("emerald_from_shards"), JRecipeFactory.create2x2(
-                "SS",
-                "SS",
+        RESOURCE_PACK.addRecipe(id("emerald_from_shards"), JRecipeFactory.create3x3(
+                "SSS",
+                "SSS",
+                "SSS",
                 Items.EMERALD,
                 JRecipeFactory.key("S", SupernaturalCropsItems.EMERALD_SHARD)));
-        RESOURCE_PACK.addRecipe(id("netherite_scrap_from_flakes"), JRecipeFactory.create3x3(
-                "FFF",
-                "FFF",
-                "FFF",
+        RESOURCE_PACK.addRecipe(id("netherite_scrap_from_flakes"), JRecipeFactory.create2x2(
+                "FF",
+                "FF",
                 Items.NETHERITE_SCRAP,
                 JRecipeFactory.key("F", SupernaturalCropsItems.NETHERITE_FLAKE)));
     }

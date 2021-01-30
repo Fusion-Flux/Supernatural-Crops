@@ -7,8 +7,9 @@ import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import com.fusionflux.supernaturalcrops.item.SupernaturalCropsItems;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.Block;
 import net.minecraft.item.Items;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import static com.fusionflux.supernaturalcrops.SupernaturalCrops.id;
@@ -17,10 +18,10 @@ public class SupernaturalCropsResources {
     private static final RuntimeResourcePack RESOURCE_PACK = RuntimeResourcePack.create(SupernaturalCrops.MOD_ID + ":runtime");
 
     public static void register() {
+        RRPCallback.EVENT.register(a -> a.add(RESOURCE_PACK));
         registerLootTables();
         registerRecipes();
         registerBushResources(SupernaturalCropsBlocks.OreBushes.values());
-        RRPCallback.EVENT.register(a -> a.add(RESOURCE_PACK));
     }
 
     public static void registerBushResources(OreBush... bushes) {
@@ -30,10 +31,15 @@ public class SupernaturalCropsResources {
         }
     }
 
+    public static Identifier getBlockLootTableId(Block block) {
+        return id("blocks/" + Registry.BLOCK.getId(block).getPath());
+    }
+
     private static void registerLootTables() {
-        RESOURCE_PACK.addLootTable(id("blocks/embedded_abyss"), JLootTableFactory.createSimpleBlock(id("seeds_of_the_abyss")));
-        RESOURCE_PACK.addLootTable(id("blocks/scraped_stone"),
-                JLootTableFactory.createSimpleBlock(Registry.BLOCK.getId(Blocks.STONE)));
+        RESOURCE_PACK.addLootTable(getBlockLootTableId(SupernaturalCropsBlocks.EMBEDDED_ABYSS),
+                JLootTableFactory.createSimpleBlock(Registry.ITEM.getId(SupernaturalCropsItems.SEED_OF_THE_ABYSS)));
+        RESOURCE_PACK.addLootTable(getBlockLootTableId(SupernaturalCropsBlocks.SCRAPED_STONE),
+                JLootTableFactory.createSimpleBlock(Registry.ITEM.getId(Items.STONE)));
     }
 
     private static void registerBushLootTable(OreBush bush) {
@@ -42,20 +48,21 @@ public class SupernaturalCropsResources {
     }
 
     private static void registerRecipes() {
-        RESOURCE_PACK.addRecipe(id("diamond_from_shards"), JRecipeFactory.create2x2(
-                "SS",
-                "SS",
+        RESOURCE_PACK.addRecipe(id("diamond_from_shards"), JRecipeFactory.create3x3(
+                "SSS",
+                "SSS",
+                "SSS",
                 Items.DIAMOND,
                 JRecipeFactory.key("S", SupernaturalCropsItems.DIAMOND_SHARD)));
-        RESOURCE_PACK.addRecipe(id("emerald_from_shards"), JRecipeFactory.create2x2(
-                "SS",
-                "SS",
+        RESOURCE_PACK.addRecipe(id("emerald_from_shards"), JRecipeFactory.create3x3(
+                "SSS",
+                "SSS",
+                "SSS",
                 Items.EMERALD,
                 JRecipeFactory.key("S", SupernaturalCropsItems.EMERALD_SHARD)));
-        RESOURCE_PACK.addRecipe(id("netherite_scrap_from_flakes"), JRecipeFactory.create3x3(
-                "FFF",
-                "FFF",
-                "FFF",
+        RESOURCE_PACK.addRecipe(id("netherite_scrap_from_flakes"), JRecipeFactory.create2x2(
+                "FF",
+                "FF",
                 Items.NETHERITE_SCRAP,
                 JRecipeFactory.key("F", SupernaturalCropsItems.NETHERITE_FLAKE)));
     }

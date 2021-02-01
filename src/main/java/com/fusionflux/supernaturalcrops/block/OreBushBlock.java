@@ -1,6 +1,7 @@
 package com.fusionflux.supernaturalcrops.block;
 
 import com.fusionflux.supernaturalcrops.OreBush;
+import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
@@ -66,7 +67,7 @@ public class OreBushBlock extends SweetBerryBushBlock {
         }
 
         int i = state.get(AGE);
-        if (i > 1) {
+        if (i > 1 && SupernaturalCropsConfig.get().general.enableRightClickHarvest) {
             int j = world.random.nextInt(2);
             dropStack(world, pos, new ItemStack(bush.getHarvestResult(), j + (i == 3 ? 1 : 0)));
             world.playSound(null, pos, SoundEvents.ITEM_SWEET_BERRIES_PICK_FROM_BUSH, SoundCategory.BLOCKS,

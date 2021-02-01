@@ -47,6 +47,8 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		public UncraftingRecipeOption uncraftingRecipe = UncraftingRecipeOption.OFF;
 		public boolean enableScrapedStoneMagmatedDamage = false;
 		public boolean enableRightClickHarvest = true;
+		@ConfigEntry.Gui.RequiresRestart
+		public boolean enableIngotDropOnBreak = true;
 	}
 
 	public static class Enabled {

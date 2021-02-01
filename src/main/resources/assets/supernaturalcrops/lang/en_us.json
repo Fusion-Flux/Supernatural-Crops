@@ -169,7 +169,8 @@
 	"text.autoconfig.supernaturalcrops.option.general.uncraftingRecipe.toIngots": "To Ingots",
 	"text.autoconfig.supernaturalcrops.option.general.uncraftingRecipe.toSeed": "To Seed",
 	"text.autoconfig.supernaturalcrops.option.general.enableScrapedStoneMagmatedDamage": "Scraped Stone Damages at Max Magmated",
-	"text.autoconfig.supernaturalcrops.option.general.enableRightClickHarvest": "Right Click Harvest",
+	"text.autoconfig.supernaturalcrops.option.general.enableRightClickHarvest": "Enable Right Click Harvest",
+	"text.autoconfig.supernaturalcrops.option.general.enableIngotDropOnBreak": "Mature Bushes Drop Ingot on Break",
 
 	"text.autoconfig.supernaturalcrops.category.enabled": "Enabled Bushes",
 	"text.autoconfig.supernaturalcrops.option.enabled.enableCoalCrops": "Enable Coal Crops",

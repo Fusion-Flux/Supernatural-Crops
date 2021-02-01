@@ -7,6 +7,7 @@ import com.fusionflux.supernaturalcrops.config.SupernaturalCropsConfig;
 import com.fusionflux.supernaturalcrops.item.SupernaturalCropsItems;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
+import net.devtech.arrp.json.loot.JLootTable;
 import net.minecraft.block.Block;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
@@ -44,8 +45,12 @@ public class SupernaturalCropsResources {
     }
 
     private static void registerBushLootTable(OreBush bush) {
-        RESOURCE_PACK.addLootTable(id("blocks/" + bush.getPath()),
-                JLootTableFactory.createPlantBlock(bush.getBlockId(), 3, bush.getSeedsId(), bush.getHarvestResultId()));
+        JLootTable lootTable;
+        if (SupernaturalCropsConfig.get().general.enableIngotDropOnBreak)
+            lootTable = JLootTableFactory.createPlantBlock(bush.getBlockId(), 3, bush.getSeedsId(), bush.getHarvestResultId());
+        else
+            lootTable = JLootTableFactory.createSimpleBlock(bush.getSeedsId());
+        RESOURCE_PACK.addLootTable(id("blocks/" + bush.getPath()), lootTable);
     }
 
     private static void registerRecipes() {

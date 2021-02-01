@@ -38,20 +38,21 @@ public abstract class HoeItemMixin extends ToolItem {
 		World world = ctx.getWorld();
 		BlockPos blockPos = ctx.getBlockPos();
 		BlockState blockState = world.getBlockState(blockPos);
+		ItemStack stack = ctx.getStack();
+		PlayerEntity player = ctx.getPlayer();
 		int miningLevel = getMaterial().getMiningLevel();
 		if (this instanceof DynamicAttributeTool)
 			miningLevel = ((DynamicAttributeTool) this).getMiningLevel(FabricToolTags.HOES,
-					blockState, ctx.getStack(), ctx.getPlayer());
+					blockState, stack, player);
 		if (miningLevel >= ToolMaterials.NETHERITE.getMiningLevel()) {
 			if (ctx.getSide() != Direction.DOWN && world.getBlockState(blockPos.up()).isAir()) {
 				BlockState resultState = SCRAPED_BLOCKS.get(blockState.getBlock());
 				if (resultState != null) {
-					PlayerEntity playerEntity = ctx.getPlayer();
-					world.playSound(playerEntity, blockPos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					world.playSound(player, blockPos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					if (!world.isClient()) {
-						world.setBlockState(blockPos, blockState, 11);
-						if (playerEntity != null) {
-							ctx.getStack().damage(1, playerEntity, (p) -> p.sendToolBreakStatus(ctx.getHand()));
+						world.setBlockState(blockPos, resultState, 11);
+						if (player != null) {
+							stack.damage(1, playerEntity, (p) -> p.sendToolBreakStatus(ctx.getHand()));
 						}
 					}
 					cir.setReturnValue(ActionResult.success(world.isClient));

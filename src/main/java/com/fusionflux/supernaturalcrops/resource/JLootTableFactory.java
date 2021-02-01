@@ -5,15 +5,17 @@ import com.google.gson.JsonObject;
 import net.devtech.arrp.json.loot.JLootTable;
 import net.minecraft.util.Identifier;
 
+import static net.devtech.arrp.json.loot.JLootTable.*;
+
 public class JLootTableFactory {
     public static JLootTable createSimpleBlock(Identifier itemId) {
         return JLootTable.loot("minecraft:block")
-                .pool(JLootTable.pool()
+                .pool(pool()
                         .rolls(1)
-                        .entry(JLootTable.entry()
+                        .entry(entry()
                                 .type("minecraft:item")
                                 .name(itemId.toString()))
-                    .condition(JLootTable.predicate("minecraft:survives_explosion")));
+                    .condition(predicate("minecraft:survives_explosion")));
     }
     
     public static JLootTable createSilkTouchBlock(Identifier silkItemId, Identifier itemId) {
@@ -28,16 +30,16 @@ public class JLootTableFactory {
         enchantments.add(silkTouchEnchantment);
 
         return JLootTable.loot("minecraft:block")
-                .pool(JLootTable.pool()
+                .pool(pool()
                         .rolls(1)
-                        .entry(JLootTable.entry()
+                        .entry(entry()
                                 .type("minecraft:alternatives")
-                                .child(JLootTable.entry()
+                                .child(entry()
                                         .type("minecraft:item")
-                                        .condition(JLootTable.predicate("minecraft:match_tool")
+                                        .condition(predicate("minecraft:match_tool")
                                                 .parameter("predicate", enchantments))
                                         .name(silkItemId.toString()))
-                                .child(JLootTable.entry()
+                                .child(entry()
                                         .type("minecraft:item")
                                         .name(itemId.toString()))
                         )
@@ -53,17 +55,19 @@ public class JLootTableFactory {
         blockStatePredicate.add("properties", properties);
 
         return JLootTable.loot("minecraft:block")
-                .pool(JLootTable.pool()
+                .pool(pool()
                         .rolls(1)
-                        .entry(JLootTable.entry()
+                        .entry(entry()
                                 .type("minecraft:item")
-                                .condition(JLootTable.predicate("minecraft:block_state_property")
+                                .condition(predicate("minecraft:block_state_property")
                                         .set(blockStatePredicate))
                                 .name(harvestResultId.toString())
-                        )
-                        .entry(JLootTable.entry()
-                            .type("minecraft:item")
-                            .name(seedId.toString()))
-                );
+                        ))
+                .pool(pool()
+                        .rolls(1)
+                        .entry(entry()
+                                .type("minecraft:item")
+                                .name(seedId.toString())
+                        ));
     }
 }

@@ -52,7 +52,7 @@ public abstract class HoeItemMixin extends ToolItem {
 					if (!world.isClient()) {
 						world.setBlockState(blockPos, resultState, 11);
 						if (player != null) {
-							stack.damage(1, playerEntity, (p) -> p.sendToolBreakStatus(ctx.getHand()));
+							stack.damage(1, player, (p) -> p.sendToolBreakStatus(ctx.getHand()));
 						}
 					}
 					cir.setReturnValue(ActionResult.success(world.isClient));

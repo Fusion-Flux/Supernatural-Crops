@@ -3,6 +3,8 @@ package com.fusionflux.supernaturalcrops.mixin;
 import com.fusionflux.supernaturalcrops.block.SupernaturalCropsBlocks;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
+import net.fabricmc.fabric.api.tool.attribute.v1.DynamicAttributeTool;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,36 +17,42 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Map;
-import java.util.Set;
 
 @Mixin(HoeItem.class)
-public class HoeItemMixin extends MiningToolItem {
+public abstract class HoeItemMixin extends ToolItem {
+	// TODO allow custom scraped blocks via datapacks?
+	@Unique private static final Map<Block, BlockState> SCRAPED_BLOCKS;
 
-	private static final Map<Block, BlockState> SCRAPED_BLOCKS;
-
-	protected HoeItemMixin(float attackDamage, float attackSpeed, ToolMaterial material, Set<Block> effectiveBlocks, Settings settings) {
-		super(attackDamage, attackSpeed, material, effectiveBlocks, settings);
+	public HoeItemMixin(ToolMaterial material, Settings settings) {
+		super(material, settings);
 	}
 
 	@Inject(method = "useOnBlock", at = @At("TAIL"), cancellable = true)
-	private void hoeStone(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
-		World world = context.getWorld();
-		BlockPos blockPos = context.getBlockPos();
-		if (this == Items.NETHERITE_HOE) {
-			if (context.getSide() != Direction.DOWN && world.getBlockState(blockPos.up()).isAir()) {
-				BlockState blockState = SCRAPED_BLOCKS.get(world.getBlockState(blockPos).getBlock());
-				if (blockState != null) {
-					PlayerEntity playerEntity = context.getPlayer();
-					world.playSound(playerEntity, blockPos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+	private void scrapeBlock(ItemUsageContext ctx, CallbackInfoReturnable<ActionResult> cir) {
+		World world = ctx.getWorld();
+		BlockPos blockPos = ctx.getBlockPos();
+		BlockState blockState = world.getBlockState(blockPos);
+		ItemStack stack = ctx.getStack();
+		PlayerEntity player = ctx.getPlayer();
+		int miningLevel = getMaterial().getMiningLevel();
+		if (this instanceof DynamicAttributeTool)
+			miningLevel = ((DynamicAttributeTool) this).getMiningLevel(FabricToolTags.HOES,
+					blockState, stack, player);
+		if (miningLevel >= ToolMaterials.NETHERITE.getMiningLevel()) {
+			if (ctx.getSide() != Direction.DOWN && world.getBlockState(blockPos.up()).isAir()) {
+				BlockState resultState = SCRAPED_BLOCKS.get(blockState.getBlock());
+				if (resultState != null) {
+					world.playSound(player, blockPos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
 					if (!world.isClient()) {
-						world.setBlockState(blockPos, blockState, 11);
-						if (playerEntity != null) {
-							context.getStack().damage(1, playerEntity, (p) -> p.sendToolBreakStatus(context.getHand()));
+						world.setBlockState(blockPos, resultState, 11);
+						if (player != null) {
+							stack.damage(1, player, (p) -> p.sendToolBreakStatus(ctx.getHand()));
 						}
 					}
 					cir.setReturnValue(ActionResult.success(world.isClient));

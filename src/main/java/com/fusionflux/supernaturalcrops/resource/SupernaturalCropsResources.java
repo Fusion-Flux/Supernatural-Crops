@@ -37,14 +37,15 @@ public class SupernaturalCropsResources {
 
     private static void registerLootTables() {
         RESOURCE_PACK.addLootTable(getBlockLootTableId(SupernaturalCropsBlocks.EMBEDDED_ABYSS),
-                JLootTableFactory.createSimpleBlock(Registry.ITEM.getId(SupernaturalCropsItems.SEED_OF_THE_ABYSS)));
+                JLootTableFactory.createSilkTouchBlock(Registry.ITEM.getId(SupernaturalCropsBlocks.EMBEDDED_ABYSS.asItem()),
+                        Registry.ITEM.getId(SupernaturalCropsItems.SEED_OF_THE_ABYSS)));
         RESOURCE_PACK.addLootTable(getBlockLootTableId(SupernaturalCropsBlocks.SCRAPED_STONE),
                 JLootTableFactory.createSimpleBlock(Registry.ITEM.getId(Items.STONE)));
     }
 
     private static void registerBushLootTable(OreBush bush) {
         RESOURCE_PACK.addLootTable(id("blocks/" + bush.getPath()),
-                JLootTableFactory.createSimpleBlock(bush.getSeedsId()));
+                JLootTableFactory.createPlantBlock(bush.getBlockId(), 3, bush.getSeedsId(), bush.getHarvestResultId()));
     }
 
     private static void registerRecipes() {

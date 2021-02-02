@@ -66,21 +66,26 @@ public class SupernaturalCropsBlocks {
 				() -> SupernaturalCropsConfig.get().enabled.enableLapisLazuliCrops),
 		QUARTZ("quartz_bush", Items.QUARTZ,
 				() -> SupernaturalCropsConfig.get().enabled.enableQuartzCrops),
-		SEED_OF_THE_ABYSS("seed_of_the_abyss_bush", SupernaturalCropsItems.SEED_OF_THE_ABYSS,
+		SEED_OF_THE_ABYSS("seed_of_the_abyss_bush", new Lazy<>(BLOCK_OF_THE_ABYSS::asItem),
+				() -> SupernaturalCropsItems.SEED_OF_THE_ABYSS,
 				() -> SupernaturalCropsConfig.get().enabled.enableSeedOfTheAbyssCrops);
 
 		private final String path;
-		private final Item ingot;
+		private final Lazy<Item> ingot;
 		private final Supplier<Item> harvestResult;
 		private final BooleanSupplier enabled;
 		private final Lazy<OreBushBlock> block;
 
-		OreBushes(String path, Item ingot, Supplier<Item> harvestResult, BooleanSupplier enabled) {
+		OreBushes(String path, Lazy<Item> ingot, Supplier<Item> harvestResult, BooleanSupplier enabled) {
 			this.path = path;
 			this.ingot = ingot;
 			this.harvestResult = harvestResult;
 			this.enabled = enabled;
 			block = new Lazy<>(() -> new OreBushBlock(bushBlockSettings(), this));
+		}
+
+		OreBushes(String path, Item ingot, Supplier<Item> harvestResult, BooleanSupplier enabled) {
+			this(path, new Lazy<>(() -> ingot), harvestResult, enabled);
 		}
 
 		OreBushes(String path, Item ingot, BooleanSupplier enabled) {
@@ -104,7 +109,7 @@ public class SupernaturalCropsBlocks {
 
 		@Override
 		public Item getIngot() {
-			return ingot;
+			return ingot.get();
 		}
 
 		@Override
@@ -116,7 +121,6 @@ public class SupernaturalCropsBlocks {
 	public static final Block EMBEDDED_ABYSS = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.4F));
     public static final ScrapedStoneBlock SCRAPED_STONE = new ScrapedStoneBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5F).ticksRandomly());
 	public static final Block BLOCK_OF_THE_ABYSS = new Block(FabricBlockSettings.of(Material.METAL).hardness(5.5F).luminance(2));
-
 
     public static void register() {
 		Registry.register(Registry.BLOCK, id("embedded_abyss"), EMBEDDED_ABYSS);
@@ -134,8 +138,7 @@ public class SupernaturalCropsBlocks {
 	public static void registerBushBlocksAndItems(OreBush... bushes) {
     	for (OreBush bush : bushes) {
 			Registry.register(Registry.BLOCK, bush.getBlockId(), bush.getBlock());
-			Registry.register(Registry.ITEM, bush.getSeedsId(),
-					new BushSeedItem(bush.getBlock()));
+			Registry.register(Registry.ITEM, bush.getSeedsId(), new BushSeedItem(bush.getBlock()));
 		}
 	}
 

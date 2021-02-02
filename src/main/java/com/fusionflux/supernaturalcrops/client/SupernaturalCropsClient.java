@@ -44,7 +44,7 @@ public class SupernaturalCropsClient implements ClientModInitializer {
         if (FabricLoader.getInstance().isModLoaded("lint"))
             LintCropsBlocks.registerRenderLayers();
         if (FabricLoader.getInstance().isModLoaded("appliedenergistics2"))
-        AE2CropsBlocks.registerRenderLayers();
+            AE2CropsBlocks.registerRenderLayers();
     }
 }
 

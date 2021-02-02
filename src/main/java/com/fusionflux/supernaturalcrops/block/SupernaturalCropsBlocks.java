@@ -65,7 +65,9 @@ public class SupernaturalCropsBlocks {
 		LAPIS_LAZULI("lapis_lazuli_bush", Items.LAPIS_LAZULI,
 				() -> SupernaturalCropsConfig.get().enabled.enableLapisLazuliCrops),
 		QUARTZ("quartz_bush", Items.QUARTZ,
-				() -> SupernaturalCropsConfig.get().enabled.enableQuartzCrops);
+				() -> SupernaturalCropsConfig.get().enabled.enableQuartzCrops),
+		SEED_OF_THE_ABYSS("seed_of_the_abyss_bush", SupernaturalCropsItems.SEED_OF_THE_ABYSS,
+				() -> SupernaturalCropsConfig.get().enabled.enableSeedOfTheAbyssCrops);
 
 		private final String path;
 		private final Item ingot;
@@ -113,6 +115,8 @@ public class SupernaturalCropsBlocks {
 
 	public static final Block EMBEDDED_ABYSS = new Block(FabricBlockSettings.of(Material.STONE).hardness(3.4F));
     public static final ScrapedStoneBlock SCRAPED_STONE = new ScrapedStoneBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5F).ticksRandomly());
+	public static final Block BLOCK_OF_THE_ABYSS = new Block(FabricBlockSettings.of(Material.METAL).hardness(5.5F).luminance(2));
+
 
     public static void register() {
 		Registry.register(Registry.BLOCK, id("embedded_abyss"), EMBEDDED_ABYSS);
@@ -121,7 +125,9 @@ public class SupernaturalCropsBlocks {
 		Registry.register(Registry.BLOCK, id("scraped_stone"), SCRAPED_STONE);
 		Registry.register(Registry.ITEM, id("scraped_stone"),
 				new BlockItem(SCRAPED_STONE, new Item.Settings().group(SupernaturalCropsItemGroups.GENERAL)));
-
+		Registry.register(Registry.BLOCK, id("block_of_the_abyss"), BLOCK_OF_THE_ABYSS);
+		Registry.register(Registry.ITEM, id("block_of_the_abyss"),
+				new BlockItem(BLOCK_OF_THE_ABYSS, new Item.Settings().group(SupernaturalCropsItemGroups.GENERAL)));
 		registerBushBlocksAndItems(OreBushes.values());
 	}
 

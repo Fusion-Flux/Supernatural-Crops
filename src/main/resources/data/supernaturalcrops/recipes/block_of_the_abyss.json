@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ggg",
+    "ggg",
+    "ggg"
+  ],
+  "key": {
+    "g": {
+      "item": "supernaturalcrops:seed_of_the_abyss"
+    }
+  },
+  "result": {
+    "item": "supernaturalcrops:block_of_the_abyss",
+    "count": 1
+  }
+}

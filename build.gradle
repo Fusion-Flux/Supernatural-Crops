@@ -33,6 +33,7 @@ dependencies {
     modCompileOnly "curse.maven:betternether-311377:${project.betternether_fileid}"
     modCompileOnly "curse.maven:techreborn-233564:${project.techreborn_fileid}"
     modCompileOnly "curse.maven:lint-374071:${project.lint_fileid}"
+    modCompileOnly "curse.maven:applied-energistics-2-223794:3117933"
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 

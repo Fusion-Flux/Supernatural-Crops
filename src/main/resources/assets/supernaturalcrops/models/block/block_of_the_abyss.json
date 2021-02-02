@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "supernaturalcrops:block/block_of_the_abyss"
+  }
+}

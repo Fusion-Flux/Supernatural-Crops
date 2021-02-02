@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "supernaturalcrops:item/ae2_charged_certus_quartz_crystal_bush_seeds"
+    }
+}

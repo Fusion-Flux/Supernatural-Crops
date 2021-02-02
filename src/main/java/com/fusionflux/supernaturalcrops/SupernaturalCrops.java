@@ -41,5 +41,7 @@ public class SupernaturalCrops implements ModInitializer {
 			TechRebornCropsBlocks.registerBlocks();
 		if (FabricLoader.getInstance().isModLoaded("lint"))
 			LintCropsBlocks.registerBlocks();
+		if (FabricLoader.getInstance().isModLoaded("appliedenergistics2"))
+			AE2CropsBlocks.registerBlocks();
 	}
 }

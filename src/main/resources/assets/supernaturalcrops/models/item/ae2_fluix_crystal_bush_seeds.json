@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "supernaturalcrops:item/ae2_fluix_crystal_bush_seeds"
+    }
+}

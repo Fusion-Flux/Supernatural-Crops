@@ -48,7 +48,7 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		public boolean enableScrapedStoneMagmatedDamage = false;
 		public boolean enableRightClickHarvest = true;
 		@ConfigEntry.Gui.RequiresRestart
-		public boolean enableIngotDropOnBreak = true;
+		public boolean enableIngotDropOnBreak = false;
 	}
 
 	public static class Enabled {
@@ -61,6 +61,7 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		public boolean enableRedstoneCrops = true;
 		public boolean enableLapisLazuliCrops = true;
 		public boolean enableQuartzCrops = true;
+		public boolean enableSeedOfTheAbyssCrops = false;
 	}
 
 	public static class NuggetBalance {
@@ -154,6 +155,7 @@ public final class SupernaturalCropsConfig implements ConfigData {
 	public static class BetterEndEnabled {
 		public boolean enableTerminiteCrops = true;
 		public boolean enableAmberCrops = true;
+		public boolean enableCrystalShardCrops = true;
 	}
 
 	public static class BetterEndNuggetBalance {
@@ -190,6 +192,9 @@ public final class SupernaturalCropsConfig implements ConfigData {
 		public boolean enableRefinedIronCrops = false;
 		public boolean enableChromeCrops = false;
 		public boolean enableTungstensteelCrops = false;
+		public boolean enableRubyCrops = true;
+		public boolean enableSapphireCrops = true;
+		public boolean enablePeridotCrops = true;
 	}
 
 	public static class TechRebornNuggetBalance {
@@ -222,6 +227,12 @@ public final class SupernaturalCropsConfig implements ConfigData {
 
 	public static class LintNuggetBalance {
 		public boolean enableJurelCropNuggets = false;
+	}
+
+	public static class AE2Enabled {
+		public boolean enableCertusQuartzCrystalCrops = true;
+		public boolean enableChargedCertusQuartzCrystalCrops = true;
+		public boolean enableFluixCrystalCrops = true;
 	}
 
 	@ConfigEntry.Gui.TransitiveObject
@@ -270,6 +281,10 @@ public final class SupernaturalCropsConfig implements ConfigData {
 	@ConfigEntry.Category("lintNuggetBalance")
 	public LintNuggetBalance lintNuggetBalance = new LintNuggetBalance();
 
+	@ConfigEntry.Gui.TransitiveObject
+	@ConfigEntry.Category("ae2Enabled")
+	public AE2Enabled ae2Enabled = new AE2Enabled();
+
 	@Override
 	public void validatePostLoad() {
 		if (general == null)
@@ -304,5 +319,8 @@ public final class SupernaturalCropsConfig implements ConfigData {
 			lintEnabled = new LintEnabled();
 		if (lintNuggetBalance == null)
 			lintNuggetBalance = new LintNuggetBalance();
+
+		if (ae2Enabled == null)
+			ae2Enabled = new AE2Enabled();
 	}
 }

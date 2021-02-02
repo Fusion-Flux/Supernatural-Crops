@@ -7,6 +7,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.item.Item;
 import net.minecraft.util.Lazy;
+import ru.betterend.registry.EndItems;
 import techreborn.init.TRContent;
 
 import java.util.function.BooleanSupplier;
@@ -111,7 +112,13 @@ public class TechRebornCropsBlocks {
                 SupernaturalCropsConfig.get().techRebornNuggetBalance.enableTungstensteelCropNuggets
                         ? TRContent.Nuggets.TUNGSTENSTEEL.item
                         : TRContent.Ingots.TUNGSTENSTEEL.item,
-                () -> SupernaturalCropsConfig.get().techRebornEnabled.enableTungstensteelCrops);
+                () -> SupernaturalCropsConfig.get().techRebornEnabled.enableTungstensteelCrops),
+        RUBY("ruby_bush", TRContent.Gems.RUBY.item,
+                () -> SupernaturalCropsConfig.get().techRebornEnabled.enableRubyCrops),
+        SAPPHIRE("sapphire_bush", TRContent.Gems.SAPPHIRE.item,
+                () -> SupernaturalCropsConfig.get().techRebornEnabled.enableSapphireCrops),
+        PERIDOT("peridot_bush", TRContent.Gems.PERIDOT.item,
+                () -> SupernaturalCropsConfig.get().techRebornEnabled.enablePeridotCrops);
 
         private final String path;
         private final Item ingot;
@@ -125,6 +132,10 @@ public class TechRebornCropsBlocks {
             this.harvestResult = harvestResult;
             this.enabled = enabled;
             block = new Lazy<>(() -> new OreBushBlock(bushBlockSettings(), this));
+        }
+
+        OreBushes(String path, Item ingot, BooleanSupplier enabled) {
+            this(path, ingot, () -> ingot, enabled);
         }
 
         @Override

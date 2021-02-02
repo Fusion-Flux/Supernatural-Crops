@@ -9,6 +9,7 @@
 	"item.supernaturalcrops.diamond_shard": "Diamond Shard",
 	"item.supernaturalcrops.emerald_shard": "Emerald Shard",
 	"item.supernaturalcrops.netherite_flake": "Netherite Flake",
+	"block.supernaturalcrops.block_of_the_abyss":"Block of the Abyss",
 
 	"block.supernaturalcrops.coal_bush": "Coal Bush",
 	"block.supernaturalcrops.iron_bush": "Iron Bush",
@@ -28,6 +29,7 @@
 	"item.supernaturalcrops.redstone_bush_seeds": "Redstone Bush Seeds",
 	"item.supernaturalcrops.lapis_lazuli_bush_seeds": "Lapis Lazuli Bush Seeds",
 	"item.supernaturalcrops.quartz_bush_seeds": "Quartz Bush Seeds",
+	"item.supernaturalcrops.seed_of_the_abyss_bush_seeds": "Seed of the Abyss Bush Seeds",
 
 	"block.supernaturalcrops.mythicmetals_adamantite_bush": "Adamantite Bush",
 	"block.supernaturalcrops.mythicmetals_aetherium_bush": "Aetherium Bush",
@@ -108,6 +110,7 @@
 	"block.supernaturalcrops.betterend_amber_bush": "Amber Bush",
 	"item.supernaturalcrops.betterend_terminite_bush_seeds": "Terminite Bush Seeds",
 	"item.supernaturalcrops.betterend_amber_bush_seeds": "Amber Bush Seeds",
+	"item.supernaturalcrops.betterend_crystal_shard_bush_seeds": "Crystal Shard Bush Seeds",
 
 	"block.supernaturalcrops.betternether_cincinnasite_bush": "Cincinnasite Bush",
 	"block.supernaturalcrops.betternether_nether_ruby_bush": "Nether Ruby Bush",
@@ -152,6 +155,9 @@
 	"item.supernaturalcrops.techreborn_refined_iron_bush_seeds": "Refined Iron Bush Seeds",
 	"item.supernaturalcrops.techreborn_chrome_bush_seeds": "Chrome Bush Seeds",
 	"item.supernaturalcrops.techreborn_tungstensteel_bush_seeds": "Tungstensteel Bush Seeds",
+	"item.supernaturalcrops.techreborn_ruby_bush_seeds": "Ruby Bush Seeds",
+	"item.supernaturalcrops.techreborn_sapphire_bush_seeds": "Sapphire Bush Seeds",
+	"item.supernaturalcrops.techreborn_peridot_bush_seeds": "Peridot Bush Seeds",
 
 	"block.supernaturalcrops.lint_jurel_bush": "Jurel Bush",
 	"block.supernaturalcrops.lint_sicieron_bush": "Sicieron Bush",
@@ -182,6 +188,8 @@
 	"text.autoconfig.supernaturalcrops.option.enabled.enableRedstoneCrops": "Enable Redstone Crops",
 	"text.autoconfig.supernaturalcrops.option.enabled.enableLapisLazuliCrops": "Enable Lapis Lazuli Crops",
 	"text.autoconfig.supernaturalcrops.option.enabled.enableQuartzCrops": "Enable Quartz Crops",
+	"text.autoconfig.supernaturalcrops.option.enabled.enableSeedOfTheAbyssCrops": "Enable Seed of the Abyss Crops",
+
 
 	"text.autoconfig.supernaturalcrops.category.nuggetBalance": "Nugget Balance",
 	"text.autoconfig.supernaturalcrops.option.nuggetBalance.enableIronCropNuggets": "Iron Bush drops Iron Nugget",
@@ -271,6 +279,7 @@
 	"text.autoconfig.supernaturalcrops.category.betterEndEnabled": "Better End: Enabled Bushes",
 	"text.autoconfig.supernaturalcrops.option.betterEndEnabled.enableTerminiteCrops": "Enable Terminite Crops",
 	"text.autoconfig.supernaturalcrops.option.betterEndEnabled.enableAmberCrops": "Enable Amber Crops",
+	"text.autoconfig.supernaturalcrops.option.betterEndEnabled.enableCrystalShardCrops": "Enable Crystal Shard Crops",
 
 	"text.autoconfig.supernaturalcrops.category.betterEndNuggetBalance": "Better End: Nugget Balance",
 	"text.autoconfig.supernaturalcrops.option.betterEndNuggetBalance.enableTerminiteCropNuggets": "Terminite Bush drops Ender Dust",
@@ -303,6 +312,9 @@
 	"text.autoconfig.supernaturalcrops.option.techRebornEnabled.enableRefinedIronCrops": "Enable Refined Iron Crops",
 	"text.autoconfig.supernaturalcrops.option.techRebornEnabled.enableChromeCrops": "Enable Chrome Crops",
 	"text.autoconfig.supernaturalcrops.option.techRebornEnabled.enableTungstensteelCrops": "Enable Tungstensteel Crops",
+	"text.autoconfig.supernaturalcrops.option.techRebornEnabled.enableRubyCrops": "Enable Ruby Crops",
+	"text.autoconfig.supernaturalcrops.option.techRebornEnabled.enableSapphireCrops": "Enable Sapphire Crops",
+	"text.autoconfig.supernaturalcrops.option.techRebornEnabled.enablePeridotCrops": "Enable Peridot Crops",
 
 	"text.autoconfig.supernaturalcrops.category.techRebornNuggetBalance": "Tech Reborn: Nugget Balance",
 	"text.autoconfig.supernaturalcrops.option.techRebornNuggetBalance.enableCopperCropNuggets": "Copper Bush drops Copper Nugget",
@@ -331,5 +343,15 @@
 	"text.autoconfig.supernaturalcrops.option.lintEnabled.enableTarscanCrops": "Enable Tarscan Crops",
 
 	"text.autoconfig.supernaturalcrops.category.lintNuggetBalance": "Lint: Nugget Balance",
-	"text.autoconfig.supernaturalcrops.option.lintNuggetBalance.enableJurelCropNuggets": "Jurel Bush drops Jurel Powder"
+	"text.autoconfig.supernaturalcrops.option.lintNuggetBalance.enableJurelCropNuggets": "Jurel Bush drops Jurel Powder",
+
+	"item.supernaturalcrops.ae2_certus_quartz_crystal_bush_seeds": "Certus Quartz Crystal Bush Seeds",
+	"item.supernaturalcrops.ae2_charged_certus_quartz_crystal_bush_seeds": "Charged Certus Quartz Crystal Bush Seeds",
+	"item.supernaturalcrops.ae2_fluix_crystal_bush_seeds": "Fluix Crystal Bush Seeds",
+
+
+	"text.autoconfig.supernaturalcrops.option.ae2Enabled.enableCertusQuartzCrystalCrops": "Enable Certus Quartz Crystal Crops",
+	"text.autoconfig.supernaturalcrops.option.ae2Enabled.enableChargedCertusQuartzCrystalCrops": "Enable Charged Certus Quartz Crystal Crops",
+	"text.autoconfig.supernaturalcrops.option.ae2Enabled.enableFluixCrystalCrops": "Enable Fluix Crystal Crops"
+
 }

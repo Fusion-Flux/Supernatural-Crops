@@ -108,6 +108,7 @@
 
 	"block.supernaturalcrops.betterend_terminite_bush": "Terminite Bush",
 	"block.supernaturalcrops.betterend_amber_bush": "Amber Bush",
+	"block.supernaturalcrops.betterend_crystal_shard_bush": "Crystal Shard Bush",
 	"item.supernaturalcrops.betterend_terminite_bush_seeds": "Terminite Bush Seeds",
 	"item.supernaturalcrops.betterend_amber_bush_seeds": "Amber Bush Seeds",
 	"item.supernaturalcrops.betterend_crystal_shard_bush_seeds": "Crystal Shard Bush Seeds",
@@ -136,6 +137,9 @@
 	"block.supernaturalcrops.techreborn_refined_iron_bush": "Refined Iron Bush",
 	"block.supernaturalcrops.techreborn_chrome_bush": "Chrome Bush",
 	"block.supernaturalcrops.techreborn_tungstensteel_bush": "Tungstensteel Bush",
+	"block.supernaturalcrops.techreborn_ruby_bush": "Ruby Bush",
+	"block.supernaturalcrops.techreborn_sapphire_bush": "Sapphire Bush",
+	"block.supernaturalcrops.techreborn_preidot_bush": "Peridot Bush",
 	"item.supernaturalcrops.techreborn_copper_bush_seeds": "Copper Bush Seeds",
 	"item.supernaturalcrops.techreborn_aluminum_bush_seeds": "Aluminum Bush Seeds",
 	"item.supernaturalcrops.techreborn_brass_bush_seeds": "Brass Bush Seeds",
@@ -165,6 +169,13 @@
 	"item.supernaturalcrops.lint_jurel_bush_seeds": "Jurel Bush Seeds",
 	"item.supernaturalcrops.lint_sicieron_bush_seeds": "Sicieron Bush Seeds",
 	"item.supernaturalcrops.lint_tarscan_bush_seeds": "Tarscan Bush Seeds",
+
+	"block.supernaturalcrops.ae2_certus_quartz_crystal_bush": "Certus Quartz Crystal Bush",
+	"block.supernaturalcrops.ae2_charged_certus_quartz_crystal_bush": "Charged Certus Quartz Crystal Bush",
+	"block.supernaturalcrops.ae2_fluix_crystal_bush": "Fluix Crystal Bush",
+	"item.supernaturalcrops.ae2_certus_quartz_crystal_bush_seeds": "Certus Quartz Crystal Bush Seeds",
+	"item.supernaturalcrops.ae2_charged_certus_quartz_crystal_bush_seeds": "Charged Certus Quartz Crystal Bush Seeds",
+	"item.supernaturalcrops.ae2_fluix_crystal_bush_seeds": "Fluix Crystal Bush Seeds",
 
 	"text.autoconfig.supernaturalcrops.title": "Supernatural Crops Configuration",
 
@@ -344,11 +355,6 @@
 
 	"text.autoconfig.supernaturalcrops.category.lintNuggetBalance": "Lint: Nugget Balance",
 	"text.autoconfig.supernaturalcrops.option.lintNuggetBalance.enableJurelCropNuggets": "Jurel Bush drops Jurel Powder",
-
-	"item.supernaturalcrops.ae2_certus_quartz_crystal_bush_seeds": "Certus Quartz Crystal Bush Seeds",
-	"item.supernaturalcrops.ae2_charged_certus_quartz_crystal_bush_seeds": "Charged Certus Quartz Crystal Bush Seeds",
-	"item.supernaturalcrops.ae2_fluix_crystal_bush_seeds": "Fluix Crystal Bush Seeds",
-
 
 	"text.autoconfig.supernaturalcrops.option.ae2Enabled.enableCertusQuartzCrystalCrops": "Enable Certus Quartz Crystal Crops",
 	"text.autoconfig.supernaturalcrops.option.ae2Enabled.enableChargedCertusQuartzCrystalCrops": "Enable Charged Certus Quartz Crystal Crops",

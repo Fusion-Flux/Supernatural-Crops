@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "supernaturalcrops:block_of_the_abyss"
+    }
+  ],
+  "result": {
+    "item": "supernaturalcrops:seed_of_the_abyss",
+    "count": 9
+  }
+}

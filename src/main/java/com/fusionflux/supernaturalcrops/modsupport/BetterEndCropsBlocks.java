@@ -8,6 +8,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.item.Item;
 import net.minecraft.util.Lazy;
 import paulevs.betternether.registry.ItemsRegistry;
+import ru.betterend.registry.EndBlocks;
 import ru.betterend.registry.EndItems;
 
 import java.util.function.BooleanSupplier;
@@ -18,10 +19,10 @@ import static com.fusionflux.supernaturalcrops.resource.SupernaturalCropsResourc
 
 public class BetterEndCropsBlocks {
     public enum OreBushes implements OreBush {
-        TERMINITE("terminite_bush", EndItems.TERMINITE_INGOT, () ->
+        TERMINITE("terminite_bush", EndBlocks.TERMINITE.ingot, () ->
                 SupernaturalCropsConfig.get().betterEndNuggetBalance.enableTerminiteCropNuggets
                         ? EndItems.ENDER_DUST
-                        : EndItems.TERMINITE_INGOT,
+                        : EndBlocks.TERMINITE.ingot,
                 () -> SupernaturalCropsConfig.get().betterEndEnabled.enableTerminiteCrops),
         AMBER("amber_bush", EndItems.AMBER_GEM, () ->
                 SupernaturalCropsConfig.get().betterEndNuggetBalance.enableAmberCropNuggets
